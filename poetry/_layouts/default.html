@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
+  <title>{{ page.title }}</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <header>
-    <h1><a href="/poetry">{{ site.title }}</a></h1>
+    <h1>htmlpoet</h1>
+    <p>Poet | Researcher | Musician | Educator</p>
+    <!-- menu -->
     <nav>
       <ul>
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/poetry" aria-current="page">Poésie & Écrits</a></li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><a href="/poetry/" {% if page.url contains '/poetry/' %}class="active"{% endif %}>Poésie & écrits</a></li>
         <li><a href="/umunami.html">Umunami Chronicles</a></li>
         <li><a href="/workshops.html">Ateliers & Éducation</a></li>
         <li><a href="/experiments.html">Expériences</a></li>
@@ -21,7 +23,7 @@
     </nav>
   </header>
 
-  <main class="blog">
+  <main>
     {{ content }}
   </main>
 

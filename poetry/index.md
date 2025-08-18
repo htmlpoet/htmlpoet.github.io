@@ -1,17 +1,21 @@
 ---
 layout: default
-title: Poésie & Écrits
+title: "Poésie & Essais"
 ---
 
-<section class="intro">
-  <p>Bienvenue dans la section poésie et essais. Chaque article est un fragment, une pensée ou un poème.</p>
+<section id="intro">
+Bienvenue dans la section **Poésie & Essais**.  
+Fragments, essais, méditations – entre ombre et clarté.
 </section>
 
-{%- for post in site.posts -%}
+<section id="articles">
+{% for post in site.posts %}
 <article class="post">
   <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
   <p class="post-meta">{{ post.date | date: "%d %B %Y" }}</p>
-  <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 220 }}</div>
-  <p class="read-more"><a href="{{ post.url }}">Lire →</a></p>
+  <div class="post-content">
+    {{ post.excerpt }}
+  </div>
 </article>
-{%- endfor -%}
+{% endfor %}
+</section>
