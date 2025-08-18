@@ -1,7 +1,7 @@
 body {
   font-family: 'Arial', sans-serif;
-  color: #1a1a1a;
-  background-color: #faf7f2;
+  color: #f2f2f2; /* Light text for contrast */
+  background-color: #0a1a33; /* Deep dark blue */
   margin: 0;
   line-height: 1.6;
 }
@@ -24,12 +24,12 @@ nav li {
 
 nav a {
   text-decoration: none;
-  color: #444;
+  color: #e0e0e0; /* Lightened for readability */
   font-weight: bold;
 }
 
 nav a:hover {
-  color: #b86b77;
+  color: #ffb6c1; /* Softer pink for contrast against dark blue */
 }
 
 main {
@@ -39,7 +39,7 @@ main {
 }
 
 h1, h2, h3 {
-  color: #333;
+  color: #ffffff; /* White headings for clarity */
   margin-bottom: 0.5em;
 }
 
@@ -51,9 +51,9 @@ footer {
   text-align: center;
   padding: 2em 1em;
   font-size: 0.9em;
-  background: #fff;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-  color: #555;
+  background: #0d1a2d; /* Slightly lighter dark blue for contrast */
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
+  color: #cccccc; /* Softer gray text */
 }
 
 a {
