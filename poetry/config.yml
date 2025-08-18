@@ -1,0 +1,3 @@
+title: "Poésie & Écrits"
+baseurl: "/poetry"
+permalink: /:year/:month/:day/:title/
