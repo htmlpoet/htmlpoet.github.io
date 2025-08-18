@@ -57,7 +57,13 @@ footer {
 }
 
 a {
+  color: #c9a3ff; /* base link color, matches your nav */
+  text-decoration: none;
   transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #b86b77; /* hover color */
 }
 
 img {
