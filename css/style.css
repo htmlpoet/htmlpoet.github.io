@@ -126,37 +126,59 @@ button:hover, .btn:hover {
   color: #f2f2f2;
 }
 
+/* css/style.css */
+
 .post-list {
-  list-style: none; /* Enlève les puces */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Le conteneur de chaque article dans la liste */
 .post-list li {
-  background-color: #f9f9f9; /* Un fond gris clair */
-  border: 1px solid #ddd;
-  border-radius: 8px; /* Bords arrondis */
-  padding: 20px;
-  margin-bottom: 25px; /* Espace entre les articles */
-  transition: transform 0.2s ease-in-out;
+  /* Fond très subtil, à peine visible pour délimiter l'espace */
+  background-color: rgba(255, 255, 255, 0.03); 
+  padding: 25px;
+  margin-bottom: 30px;
+  /* Bordure lavande, comme pour le style de tes articles .post */
+  border-left: 4px solid #c9a3ff; 
+  /* Légers arrondis seulement sur les coins droits pour un style épuré */
+  border-radius: 0 4px 4px 0; 
+  transition: background-color 0.3s ease, border-left-color 0.3s ease;
 }
 
+/* Effet au survol pour l'interactivité */
 .post-list li:hover {
-  transform: translateY(-5px); /* Léger effet au survol */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  background-color: rgba(255, 255, 255, 0.06);
+  /* On utilise la couleur rose de tes liens au survol pour la cohérence */
+  border-left-color: #ffb6c1; 
 }
 
+/* Le titre de l'article */
 .post-list h3 {
   margin-top: 0;
+  margin-bottom: 5px;
 }
 
 .post-list h3 a {
   text-decoration: none;
-  color: #333;
+  /* Titre en blanc pour un contraste maximal */
+  color: #ffffff; 
+  font-size: 1.5em; /* Un peu plus grand pour marquer l'importance */
 }
 
+/* La date et autres métadonnées */
 .post-list .post-meta {
-  color: #777;
+  /* Gris clair, discret et lisible */
+  color: #aaa; 
   font-size: 0.9em;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* L'extrait du texte (qui est dans une balise <p>) */
+.post-list p {
+  /* Couleur principale de ton texte pour une lisibilité parfaite */
+  color: #f2f2f2; 
+  margin-bottom: 0;
 }
