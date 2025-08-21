@@ -1,6 +1,5 @@
 title: "Poésie & Écrits"
-baseurl: "/poetry"
-permalink: /:title/
+permalink: /poetry/:title/
 author: htmlpoet
 lang: fr-FR
 
