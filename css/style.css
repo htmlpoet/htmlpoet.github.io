@@ -141,7 +141,9 @@ button:hover, .btn:hover {
   background-color: rgba(255, 255, 255, 0.03); 
   padding: 25px;
   margin-bottom: 30px;
-  border-left: 4px solid #c9a3ff; 
+  border-left-width: 4 px;
+  border-left-style: solid;
+  border-left-color: #6C757d;
   border-radius: 0 4px 4px 0; 
   transition: background-color 0.3s ease, border-left-color 0.3s ease;
 }
@@ -192,12 +194,6 @@ button:hover, .btn:hover {
 }
 
 /* --- COULEURS PAR TAG --- */
-
-/* Couleur par défaut si un article n'a pas de tag */
-.post-list li,
-.post {
-  border-left-color: #6c757d; /* Un gris neutre */
-}
 
 /* Thème "Poésie" */
 .post-list li.tag-poesie,
