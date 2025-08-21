@@ -136,13 +136,12 @@ button:hover, .btn:hover {
 
 /* Le conteneur de chaque article dans la liste */
 .post-list li {
-  /* Fond très subtil, à peine visible pour délimiter l'espace */
+  position: relative; /* Essentiel pour que l'étirement du lien fonctionne */
+  /* ...tes autres styles pour li restent les mêmes... */
   background-color: rgba(255, 255, 255, 0.03); 
   padding: 25px;
   margin-bottom: 30px;
-  /* Bordure lavande, comme pour le style de tes articles .post */
   border-left: 4px solid #c9a3ff; 
-  /* Légers arrondis seulement sur les coins droits pour un style épuré */
   border-radius: 0 4px 4px 0; 
   transition: background-color 0.3s ease, border-left-color 0.3s ease;
 }
@@ -167,6 +166,15 @@ button:hover, .btn:hover {
   font-size: 1.5em; /* Un peu plus grand pour marquer l'importance */
 }
 
+.post-list h3 a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* La date et autres métadonnées */
 .post-list .post-meta {
   /* Gris clair, discret et lisible */
@@ -181,4 +189,36 @@ button:hover, .btn:hover {
   /* Couleur principale de ton texte pour une lisibilité parfaite */
   color: #f2f2f2; 
   margin-bottom: 0;
+}
+
+/* --- COULEURS PAR TAG --- */
+
+/* Couleur par défaut si un article n'a pas de tag */
+.post-list li,
+.post {
+  border-left-color: #6c757d; /* Un gris neutre */
+}
+
+/* Thème "Poésie" */
+.post-list li.tag-poesie,
+.post.tag-poesie {
+  border-left-color: #8a79a8; /* Un violet poudré */
+}
+
+/* Thème "Essai" */
+.post-list li.tag-essai,
+.post.tag-essai {
+  border-left-color: #a89a79; /* Un ocre doux */
+}
+
+/* Thème "Méditation" */
+.post-list li.tag-meditation,
+.post.tag-meditation {
+  border-left-color: #79a8a1; /* Un vert d'eau apaisant */
+}
+
+/* Ajoute autant de thèmes que tu le souhaites ! */
+.post-list li.tag-fragment,
+.post.tag-fragment {
+  border-left-color: #798aa8; /* Un bleu ardoise */
 }
