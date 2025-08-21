@@ -1,6 +1,9 @@
 ---
+# poetry/index.md
+
 layout: blog
-title: "Poésie & Essais"
+title: Poésie & Essais
+permalink: /poetry/
 ---
 
 <section id="intro">

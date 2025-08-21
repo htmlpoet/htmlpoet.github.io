@@ -1,3 +1,8 @@
 title: "Poésie & Écrits"
 baseurl: "/poetry"
 permalink: /:year/:month/:day/:title/
+author: htmlpoet
+
+# Exclure des fichiers du build final
+exclude:
+  - README.md
