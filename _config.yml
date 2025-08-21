@@ -1,8 +1,16 @@
 title: "Poésie & Écrits"
 baseurl: "/poetry"
-permalink: /:year/:month/:day/:title/
+permalink: /:title/
 author: htmlpoet
+lang: fr-FR
 
 # Exclure des fichiers du build final
 exclude:
   - README.md
+
+# Configuration pour la pagination
+plugins:
+  - jekyll-paginate
+
+paginate: 5 # Le nombre d'articles par page
+paginate_path: "/poetry/page:num/" # Le format de l'URL pour les pages suivantes

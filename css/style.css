@@ -125,3 +125,38 @@ button:hover, .btn:hover {
   margin-bottom: 1em;
   color: #f2f2f2;
 }
+
+.post-list {
+  list-style: none; /* Enlève les puces */
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  background-color: #f9f9f9; /* Un fond gris clair */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Bords arrondis */
+  padding: 20px;
+  margin-bottom: 25px; /* Espace entre les articles */
+  transition: transform 0.2s ease-in-out;
+}
+
+.post-list li:hover {
+  transform: translateY(-5px); /* Léger effet au survol */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.post-list h3 {
+  margin-top: 0;
+}
+
+.post-list h3 a {
+  text-decoration: none;
+  color: #333;
+}
+
+.post-list .post-meta {
+  color: #777;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
