@@ -3,8 +3,7 @@ layout: blog_base
 ---
 <div class="page-content">
   {{ content | markdownify }}
-  <hr>
-
+  <h2 class="recent-posts-title">Derniers écrits publiés</h2>
 <ul class="post-list">
   {% for post in site.posts %}
 
@@ -18,13 +17,6 @@ layout: blog_base
 
   {% endfor %}
 </ul>
-<!--
-<div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">← Articles plus récents</a>
-    {% endif %}
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">Articles plus anciens →</a>
-    {% endif %}
+<div class="load-more-container">
+    <button id="loadMore">Voir plus</button>
   </div>
-</div> -->

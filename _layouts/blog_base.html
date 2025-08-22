@@ -8,16 +8,19 @@
 </head>
 <body>
   <header class="blog-header">
-    <h1>Poésie & Essais</h1>
-
-    {% if page.tagline %}
-      <p class="tagline">{{ page.tagline }}</p>
+  <nav class="blog-nav">
+    <a href="/" class="back-to-site">← Retour au site principal</a>
+    
+    {% if page.url != '/poetry/' %}
+      <a href="/poetry/" class="back-to-blog">| Retour au blog</a>
     {% endif %}
+  </nav>
 
-    <nav class="blog-nav">
-      <a href="/" class="back-to-site">← Retour au site principal</a>
-    </nav>
-  </header>
+  <h1>Poésie & Essais</h1>
+  {% if page.tagline %}
+    <p class="tagline">{{ page.tagline }}</p>
+  {% endif %}
+</header>
 
   <div class="blog-container">
 

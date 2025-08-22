@@ -355,3 +355,58 @@ button:hover, .btn:hover {
   margin-left: auto;
   margin-right: auto;
 }
+
+.blog-header {
+  /* ... autres styles ... */
+  padding-bottom: 3em; /* Augmente l'espace sous le header */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Alternative : une ligne très fine et discrète */
+}
+
+/* --- PAGINATION "VOIR PLUS" --- */
+
+.post-list li:nth-child(n+6) {
+  display: none; /* Cache tous les articles à partir du 6ème */
+}
+
+/* Style du bouton */
+.load-more-container {
+  text-align: center;
+  margin-top: 2em;
+}
+#loadMore {
+  background-color: transparent;
+  border: 1px solid #c9a3ff;
+  color: #c9a3ff;
+  padding: 10px 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#loadMore:hover {
+  background-color: #c9a3ff;
+  color: #0a1a33;
+}
+#loadMore.hidden {
+  display: none; /* Pour cacher le bouton quand il n'y a plus rien à charger */
+}
+
+/* --- MISE EN PAGE ADAPTATIVE (RESPONSIVE) --- */
+/* Pour les écrans de taille tablette et plus petits (jusqu'à 992px de large) */
+@media (max-width: 992px) {
+  .blog-container {
+    /* On change la direction : les colonnes s'empilent verticalement */
+    flex-direction: column;
+  }
+
+  .blog-main, .blog-sidebar {
+    /* Chaque colonne prend maintenant toute la largeur */
+    flex: 1 1 100%;
+  }
+
+  .blog-sidebar {
+    /* On ajoute un peu d'espace en haut quand la sidebar passe en dessous */
+    margin-top: 4em;
+    padding-top: 2em;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
