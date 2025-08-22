@@ -9,6 +9,11 @@
 <body>
   <header class="blog-header">
     <h1>Poésie & Essais</h1>
+
+    {% if page.tagline %}
+      <p class="tagline">{{ page.tagline }}</p>
+    {% endif %}
+
     <nav class="blog-nav">
       <a href="/" class="back-to-site">← Retour au site principal</a>
     </nav>

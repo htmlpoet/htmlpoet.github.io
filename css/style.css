@@ -305,3 +305,21 @@ button:hover, .btn:hover {
   color: #888;
   font-style: italic;
 }
+
+/* css/style.css */
+
+/* --- STYLE DU HEADER DE BLOG --- */
+.blog-header {
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #ccc; /* Un gris clair pour contraster avec le titre */
+  margin: 0.5em 0 1.5em 0; /* Espacement au-dessus et en dessous */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
