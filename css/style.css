@@ -368,8 +368,6 @@ button:hover, .btn:hover {
   display: none; /* Cache tous les articles à partir du 6ème */
 }
 
-/* css/style.css */
-
 /* Style du bouton "Voir plus" (Version corrigée et plus robuste) */
 #loadMore {
   /* On hérite la police du reste du site */
