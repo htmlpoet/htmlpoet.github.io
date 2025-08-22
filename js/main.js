@@ -3,28 +3,36 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-      const postList = document.querySelector('.post-list');
-      if (!postList) return; // Ne fait rien si on n'est pas sur la page du blog
+  // --- PAGINATION "VOIR PLUS" ---
+  const postList = document.querySelector('.post-list');
+  if (!postList) return; // Ne fait rien si on n'est pas sur la bonne page
 
-      const loadMoreButton = document.getElementById('loadMore');
-      let itemsToShow = 5;
-      const allItems = postList.querySelectorAll('li');
+  const loadMoreButton = document.getElementById('loadMore');
+  const allItems = postList.querySelectorAll('li');
+  const itemsPerPage = 5;
+  let currentlyVisible = itemsPerPage; // On SAIT que 5 sont visibles au début
 
-      // Cache le bouton s'il y a 5 articles ou moins
-      if (allItems.length <= itemsToShow) {
-        loadMoreButton.classList.add('hidden');
-      }
+  // Cache le bouton s'il n'y a pas assez d'articles au départ
+  if (allItems.length <= itemsPerPage) {
+    loadMoreButton.classList.add('hidden');
+  }
 
-      loadMoreButton.addEventListener('click', function() {
-        let currentlyShown = postList.querySelectorAll('li:not([style*="display: none"])').length;
-        
-        for (let i = currentlyShown; i < currentlyShown + itemsToShow && i < allItems.length; i++) {
-          allItems[i].style.display = 'block';
-        }
+  loadMoreButton.addEventListener('click', function() {
+    // On cible la prochaine tranche d'articles à afficher
+    const nextBatchEnd = currentlyVisible + itemsPerPage;
 
-        // Cache le bouton s'il n'y a plus rien à montrer
-        if (postList.querySelectorAll('li:not([style*="display: none"])').length === allItems.length) {
-          loadMoreButton.classList.add('hidden');
-        }
-      });
-    });
+    // On boucle sur cette tranche et on affiche les articles
+    for (let i = currentlyVisible; i < nextBatchEnd && i < allItems.length; i++) {
+      // L'important est d'appliquer un style en ligne pour outrepasser la règle CSS
+      allItems[i].style.display = 'list-item'; 
+    }
+
+    // On met à jour notre compteur
+    currentlyVisible = nextBatchEnd;
+
+    // S'il n'y a plus d'articles à charger, on cache le bouton
+    if (currentlyVisible >= allItems.length) {
+      loadMoreButton.classList.add('hidden');
+    }
+  });
+});
