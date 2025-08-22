@@ -261,7 +261,6 @@ button:hover, .btn:hover {
 
 .tag-list li a {
   text-decoration: none;
-  color: #c9a3ff; /* Couleur lavande par défaut */
   font-size: 1.1em;
   display: flex;
   justify-content: space-between;
@@ -279,34 +278,64 @@ button:hover, .btn:hover {
   color: #888;
 }
 
-/* Style pour la liste des archives */
-.archive-list .year-title {
+/* --- COULEURS PAR TAG --- */
+/* Couleur des liens dans la sidebar */
+.tag-list a.tag-poesie     { color: #8a79a8; }
+.tag-list a.tag-essai      { color: #a89a79; }
+.tag-list a.tag-meditation { color: #79a8a1; }
+.tag-list a.tag-fragment   { color: #798aa8; }
+
+/* Style pour les nouvelles archives déroulantes */
+.archive-group {
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.archive-group[open] { /* Style quand la section est ouverte */
+  padding-bottom: 1em;
+}
+
+.archive-group summary {
+  cursor: pointer;
+  padding: 0.8em 0;
   font-size: 1.1em;
   font-weight: bold;
   color: #fff;
-  margin-top: 1.5em;
-  margin-bottom: 0.8em;
+}
+.archive-group summary::-webkit-details-marker { /* Cache la flèche par défaut sur Chrome */
+  display: none;
+}
+.archive-group summary::before { /* Crée un "+" ou "-" poétique */
+  content: '+ ';
+  font-family: monospace;
+}
+.archive-group[open] summary::before {
+  content: '− ';
 }
 
-.archive-list li a {
-  text-decoration: none;
-  color: #f2f2f2;
-  display: block;
+.archive-list {
+  list-style: none;
+  padding-left: 20px; /* Indentation pour les articles */
+  margin-top: 0.5em;
+}
+
+.archive-list-item {
   padding: 0.3em 0;
 }
-
-.archive-list li a:hover {
+.archive-list-item a {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+.archive-list-item a:hover {
   color: #ffb6c1;
 }
 
-.archive-list .archive-date {
-  float: right;
-  font-size: 0.8em;
+/* La correction pour la date */
+.archive-list-item .archive-date {
+  font-size: 0.9em;
   color: #888;
   font-style: italic;
+  margin-left: 10px; /* Simple marge à gauche */
 }
-
-/* css/style.css */
 
 /* --- STYLE DU HEADER DE BLOG --- */
 .blog-header {
