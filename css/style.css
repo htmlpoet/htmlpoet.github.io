@@ -368,28 +368,37 @@ button:hover, .btn:hover {
   display: none; /* Cache tous les articles à partir du 6ème */
 }
 
-/* Style du bouton */
-.load-more-container {
-  text-align: center;
-  margin-top: 2em;
-}
+/* css/style.css */
+
+/* Style du bouton "Voir plus" (Version corrigée et plus robuste) */
 #loadMore {
-  background-color: transparent;
-  border: 1px solid #c9a3ff;
-  color: #c9a3ff;
-  padding: 10px 25px;
+  /* On hérite la police du reste du site */
+  font-family: inherit; 
   font-size: 1em;
+  
+  /* Style visuel */
+  background-color: transparent;
+  color: #c9a3ff;
+  border: 1px solid #c9a3ff;
+  border-radius: 4px; /* Ajout de bords légèrement arrondis */
+  
+  padding: 10px 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-#loadMore:hover {
-  background-color: #c9a3ff;
-  color: #0a1a33;
-}
-#loadMore.hidden {
-  display: none; /* Pour cacher le bouton quand il n'y a plus rien à charger */
+  
+  /* S'assure qu'il n'y a pas d'apparence native imposée par le navigateur */
+  -webkit-appearance: none;
+  appearance: none;
 }
 
+#loadMore:hover {
+  background-color: #c9a3ff;
+  color: #0a1a33; /* Le bleu foncé de votre fond */
+}
+
+#loadMore.hidden {
+  display: none;
+}
 /* --- MISE EN PAGE ADAPTATIVE (RESPONSIVE) --- */
 /* Pour les écrans de taille tablette et plus petits (jusqu'à 992px de large) */
 @media (max-width: 992px) {
