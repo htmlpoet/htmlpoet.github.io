@@ -294,20 +294,23 @@ button:hover, .btn:hover {
   padding-bottom: 1em;
 }
 
+/* Style pour le titre déroulant des archives */
 .archive-group summary {
   cursor: pointer;
   padding: 0.8em 0;
   font-size: 1.1em;
   font-weight: bold;
   color: #fff;
+  list-style: none; /* Cache la flèche par défaut sur Firefox */
 }
-.archive-group summary::-webkit-details-marker { /* Cache la flèche par défaut sur Chrome */
-  display: none;
+.archive-group summary::-webkit-details-marker {
+  display: none; /* Cache la flèche par défaut sur Chrome/Safari */
 }
-.archive-group summary::before { /* Crée un "+" ou "-" poétique */
+.archive-group summary::before { 
   content: '+ ';
   font-family: monospace;
 }
+
 .archive-group[open] summary::before {
   content: '− ';
 }
