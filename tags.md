@@ -4,6 +4,8 @@ title: "Thématiques"
 permalink: /tags/
 ---
 
+<a href="/tags/" class="show-all-tags" style="display: none;">← Voir toutes les thématiques</a>
+
 {% assign tags = site.tags | sort %}
 {% for tag in tags %}
   <div class="tag-group" id="{{ tag[0] | slugify }}">

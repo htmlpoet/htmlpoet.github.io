@@ -1,38 +1,62 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Bienvenue sur mon site poétique ✨");
-});
-
 document.addEventListener("DOMContentLoaded", function() {
-  // --- PAGINATION "VOIR PLUS" ---
-  const postList = document.querySelector('.post-list');
-  if (!postList) return; // Ne fait rien si on n'est pas sur la bonne page
 
+  // --- MESSAGE DE BIENVENUE ---
+  console.log("Bienvenue sur mon site poétique ✨");
+
+
+  // --- LOGIQUE POUR LE BOUTON "VOIR PLUS" ---
   const loadMoreButton = document.getElementById('loadMore');
-  const allItems = postList.querySelectorAll('li');
-  const itemsPerPage = 5;
-  let currentlyVisible = itemsPerPage; // On SAIT que 5 sont visibles au début
+  // On ne lance ce code que si le bouton existe sur la page
+  if (loadMoreButton) {
+    const postList = document.querySelector('.post-list');
+    const allItems = postList.querySelectorAll('li');
+    const itemsPerPage = 5;
+    let currentlyVisible = itemsPerPage;
 
-  // Cache le bouton s'il n'y a pas assez d'articles au départ
-  if (allItems.length <= itemsPerPage) {
-    loadMoreButton.classList.add('hidden');
-  }
-
-  loadMoreButton.addEventListener('click', function() {
-    // On cible la prochaine tranche d'articles à afficher
-    const nextBatchEnd = currentlyVisible + itemsPerPage;
-
-    // On boucle sur cette tranche et on affiche les articles
-    for (let i = currentlyVisible; i < nextBatchEnd && i < allItems.length; i++) {
-      // L'important est d'appliquer un style en ligne pour outrepasser la règle CSS
-      allItems[i].style.display = 'list-item'; 
-    }
-
-    // On met à jour notre compteur
-    currentlyVisible = nextBatchEnd;
-
-    // S'il n'y a plus d'articles à charger, on cache le bouton
-    if (currentlyVisible >= allItems.length) {
+    if (allItems.length <= itemsPerPage) {
       loadMoreButton.classList.add('hidden');
     }
-  });
+
+    loadMoreButton.addEventListener('click', function() {
+      const nextBatchEnd = currentlyVisible + itemsPerPage;
+      for (let i = currentlyVisible; i < nextBatchEnd && i < allItems.length; i++) {
+        allItems[i].style.display = 'list-item';
+      }
+      currentlyVisible = nextBatchEnd;
+      if (currentlyVisible >= allItems.length) {
+        loadMoreButton.classList.add('hidden');
+      }
+    });
+  }
+
+
+  // --- LOGIQUE POUR LE FILTRAGE DES TAGS ---
+  // On ne lance ce code que si on est sur la page des tags
+  if (document.querySelector('.tag-group')) {
+    const allTagGroups = document.querySelectorAll('.tag-group');
+    const showAllButton = document.querySelector('.show-all-tags');
+
+    function filterTags() {
+      const targetTag = window.location.hash.substring(1);
+
+      if (!targetTag) {
+        allTagGroups.forEach(group => group.style.display = 'block');
+        showAllButton.style.display = 'none';
+        return;
+      }
+
+      showAllButton.style.display = 'block';
+      allTagGroups.forEach(group => {
+        if (group.id === targetTag) {
+          group.style.display = 'block';
+        } else {
+          group.style.display = 'none';
+        }
+      });
+    }
+
+    filterTags();
+    window.addEventListener('hashchange', filterTags);
+  }
+
 });
