@@ -218,3 +218,90 @@ button:hover, .btn:hover {
 .post.tag-fragment {
   border-left-color: #798aa8; /* Un bleu ardoise */
 }
+
+/* css/style.css */
+
+/* --- STRUCTURE DU BLOG --- */
+.blog-container {
+  display: flex;
+  max-width: 1200px; /* On élargit un peu pour la sidebar */
+  margin: 0 auto;
+  padding: 2em 1em;
+  gap: 40px; /* Espace entre le contenu et la sidebar */
+}
+
+.blog-main {
+  flex: 3; /* Le contenu principal prend 3/4 de la place */
+}
+
+.blog-sidebar {
+  flex: 1; /* La sidebar prend 1/4 de la place */
+  padding-top: 1em; /* Petit décalage pour aligner les titres */
+}
+
+/* --- STYLE DE LA SIDEBAR --- */
+.sidebar-widget {
+  margin-bottom: 3em;
+}
+
+.widget-title {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-style: italic;
+}
+
+/* Style pour la liste des tags */
+.tag-list, .archive-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tag-list li a {
+  text-decoration: none;
+  color: #c9a3ff; /* Couleur lavande par défaut */
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4em 0;
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.tag-list li a:hover {
+  color: #ffb6c1; /* Rose au survol */
+  letter-spacing: 1px; /* Effet poétique au survol */
+}
+
+.tag-list li a span {
+  font-size: 0.9em;
+  color: #888;
+}
+
+/* Style pour la liste des archives */
+.archive-list .year-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+}
+
+.archive-list li a {
+  text-decoration: none;
+  color: #f2f2f2;
+  display: block;
+  padding: 0.3em 0;
+}
+
+.archive-list li a:hover {
+  color: #ffb6c1;
+}
+
+.archive-list .archive-date {
+  float: right;
+  font-size: 0.8em;
+  color: #888;
+  font-style: italic;
+}
