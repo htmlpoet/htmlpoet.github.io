@@ -95,4 +95,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // On relance la fonction si l'ancre dans l'URL change
     window.addEventListener('hashchange', filterTags);
   }
+
+  // --- LOGIQUE POUR LE MENU MOBILE ---
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', function() {
+      // Ajoute/retire la classe sur la navigation
+      mainNav.classList.toggle('is-open');
+      // Ajoute/retire la classe sur le bouton pour l'animation en croix
+      this.classList.toggle('is-active');
+    });
+  }
+  
+});
 });

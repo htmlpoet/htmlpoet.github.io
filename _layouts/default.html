@@ -7,21 +7,26 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Poésie & écrits</h1>
-    <!-- menu -->
-    <nav>
-      <ul>
-        <li><a href="/index.html">Accueil</a></li>
-        <li><a href="/poetry/" {% if page.url contains '/poetry/' %}class="active"{% endif %}>Poésie & écrits</a></li>
-        <li><a href="/umunami.html">Umunami Chronicles</a></li>
-        <li><a href="/workshops.html">Ateliers & Éducation</a></li>
-        <li><a href="/experiments.html">Expériences</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <a href="/" class="site-title">htmlpoet</a> 
 
+  <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/poetry/" {% if page.url contains '/poetry/' %}class="active"{% endif %}>Poésie & écrits</a></li>
+      <li><a href="/umunami.html">Umunami Chronicles</a></li>
+      <li><a href="/workshops.html">Ateliers & Éducation</a></li>
+      <li><a href="/experiments.html">Expériences</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
   <main>
     {{ content }}
   </main>
