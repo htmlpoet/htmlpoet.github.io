@@ -1,35 +1,10 @@
+/* --- STYLES GÉNÉRAUX --- */
 body {
   font-family: 'Arial', sans-serif;
-  color: #f2f2f2; /* Light text for contrast */
-  background-color: #0a1a33; /* Deep dark blue */
+  color: #f2f2f2;
+  background-color: #0a1a33;
   margin: 0;
   line-height: 1.6;
-}
-
-header {
-  text-align: center;
-  padding: 2em 1em;
-}
-
-nav ul {
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
-
-nav li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #e0e0e0; /* Lightened for readability */
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #ffb6c1; /* Softer pink for contrast against dark blue */
 }
 
 main {
@@ -39,7 +14,7 @@ main {
 }
 
 h1, h2, h3 {
-  color: #ffffff; /* White headings for clarity */
+  color: #ffffff;
   margin-bottom: 0.5em;
 }
 
@@ -47,23 +22,14 @@ p {
   margin-bottom: 1em;
 }
 
-footer {
-  text-align: center;
-  padding: 2em 1em;
-  font-size: 0.9em;
-  background: #0d1a2d; /* Slightly lighter dark blue for contrast */
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
-  color: #cccccc; /* Softer gray text */
-}
-
 a {
-  color: #c9a3ff; /* base link color, matches your nav */
+  color: #c9a3ff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #b86b77; /* hover color */
+  color: #b86b77;
 }
 
 img {
@@ -73,46 +39,63 @@ img {
   margin: 0 auto;
 }
 
-button, .btn {
-  background-color: #b86b77;
+/* --- HEADER PRINCIPAL & NAVIGATION --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 2em;
+}
+
+.site-title {
+  font-size: 1.5em;
+  text-decoration: none;
   color: #fff;
-  border: none;
-  padding: 0.6em 1.2em;
-  cursor: pointer;
-  font-family: 'Merriweather', serif;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-button:hover, .btn:hover {
-  background-color: #944f5b;
+nav#main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Intro/lead */
-.intro .lead {
-  font-size: 1.2rem;
-  font-style: italic;
+nav#main-nav li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav#main-nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+nav#main-nav a:hover {
+  color: #ffb6c1;
+}
+
+/* --- FOOTER --- */
+footer {
   text-align: center;
-  margin: 2em auto;
-  max-width: 700px;
-  color: #dcdcdc;
+  padding: 2em 1em;
+  font-size: 0.9em;
+  background: #0d1a2d;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
+  color: #cccccc;
 }
 
-/* Articles */
+/* --- ARTICLES (.post) --- */
 .post {
   background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid #c9a3ff; /* lavande poétique */
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: #6c757d;
   margin: 2em auto;
   padding: 1.5em;
   max-width: 750px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   border-radius: 4px;
-}
-
-.post-title {
-  font-family: "Merriweather", serif;
-  font-size: 1.5rem;
-  margin-bottom: 0.3em;
-  color: #ffffff;
 }
 
 .post-meta {
@@ -121,51 +104,34 @@ button:hover, .btn:hover {
   margin-bottom: 1em;
 }
 
-.post-content p {
-  margin-bottom: 1em;
-  color: #f2f2f2;
-}
-
-/* css/style.css */
-
+/* --- LISTE D'ARTICLES (.post-list) --- */
 .post-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Le conteneur de chaque article dans la liste */
 .post-list li {
-  position: relative; /* Essentiel pour que l'étirement du lien fonctionne */
-  /* ...tes autres styles pour li restent les mêmes... */
-  background-color: rgba(255, 255, 255, 0.03); 
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.03);
   padding: 25px;
   margin-bottom: 30px;
-  border-left-width: 4 px;
+  border-left-width: 4px;
   border-left-style: solid;
-  border-left-color: #6C757d;
-  border-radius: 0 4px 4px 0; 
+  border-left-color: #6c757d;
+  border-radius: 0 4px 4px 0;
   transition: background-color 0.3s ease, border-left-color 0.3s ease;
 }
 
-/* Effet au survol pour l'interactivité */
 .post-list li:hover {
   background-color: rgba(255, 255, 255, 0.06);
-  /* On utilise la couleur rose de tes liens au survol pour la cohérence */
-  border-left-color: #ffb6c1; 
-}
-
-/* Le titre de l'article */
-.post-list h3 {
-  margin-top: 0;
-  margin-bottom: 5px;
+  border-left-color: #ffb6c1;
 }
 
 .post-list h3 a {
   text-decoration: none;
-  /* Titre en blanc pour un contraste maximal */
-  color: #ffffff; 
-  font-size: 1.5em; /* Un peu plus grand pour marquer l'importance */
+  color: #ffffff;
+  font-size: 1.5em;
 }
 
 .post-list h3 a::after {
@@ -177,69 +143,35 @@ button:hover, .btn:hover {
   height: 100%;
 }
 
-/* La date et autres métadonnées */
-.post-list .post-meta {
-  /* Gris clair, discret et lisible */
-  color: #aaa; 
-  font-size: 0.9em;
-  margin-bottom: 15px;
+/* --- STRUCTURE ET HEADER DU BLOG --- */
+.blog-header {
+  text-align: center;
+  padding-bottom: 3em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tagline {
+  font-size: 1.1rem;
   font-style: italic;
+  color: #ccc;
+  margin: 0.5em 0 1.5em 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* L'extrait du texte (qui est dans une balise <p>) */
-.post-list p {
-  /* Couleur principale de ton texte pour une lisibilité parfaite */
-  color: #f2f2f2; 
-  margin-bottom: 0;
-}
-
-/* --- COULEURS PAR TAG --- */
-
-/* Thème "Poésie" */
-.post-list li.tag-poesie,
-.post.tag-poesie {
-  border-left-color: #8a79a8; /* Un violet poudré */
-}
-
-/* Thème "Essai" */
-.post-list li.tag-essai,
-.post.tag-essai {
-  border-left-color: #a89a79; /* Un ocre doux */
-}
-
-/* Thème "Méditation" */
-.post-list li.tag-meditation,
-.post.tag-meditation {
-  border-left-color: #79a8a1; /* Un vert d'eau apaisant */
-}
-
-/* Ajoute autant de thèmes que tu le souhaites ! */
-.post-list li.tag-fragment,
-.post.tag-fragment {
-  border-left-color: #798aa8; /* Un bleu ardoise */
-}
-
-/* css/style.css */
-
-/* --- STRUCTURE DU BLOG --- */
 .blog-container {
   display: flex;
-  max-width: 1200px; /* On élargit un peu pour la sidebar */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2em 1em;
-  gap: 40px; /* Espace entre le contenu et la sidebar */
+  gap: 40px;
 }
 
-.blog-main {
-  flex: 3; /* Le contenu principal prend 3/4 de la place */
-}
+.blog-main { flex: 3; }
+.blog-sidebar { flex: 1; padding-top: 1em; }
 
-.blog-sidebar {
-  flex: 1; /* La sidebar prend 1/4 de la place */
-  padding-top: 1em; /* Petit décalage pour aligner les titres */
-}
-
-/* --- STYLE DE LA SIDEBAR --- */
+/* --- SIDEBAR --- */
 .sidebar-widget {
   margin-bottom: 3em;
 }
@@ -253,14 +185,12 @@ button:hover, .btn:hover {
   font-style: italic;
 }
 
-/* Style pour la liste des tags */
 .tag-list, .archive-list {
   list-style: none;
   padding: 0;
 }
 
 .tag-list li a {
-  text-decoration: none;
   font-size: 1.1em;
   display: flex;
   justify-content: space-between;
@@ -269,151 +199,157 @@ button:hover, .btn:hover {
 }
 
 .tag-list li a:hover {
-  color: #ffb6c1; /* Rose au survol */
-  letter-spacing: 1px; /* Effet poétique au survol */
+  color: #ffb6c1;
+  letter-spacing: 1px;
 }
 
-.tag-list li a span {
-  font-size: 0.9em;
-  color: #888;
-}
-
-/* --- COULEURS PAR TAG --- */
-/* Couleur des liens dans la sidebar */
-.tag-list a.tag-poesie     { color: #8a79a8; }
-.tag-list a.tag-essai      { color: #a89a79; }
-.tag-list a.tag-meditation { color: #79a8a1; }
-.tag-list a.tag-fragment   { color: #798aa8; }
-
-/* Style pour les nouvelles archives déroulantes */
 .archive-group {
   margin-bottom: 0.5em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.archive-group[open] { /* Style quand la section est ouverte */
-  padding-bottom: 1em;
-}
 
-/* Style pour le titre déroulant des archives */
+.archive-group[open] { padding-bottom: 1em; }
+
 .archive-group summary {
   cursor: pointer;
   padding: 0.8em 0;
   font-size: 1.1em;
   font-weight: bold;
   color: #fff;
-  list-style: none; /* Cache la flèche par défaut sur Firefox */
+  list-style: none;
 }
-.archive-group summary::-webkit-details-marker {
-  display: none; /* Cache la flèche par défaut sur Chrome/Safari */
-}
-.archive-group summary::before { 
+
+.archive-group summary::-webkit-details-marker { display: none; }
+
+.archive-group summary::before {
   content: '+ ';
   font-family: monospace;
 }
 
-.archive-group[open] summary::before {
-  content: '− ';
-}
+.archive-group[open] summary::before { content: '− '; }
 
-.archive-list {
-  list-style: none;
-  padding-left: 20px; /* Indentation pour les articles */
-  margin-top: 0.5em;
-}
-
-.archive-list-item {
-  padding: 0.3em 0;
-}
 .archive-list-item a {
   text-decoration: none;
   color: #f2f2f2;
 }
-.archive-list-item a:hover {
-  color: #ffb6c1;
-}
 
-/* La correction pour la date */
 .archive-list-item .archive-date {
   font-size: 0.9em;
   color: #888;
   font-style: italic;
-  margin-left: 10px; /* Simple marge à gauche */
+  margin-left: 10px;
 }
 
-/* --- STYLE DU HEADER DE BLOG --- */
-.blog-header {
-  text-align: center;
-  padding-bottom: 2em;
-}
+/* --- COULEURS PAR TAG --- */
+.post-list li.tag-poesie, .post.tag-poesie { border-left-color: #8a79a8; }
+.post-list li.tag-essai, .post.tag-essai { border-left-color: #a89a79; }
+.post-list li.tag-meditation, .post.tag-meditation { border-left-color: #79a8a1; }
+.post-list li.tag-fragment, .post.tag-fragment { border-left-color: #798aa8; }
 
-.tagline {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: #ccc; /* Un gris clair pour contraster avec le titre */
-  margin: 0.5em 0 1.5em 0; /* Espacement au-dessus et en dessous */
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.blog-header {
-  /* ... autres styles ... */
-  padding-bottom: 3em; /* Augmente l'espace sous le header */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Alternative : une ligne très fine et discrète */
-}
+.tag-list a.tag-poesie { color: #8a79a8; }
+.tag-list a.tag-essai { color: #a89a79; }
+.tag-list a.tag-meditation { color: #79a8a1; }
+.tag-list a.tag-fragment { color: #798aa8; }
 
 /* --- PAGINATION "VOIR PLUS" --- */
+.post-list li:nth-child(n+6) { display: none; }
 
-.post-list li:nth-child(n+6) {
-  display: none; /* Cache tous les articles à partir du 6ème */
-}
-
-/* Style du bouton "Voir plus" (Version corrigée et plus robuste) */
 #loadMore {
-  /* On hérite la police du reste du site */
-  font-family: inherit; 
+  font-family: inherit;
   font-size: 1em;
-  
-  /* Style visuel */
   background-color: transparent;
   color: #c9a3ff;
   border: 1px solid #c9a3ff;
-  border-radius: 4px; /* Ajout de bords légèrement arrondis */
-  
+  border-radius: 4px;
   padding: 10px 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  
-  /* S'assure qu'il n'y a pas d'apparence native imposée par le navigateur */
   -webkit-appearance: none;
   appearance: none;
 }
 
 #loadMore:hover {
   background-color: #c9a3ff;
-  color: #0a1a33; /* Le bleu foncé de votre fond */
+  color: #0a1a33;
 }
 
-#loadMore.hidden {
+#loadMore.hidden { display: none; }
+
+/* --- MENU MOBILE & RESPONSIVE --- */
+.mobile-menu-toggle {
   display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
 }
-/* --- MISE EN PAGE ADAPTATIVE (RESPONSIVE) --- */
-/* Pour les écrans de taille tablette et plus petits (jusqu'à 992px de large) */
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
 @media (max-width: 992px) {
   .blog-container {
-    /* On change la direction : les colonnes s'empilent verticalement */
     flex-direction: column;
   }
-
   .blog-main, .blog-sidebar {
-    /* Chaque colonne prend maintenant toute la largeur */
     flex: 1 1 100%;
   }
-
   .blog-sidebar {
-    /* On ajoute un peu d'espace en haut quand la sidebar passe en dessous */
     margin-top: 4em;
     padding-top: 2em;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+  nav#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 26, 51, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+  }
+  nav#main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  nav#main-nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav#main-nav li {
+    margin: 20px 0;
+  }
+  nav#main-nav a {
+    font-size: 2em;
+  }
+  .mobile-menu-toggle.is-active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .mobile-menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-toggle.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
   }
 }
