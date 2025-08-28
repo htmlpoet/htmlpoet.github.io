@@ -6,27 +6,14 @@ body {
   margin: 0;
   line-height: 1.6;
 }
-
 main {
   max-width: 900px;
   margin: 0 auto;
   padding: 2em 1em;
 }
-
-h1, h2, h3 {
-  color: #ffffff;
-  margin-bottom: 0.5em;
-}
-
-a {
-  color: #c9a3ff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #ffb6c1;
-}
+h1, h2, h3 { color: #ffffff; margin-bottom: 0.5em; }
+a { color: #c9a3ff; text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: #ffb6c1; }
 
 /* --- HEADER PRINCIPAL & NAVIGATION --- */
 .site-header {
@@ -36,75 +23,26 @@ a:hover {
   padding: 1.5em 2em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.site-title {
-  font-size: 1.5em;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-}
-
-nav#main-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-nav#main-nav li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
-nav#main-nav a {
-  text-decoration: none;
-  color: #e0e0e0;
-  font-weight: bold;
-}
+.site-title { font-size: 1.5em; text-decoration: none; color: #fff; font-weight: bold; }
+nav#main-nav ul { list-style: none; padding: 0; margin: 0; }
+nav#main-nav li { display: inline-block; margin: 0 15px; }
+nav#main-nav a { text-decoration: none; color: #e0e0e0; font-weight: bold; }
 
 /* --- FOOTER --- */
-footer {
-  text-align: center;
-  padding: 2em 1em;
-  margin-top: 2em;
-  font-size: 0.9em;
-  background: #0d1a2d;
-  color: #cccccc;
-}
+footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em; background: #0d1a2d; color: #cccccc; }
 
 /* --- SECTION BLOG --- */
 .blog-header {
   text-align: center;
-  padding-bottom: 2em;
+  padding: 2em 1em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.tagline {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: #ccc;
-  margin: 0.5em auto 1.5em auto;
-  max-width: 600px;
-}
-
-.blog-container {
-  display: flex;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2em 1em;
-  gap: 40px;
-}
-
+.tagline { font-size: 1.1rem; font-style: italic; color: #ccc; margin: 0.5em auto 1.5em auto; max-width: 600px; }
+.blog-container { display: flex; max-width: 1200px; margin: 0 auto; padding: 2em 1em; gap: 40px; }
 .blog-main { flex: 3; }
 .blog-sidebar { flex: 1; }
-
 .sidebar-widget { margin-bottom: 3em; }
-.widget-title {
-  font-size: 1.2em;
-  margin-bottom: 1em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  font-style: italic;
-}
+.widget-title { font-size: 1.2em; margin-bottom: 1em; padding-bottom: 0.5em; border-bottom: 1px solid rgba(255, 255, 255, 0.2); font-style: italic; }
 
 /* --- LISTE D'ARTICLES & TAGS --- */
 .post-list { list-style: none; padding: 0; margin: 0; }
@@ -113,7 +51,7 @@ footer {
   background-color: rgba(255, 255, 255, 0.03);
   padding: 25px;
   margin-bottom: 30px;
-  border-left-width: 4px;
+  border-left-width: 4px; /* CORRIGÉ : pas d'espace avant px */
   border-left-style: solid;
   border-left-color: #6c757d;
   border-radius: 0 4px 4px 0;
@@ -125,10 +63,10 @@ footer {
 .post-meta { font-size: 0.85rem; color: #aaa; margin-bottom: 1em; }
 
 /* Couleurs des bordures par tag */
-.post-list li.tag-poesie, .post.tag-poesie { border-left-color: #8a79a8; }
-.post-list li.tag-essai, .post.tag-essai { border-left-color: #a89a79; }
-.post-list li.tag-meditation, .post.tag-meditation { border-left-color: #79a8a1; }
-.post-list li.tag-fragment, .post.tag-fragment { border-left-color: #798aa8; }
+.post.tag-poesie, .post-list li.tag-poesie { border-left-color: #8a79a8; }
+.post.tag-essai, .post-list li.tag-essai { border-left-color: #a89a79; }
+.post.tag-meditation, .post-list li.tag-meditation { border-left-color: #79a8a1; }
+.post.tag-fragment, .post-list li.tag-fragment { border-left-color: #798aa8; }
 
 /* Couleurs des tags dans la sidebar */
 .tag-list { list-style: none; padding: 0; }
@@ -168,14 +106,12 @@ footer {
 .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; z-index: 1000; }
 .mobile-menu-toggle span { display: block; width: 25px; height: 2px; background-color: #fff; margin: 5px 0; transition: all 0.3s ease-in-out; }
 
-/* Styles pour écrans de taille tablette et plus petits */
 @media (max-width: 992px) {
   .blog-container { flex-direction: column; }
   .blog-main, .blog-sidebar { flex: 1 1 100%; }
   .blog-sidebar { margin-top: 4em; padding-top: 2em; border-top: 1px solid rgba(255, 255, 255, 0.2); }
 }
 
-/* Styles pour écrans de taille téléphone */
 @media (max-width: 768px) {
   .mobile-menu-toggle { display: block; }
   nav#main-nav {
