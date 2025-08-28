@@ -51,7 +51,7 @@ footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em
   background-color: rgba(255, 255, 255, 0.03);
   padding: 25px;
   margin-bottom: 30px;
-  border-left-width: 4px; /* CORRIGÉ : pas d'espace avant px */
+  border-left-width: 4px;
   border-left-style: solid;
   border-left-color: #6c757d;
   border-radius: 0 4px 4px 0;
