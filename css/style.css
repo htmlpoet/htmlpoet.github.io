@@ -45,22 +45,49 @@ footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em
 .widget-title { font-size: 1.2em; margin-bottom: 1em; padding-bottom: 0.5em; border-bottom: 1px solid rgba(255, 255, 255, 0.2); font-style: italic; }
 
 /* --- LISTE D'ARTICLES & TAGS --- */
-.post-list { list-style: none; padding: 0; margin: 0; }
-.post-list li {
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.03);
-  padding: 25px;
-  margin-bottom: 30px;
-  border-left-width: 4px;
-  border-left-style: solid;
-  border-left-color: #6c757d;
-  border-radius: 0 4px 4px 0;
-  transition: background-color 0.3s ease, border-left-color 0.3s ease;
+/* --- NOUVELLE MISE EN FORME POUR LA LISTE D'ARTICLES --- */
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.post-list li:hover { background-color: rgba(255, 255, 255, 0.06); border-left-color: #ffb6c1; }
-.post-list h3 a { text-decoration: none; color: #ffffff; font-size: 1.5em; }
-.post-list h3 a::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.post-meta { font-size: 0.85rem; color: #aaa; margin-bottom: 1em; }
+
+.post-list li {
+  /* On retire le fond et la bordure latérale pour alléger */
+  background-color: transparent;
+  border-left: none;
+  
+  /* On remplace par une simple ligne de séparation en bas */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* On réduit drastiquement les espaces ! */
+  padding: 1.5em 0; /* Espace vertical, aucun espace latéral */
+  margin-bottom: 0; /* Les marges sont gérées par le padding */
+  transition: background-color 0.3s ease;
+}
+
+/* Ajoute un peu d'espace au premier et au dernier article */
+.post-list li:first-child { padding-top: 0; }
+.post-list li:last-child { border-bottom: none; }
+
+/* Un léger effet de survol */
+.post-list li:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.post-list h3 a {
+  text-decoration: none;
+  color: #ffffff;
+  /* On réduit la taille du titre pour qu'il tienne sur une ligne sur mobile */
+  font-size: 1.25em; 
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 0.5em; /* On réduit aussi cet espace */
+}
 
 /* Couleurs des bordures par tag */
 .post.tag-poesie, .post-list li.tag-poesie { border-left-color: #8a79a8; }
