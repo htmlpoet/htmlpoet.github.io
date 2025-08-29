@@ -11,7 +11,7 @@ plugins:
   - jekyll-paginate
 
 paginate: 5
-paginate_path: "/poetry/page:num/"
+paginate_path: "/blog/page:num/" # MODIFIÉ
 
 # --- NOUVELLE SECTION ---
 # Définir des valeurs par défaut pour des fichiers spécifiques
@@ -22,4 +22,4 @@ defaults:
       type: "posts"
     values:
       layout: "post"  # Optionnel mais recommandé : tous vos posts utiliseront ce layout
-      permalink: /poetry/:title/ # Applique cette structure d'URL uniquement aux posts 
+      permalink: /blog/:title/ # MODIFIÉ
