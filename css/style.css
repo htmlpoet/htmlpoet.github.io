@@ -45,48 +45,49 @@ footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em
 .widget-title { font-size: 1.2em; margin-bottom: 1em; padding-bottom: 0.5em; border-bottom: 1px solid rgba(255, 255, 255, 0.2); font-style: italic; }
 
 /* --- LISTE D'ARTICLES & TAGS --- */
-/* --- NOUVELLE MISE EN FORME POUR LA LISTE D'ARTICLES --- */
+/* --- NOUVEAUX STYLES MINIMALISTES POUR LA LISTE D'ARTICLES --- */
 
 .post-list {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.post-list li {
-  /* On retire le fond et la bordure latérale pour alléger */
-  background-color: transparent;
-  border-left: none;
-  
-  /* On remplace par une simple ligne de séparation en bas */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  /* On réduit drastiquement les espaces ! */
-  padding: 1.5em 0; /* Espace vertical, aucun espace latéral */
-  margin-bottom: 0; /* Les marges sont gérées par le padding */
-  transition: background-color 0.3s ease;
-}
-
-/* Ajoute un peu d'espace au premier et au dernier article */
-.post-list li:first-child { padding-top: 0; }
-.post-list li:last-child { border-bottom: none; }
-
-/* Un léger effet de survol */
-.post-list li:hover {
-  background-color: rgba(255, 255, 255, 0.04);
-}
-
-.post-list h3 a {
+/* On stylise le lien <a> qui est maintenant notre "carte" */
+.post-list a {
+  display: block; /* Important pour que le lien occupe tout l'espace */
+  padding: 1.5em; /* Padding réduit pour un look plus léger */
+  margin-bottom: 1.5em; /* Espace entre les cartes */
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure subtile pour la séparation */
+  border-radius: 4px; /* Coins arrondis */
+  color: #f2f2f2; /* Couleur du texte par défaut */
   text-decoration: none;
-  color: #ffffff;
-  /* On réduit la taille du titre pour qu'il tienne sur une ligne sur mobile */
-  font-size: 1.25em; 
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.post-meta {
-  font-size: 0.85rem;
+.post-list a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: #c9a3ff; /* La couleur de vos liens pour le survol */
+}
+
+/* On ajuste les styles des éléments à l'intérieur de la carte */
+.post-list a h3 {
+  color: #ffffff; /* Le titre reste blanc */
+  font-size: 1.3em; /* Taille de police du titre légèrement réduite */
+  margin: 0 0 0.25em 0; /* Marge en bas du titre */
+}
+
+.post-list a .post-meta {
+  font-size: 0.8em; /* Police plus petite pour la date */
   color: #aaa;
-  margin-bottom: 0.5em; /* On réduit aussi cet espace */
+  margin-bottom: 1em;
+}
+
+.post-list a .post-excerpt {
+  font-size: 0.9em; /* Police de l'extrait */
+  line-height: 1.6;
+  color: #ccc;
+  margin: 0;
 }
 
 /* Couleurs des bordures par tag */

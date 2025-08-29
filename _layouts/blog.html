@@ -6,15 +6,16 @@ layout: blog_base
   <h2 class="recent-posts-title">Derniers écrits publiés</h2>
 <ul class="post-list">
   {% for post in site.posts %}
-
     {% assign first_tag = post.tags | first %}
-
     <li class="tag-{{ first_tag | slugify }}">
-      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-      <p class="post-meta">{{ post.date | date: "%d %B %Y" }}</p>
-      <p>{{ post.excerpt }}</p>
-    </li>
+      
+      <a href="{{ post.url }}">
+        <h3>{{ post.title }}</h3>
+        <p class="post-meta">{{ post.date | date: "%d %B %Y" }}</p>
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+      </a>
 
+    </li>
   {% endfor %}
 </ul>
 <div class="load-more-container">
