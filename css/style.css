@@ -33,11 +33,17 @@ footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em
 
 /* --- SECTION BLOG --- */
 .blog-header {
-  /* Dégradé allant d'un violet très sombre et transparent au fond de la page */
-  background: linear-gradient(180deg, rgba(46, 30, 78, 0.25) 0%, rgba(10, 26, 51, 0) 100%);
+  /* Dégradé plus vibrant allant d'un violet semi-transparent au fond bleu */
+  background: linear-gradient(180deg, rgba(84, 58, 145, 0.4) 0%, rgba(10, 26, 51, 0) 100%);
   padding: 3em 1em;
   margin-bottom: 2em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ajout d'une bordure en haut */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center; /* Centre aussi la tagline par la même occasion */
+}
+
+.blog-header h1 {
+  text-align: center;
 }
 
 .tagline { font-size: 1.1rem; font-style: italic; color: #ccc; margin: 0.5em auto 1.5em auto; max-width: 600px; }
