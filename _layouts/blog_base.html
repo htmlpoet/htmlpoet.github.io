@@ -1,75 +1,54 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  <header class="blog-header">
-  <nav class="blog-nav">
-    <a href="/" class="back-to-site">← Retour au site principal</a>
-    
-    {% if page.url != '/poetry/' %}
-      <a href="/poetry/" class="back-to-blog">| Retour au blog</a>
-    {% endif %}
-  </nav>
+---
+layout: default
+---
+<div class="blog-wrapper">
 
-  <h1>Poésie & Essais</h1>
-  {% if page.tagline %}
-    <p class="tagline">{{ page.tagline }}</p>
-  {% endif %}
-</header>
+  <header class="blog-header">
+    <h1>Poésie & Essais</h1>
+    {% if page.tagline %}
+      <p class="tagline">{{ page.tagline }}</p>
+    {% endif %}
+  </header>
 
   <div class="blog-container">
-
     <main class="blog-main">
       {{ content }}
     </main>
 
+    {% if page.sidebar %}
     <aside class="blog-sidebar">
-
       <div class="sidebar-widget">
         <h3 class="widget-title">Thématiques</h3>
         <ul class="tag-list">
           {% for tag in site.tags %}
             <li>
               <a href="/tags/#{{ tag[0] | slugify }}" class="tag-{{ tag[0] | slugify }}">
-          {{ tag[0] }} <span>({{ tag[1].size }})</span>
-        </a>
+                {{ tag[0] }} <span>({{ tag[1].size }})</span>
+              </a>
             </li>
           {% endfor %}
         </ul>
       </div>
 
       <div class="sidebar-widget">
-  <h3 class="widget-title">Archives</h3>
-  {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-  {% for year in posts_by_year %}
-    <details class="archive-group">
-      <summary>{{ year.name }} ({{ year.items.size }} articles)</summary>
-      <ul class="archive-list">
-        {% for post in year.items %}
-          <li class="archive-list-item">
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <span class="archive-date">{{ post.date | date: "%d %b" }}</span>
-          </li>
+        <h3 class="widget-title">Archives</h3>
+        {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+        {% for year in posts_by_year %}
+          <details class="archive-group">
+            <summary>{{ year.name }} ({{ year.items.size }} articles)</summary>
+            <ul class="archive-list">
+              {% for post in year.items %}
+                <li class="archive-list-item">
+                  <a href="{{ post.url }}">{{ post.title }}</a>
+                  <span class="archive-date">{{ post.date | date: "%d %b" }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
         {% endfor %}
-      </ul>
-    </details>
-  {% endfor %}
-</div>
-
+      </div>
     </aside>
-
+    {% endif %}
   </div>
 
-  <footer>
-    <p>© 2025 htmlpoet</p>
-  </footer>
-  <script src="/js/main.js"></script>
-</body>
-</html>
-
-
+</div>
