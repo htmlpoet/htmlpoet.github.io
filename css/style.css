@@ -74,13 +74,13 @@ footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em
 .post-list a h3 {
   color: #ffffff; /* Le titre reste blanc */
   font-size: 1.3em; /* Taille de police du titre légèrement réduite */
-  margin: 0 0 0.25em 0; /* Marge en bas du titre */
+  margin: 0 0 0.1em 0; /* Marge en bas du titre */
 }
 
 .post-list a .post-meta {
   font-size: 0.8em; /* Police plus petite pour la date */
   color: #aaa;
-  margin-bottom: 1em;
+  margin-bottom: 0.6em;
 }
 
 .post-list a .post-excerpt {
@@ -111,7 +111,29 @@ footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em
 .archive-group summary::-webkit-details-marker { display: none; }
 .archive-group summary::before { content: '+ '; font-family: monospace; }
 .archive-group[open] summary::before { content: '− '; }
-.archive-list-item .archive-date { font-size: 0.9em; color: #888; margin-left: 10px; }
+
+.archive-list-item {
+  display: flex; /* Aligne le titre et la date sur la même ligne */
+  justify-content: space-between; /* Pousse la date à droite */
+  align-items: baseline; /* Aligne le bas du texte */
+  font-size: 0.9em; /* Réduit la taille de police globale pour toute la ligne */
+  margin-bottom: 0.5em; /* Espace entre les lignes d'archives */
+}
+
+/* On s'assure que le titre ne prend pas toute la place */
+.archive-list-item a {
+  flex-shrink: 1;
+  white-space: nowrap; /* Empêche le titre de passer à la ligne */
+  overflow: hidden; /* Cache le texte qui dépasse */
+  text-overflow: ellipsis; /* Ajoute "..." si le titre est trop long */
+  margin-right: 1em; /* Espace entre le titre et la date */
+}
+
+.archive-date {
+  flex-shrink: 0; /* Empêche la date de rétrécir */
+  color: #888;
+  font-size: 0.9em; /* La date est un peu plus petite que le titre */
+}
 
 /* --- PAGINATION "VOIR PLUS" --- */
 .post-list li:nth-child(n+6) { display: none; }
