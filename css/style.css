@@ -33,10 +33,13 @@ footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em
 
 /* --- SECTION BLOG --- */
 .blog-header {
-  text-align: center;
-  padding: 2em 1em;
+  /* Dégradé allant d'un violet très sombre et transparent au fond de la page */
+  background: linear-gradient(180deg, rgba(46, 30, 78, 0.25) 0%, rgba(10, 26, 51, 0) 100%);
+  padding: 3em 1em;
+  margin-bottom: 2em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .tagline { font-size: 1.1rem; font-style: italic; color: #ccc; margin: 0.5em auto 1.5em auto; max-width: 600px; }
 .blog-container { display: flex; max-width: 1200px; margin: 0 auto; padding: 2em 1em; gap: 40px; }
 .blog-main { flex: 3; }
@@ -112,27 +115,32 @@ footer { text-align: center; padding: 2em 1em; margin-top: 2em; font-size: 0.9em
 .archive-group summary::before { content: '+ '; font-family: monospace; }
 .archive-group[open] summary::before { content: '− '; }
 
+/* On supprime l'indentation par défaut de la liste */
+.archive-list {
+  list-style: none;
+  padding-left: 0;
+}
+
 .archive-list-item {
-  display: flex; /* Aligne le titre et la date sur la même ligne */
-  justify-content: space-between; /* Pousse la date à droite */
-  align-items: baseline; /* Aligne le bas du texte */
-  font-size: 0.9em; /* Réduit la taille de police globale pour toute la ligne */
-  margin-bottom: 0.5em; /* Espace entre les lignes d'archives */
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.9em;
+  margin-bottom: 0.6em; /* Un peu plus d'espace vertical entre les entrées */
 }
 
-/* On s'assure que le titre ne prend pas toute la place */
+/* On permet au titre de revenir à la ligne */
 .archive-list-item a {
-  flex-shrink: 1;
-  white-space: nowrap; /* Empêche le titre de passer à la ligne */
-  overflow: hidden; /* Cache le texte qui dépasse */
-  text-overflow: ellipsis; /* Ajoute "..." si le titre est trop long */
-  margin-right: 1em; /* Espace entre le titre et la date */
+  margin-right: 1em; /* Garde un espace avec la date */
+  line-height: 1.3; /* Espace très serré entre les lignes si le titre est long */
+  color: #c9a3ff; /* On peut rendre le lien plus visible */
 }
 
+/* On garde la date alignée à droite */
 .archive-date {
-  flex-shrink: 0; /* Empêche la date de rétrécir */
+  flex-shrink: 0; 
   color: #888;
-  font-size: 0.9em; /* La date est un peu plus petite que le titre */
+  font-size: 0.9em;
 }
 
 /* --- PAGINATION "VOIR PLUS" --- */
