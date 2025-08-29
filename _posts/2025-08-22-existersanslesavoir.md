@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Exister sans le savoir"
+title: "Exister sans le savoir ou se savoir périr"
 date: 2025-08-22
 tags: [meditation]
 excerpt: "Un autre extrait à tenter."
