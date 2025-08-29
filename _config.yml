@@ -1,5 +1,4 @@
 title: "Poésie & Écrits"
-permalink: /poetry/:title/
 author: htmlpoet
 lang: fr-FR
 
@@ -11,5 +10,16 @@ exclude:
 plugins:
   - jekyll-paginate
 
-paginate: 5 # Le nombre d'articles par page
-paginate_path: "/poetry/page:num/" # Le format de l'URL pour les pages suivantes
+paginate: 5
+paginate_path: "/poetry/page:num/"
+
+# --- NOUVELLE SECTION ---
+# Définir des valeurs par défaut pour des fichiers spécifiques
+defaults:
+  -
+    scope:
+      path: "_posts"  # Cible UNIQUEMENT les fichiers dans le dossier _posts
+      type: "posts"
+    values:
+      layout: "post"  # Optionnel mais recommandé : tous vos posts utiliseront ce layout
+      permalink: /poetry/:title/ # Applique cette structure d'URL uniquement aux posts 
