@@ -6,11 +6,43 @@ body {
   margin: 0;
   line-height: 1.6;
 }
+
+/* 1. On réinitialise le conteneur principal */
 main {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2em 1em;
+  padding: 0; /* TRÈS IMPORTANT: On supprime tout le padding ! */
 }
+
+/* 2. On fait "déborder" l'en-tête de page */
+.page-header {
+  /* On utilise calc() et vw (viewport width) pour calculer la marge négative nécessaire */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  
+  /* On remet le padding vertical ici */
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  /* Le reste de votre style */
+  background: linear-gradient(180deg, rgba(84, 58, 145, 0.4) 0%, rgba(10, 26, 51, 0) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 3. On garde le texte de l'en-tête centré et aligné */
+.page-header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1em; /* Un peu d'espace sur les côtés pour le texte */
+  text-align: center;
+}
+
+/* 4. On crée un nouveau conteneur pour le reste du contenu */
+.main-content {
+  padding: 2em 1em; /* Le padding qui était sur <main> avant */
+}
+
 h1, h2, h3 { color: #ffffff; margin-bottom: 0.5em; }
 a { color: #c9a3ff; text-decoration: none; transition: color 0.3s ease; }
 a:hover { color: #ffb6c1; }
