@@ -520,3 +520,82 @@ footer {
     transform: rotate(-45deg) translate(7px, -7px);
   }
 }
+
+/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES --- */
+
+/* Le fond et la typographie de base pour cette section */
+.umunami-body {
+  background-color: #080707; /* Noir profond */
+  color: #ffffff; /* Texte blanc */
+  font-family: 'Lato', sans-serif; /* Police de lecture principale */
+}
+
+/* Le conteneur principal qui va centrer le contenu et créer les déchirures */
+.umunami-container {
+  position: relative;
+  background-color: #080707;
+  padding: 50px 0; /* Espace pour les déchirures */
+}
+
+/* --- L'EFFET DE DÉCHIRURE --- */
+
+/* La déchirure du haut */
+.umunami-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url('/assets/svg/brush-stroke.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scaleY(-1); /* On retourne le SVG pour le haut */
+}
+
+/* La déchirure du bas */
+.umunami-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url('/assets/svg/brush-stroke.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* On s'assure que le contenu reste au-dessus des déchirures */
+.umunami-header, .umunami-content, .umunami-footer {
+  position: relative;
+  z-index: 10;
+  max-width: 800px; /* Largeur optimisée pour la lecture */
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+/* Style des titres avec la police thématique et la couleur rouge */
+.umunami-body h1, .umunami-body h2 {
+  font-family: 'Cinzel', serif; /* Police stylisée pour les titres */
+  color: #a60201; /* Le rouge GW2 */
+  text-align: center;
+}
+
+.umunami-header h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
+/* Style du lien de retour pour qu'il soit discret mais accessible */
+.back-to-main-site {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 100;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(0,0,0,0.4);
+  padding: 5px 10px;
+  border-radius: 4px;
+}

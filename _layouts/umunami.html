@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "fr" }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Umunami Chronicles</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="umunami-body">
+
+  <a href="/" class="back-to-main-site">↩ Retour au site principal</a>
+
+  <div class="umunami-container">
+    <header class="umunami-header">
+      <h1>Umunami Chronicles</h1>
+      </header>
+
+    <main class="umunami-content">
+      {{ content }}
+    </main>
+
+    <footer class="umunami-footer">
+      <p>Une fiction par htmlpoet, inspirée de l'univers de Guild Wars 2.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
