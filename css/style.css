@@ -88,18 +88,28 @@ a:hover {
 /* --- HEADER PRINCIPAL & NAVIGATION --- */
 /* -- Dans css/style.css -- */
 
+/* -- Dans css/style.css -- */
+
 .site-header {
+  /* Vos styles existants pour l'alignement */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5em 2em;
+
+  /* --- NOUVEAUX STYLES POUR LE RELIEF --- */
+  
+  /* 1. Rend le menu "collant" en haut de la page */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Assure qu'il reste toujours au-dessus du reste */
+
+  /* 2. Crée l'effet "verre dépoli" */
+  background-color: rgba(84, 58, 145, 0.5); /* Votre violet, mais rendu semi-transparent */
+  backdrop-filter: blur(10px); /* Applique un flou sur tout ce qui est DERRIÈRE le menu */
+
+  /* 3. Garde une bordure subtile pour définir les contours */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(
-    180deg,
-    rgba(84, 58, 145, 0.4) 0%,
-    rgba(10, 26, 51, 0) 100%
-  );
-  /* <-- LA LIGNE À AJOUTER */
 }
 
 .site-title {
