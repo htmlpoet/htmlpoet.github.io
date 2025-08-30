@@ -95,7 +95,7 @@ a:hover {
   
   /* On revient à la couleur solide et à la position par défaut */
   position: static; /* Annule l'effet "sticky" */
-  background-color: #543a91; /* Votre couleur violette solide et sombre */
+  background-color: #362962; /* Votre couleur violette solide et sombre */
   
   /* On garde la fine ligne de séparation en bas */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
