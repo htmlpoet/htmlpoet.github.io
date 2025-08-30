@@ -2,7 +2,7 @@
 /* Applique le dégradé à la page entière */
 html {
   /* On commence avec un violet plus sombre et la transition se termine plus tôt (à 40% de la hauteur de l'écran) */
-  background-image: linear-gradient(180deg, #3E2C6B 0%, #0a1a33 40vh);
+  background-image: linear-gradient(180deg, #3e2c6b 0%, #0a1a33 40vh);
   background-repeat: no-repeat;
   background-color: #0a1a33;
 }
@@ -35,9 +35,11 @@ main {
   padding-bottom: 3em;
 
   /* Le reste de votre style */
-  background: linear-gradient(180deg,
-      rgba(84, 58, 145, 0.4) 0%,
-      rgba(10, 26, 51, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(84, 58, 145, 0.4) 0%,
+    rgba(10, 26, 51, 0) 100%
+  );
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -66,17 +68,20 @@ h3 {
 
 /* 1. L'état de base de TOUS les liens */
 a {
-  color: #c9a3ff; /* Votre couleur de lien violette */
+  color: #c9a3ff;
+  /* Votre couleur de lien violette */
   text-decoration: none;
-  letter-spacing: normal; /* L'espacement par défaut des lettres */
-  
+  letter-spacing: normal;
+  /* L'espacement par défaut des lettres */
+
   /* On prépare la transition pour qu'elle soit douce */
   transition: color 0.3s ease, letter-spacing 0.3s ease;
 }
 
 /* 2. L'état de survol pour TOUS les liens (la couleur change partout) */
 a:hover {
-  color: #ffb6c1; /* Votre couleur de survol rose */
+  color: #ffb6c1;
+  /* Votre couleur de survol rose */
 }
 
 /* --- HEADER PRINCIPAL & NAVIGATION --- */
@@ -88,7 +93,11 @@ a:hover {
   align-items: center;
   padding: 1.5em 2em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: #3E2C6B;
+  background: linear-gradient(
+    180deg,
+    rgba(84, 58, 145, 0.4) 0%,
+    rgba(10, 26, 51, 0) 100%
+  );
   /* <-- LA LIGNE À AJOUTER */
 }
 
@@ -129,9 +138,11 @@ footer {
 /* --- SECTION BLOG --- */
 .blog-header {
   /* Dégradé plus vibrant allant d'un violet semi-transparent au fond bleu */
-  background: linear-gradient(180deg,
-      rgba(84, 58, 145, 0.4) 0%,
-      rgba(10, 26, 51, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(84, 58, 145, 0.4) 0%,
+    rgba(10, 26, 51, 0) 100%
+  );
   padding: 3em 1em;
   margin-bottom: 2em;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -207,15 +218,13 @@ footer {
   text-decoration: none;
   transition: background-color 0.3s ease, border-color 0.3s ease;
   /* On prépare la transition pour qu'elle soit fluide */
-  transition: transform 0.3s ease, 
-              box-shadow 0.3s ease, 
-              border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .post-list a:hover {
   background-color: rgba(255, 255, 255, 0.06);
   border-color: #c9a3ff;
-  /* La couleur de vos liens pour le survol */ 
+  /* La couleur de vos liens pour le survol */
   /* On déplace la carte vers le haut (-5px) et on l'agrandit (5%) */
   transform: translateY(-5px) scale(1.05);
 
@@ -225,19 +234,23 @@ footer {
 
 /* On définit une couleur de bordure spécifique pour chaque tag au survol */
 .post-list li.tag-poesie a:hover {
-  border-color: #8a79a8; /* Violet poésie */
+  border-color: #8a79a8;
+  /* Violet poésie */
 }
 
 .post-list li.tag-essai a:hover {
-  border-color: #a89a79; /* Jaune-brun essai */
+  border-color: #a89a79;
+  /* Jaune-brun essai */
 }
 
 .post-list li.tag-meditation a:hover {
-  border-color: #79a8a1; /* Vert d'eau méditation */
+  border-color: #79a8a1;
+  /* Vert d'eau méditation */
 }
 
 .post-list li.tag-fragment a:hover {
-  border-color: #798aa8; /* Bleu-gris fragment */
+  border-color: #798aa8;
+  /* Bleu-gris fragment */
 }
 
 /* On ajuste les styles des éléments à l'intérieur de la carte */
