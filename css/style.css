@@ -90,7 +90,7 @@ a:hover {
   /* On garde la base de la mise en page */
   display: flex;
   justify-content: space-between;
-  align-items-center;
+  align-items: center;
   padding: 1.5em 2em;
   
   /* On revient à la couleur solide et à la position par défaut */
