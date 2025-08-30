@@ -1,3 +1,526 @@
+/* --- STYLES GÉNÉRAUX --- */
+/* Applique le dégradé à la page entière */
+/* Assure une base de hauteur stable pour le body */
+html {
+  height: 100%;
+}
+
+/* Applique le dégradé et gère la hauteur du site */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #f2f2f2;
+  line-height: 1.6;
+  margin: 0;
+  
+  /* Le body fait au moins la hauteur de l'écran, et plus si le contenu est long */
+  min-height: 100%; 
+  
+  /* Le dégradé qui s'étire sur toute la hauteur du contenu */
+  background-image: linear-gradient(180deg, #3E2C6B 0%, #0a1a33 100%);
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Assure que le dégradé défile avec la page */
+  background-color: #0a1a33; /* Couleur de sécurité si le contenu est immense */
+}
+
+/* 1. On réinitialise le conteneur principal */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  /* TRÈS IMPORTANT: On supprime tout le padding ! */
+}
+
+/* 2. On fait "déborder" l'en-tête de page */
+.page-header {
+  /* On utilise calc() et vw (viewport width) pour calculer la marge négative nécessaire */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  /* On remet le padding vertical ici */
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  /* Le reste de votre style */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 3. On garde le texte de l'en-tête centré et aligné */
+.page-header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1em;
+  /* Un peu d'espace sur les côtés pour le texte */
+  text-align: center;
+}
+
+/* 4. On crée un nouveau conteneur pour le reste du contenu */
+.main-content {
+  padding: 2em 1em;
+  /* Le padding qui était sur <main> avant */
+}
+
+h1,
+h2,
+h3 {
+  color: #ffffff;
+  margin-bottom: 0.5em;
+}
+
+/* 1. L'état de base de TOUS les liens */
+a {
+  color: #c9a3ff;
+  /* Votre couleur de lien violette */
+  text-decoration: none;
+  letter-spacing: normal;
+  /* L'espacement par défaut des lettres */
+
+  /* On prépare la transition pour qu'elle soit douce */
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+/* 2. L'état de survol pour TOUS les liens (la couleur change partout) */
+a:hover {
+  color: #ffb6c1;
+  /* Votre couleur de survol rose */
+}
+
+/* --- HEADER PRINCIPAL & NAVIGATION --- */
+.site-header {
+  /* On garde la base de la mise en page */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 2em;
+  
+  /* On revient à la couleur solide et à la position par défaut */
+  position: static; /* Annule l'effet "sticky" */
+  background-color: #362962; /* Votre couleur violette solide et sombre */
+  
+  /* On garde la fine ligne de séparation en bas */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* --- NOUVEL EFFET DE RELIEF --- */
+  /* Ajoute une ombre subtile à l'intérieur, en bas, pour un effet 3D */
+  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.3);
+}
+.site-title {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+nav#main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav#main-nav li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav#main-nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  padding: 2em 1em;
+  margin-top: 2em;
+  font-size: 0.9em;
+  background: #0d1a2d;
+  color: #cccccc;
+}
+
+/* --- SECTION BLOG --- */
+.blog-header {
+  /* Dégradé plus vibrant allant d'un violet semi-transparent au fond bleu */
+  background: linear-gradient(
+    180deg,
+    rgba(84, 58, 145, 0.4) 0%,
+    rgba(10, 26, 51, 0) 100%
+  );
+  padding: 3em 1em;
+  margin-bottom: 2em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Ajout d'une bordure en haut */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  /* Centre aussi la tagline par la même occasion */
+}
+
+.blog-header h1 {
+  text-align: center;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #ccc;
+  margin: 0.5em auto 1.5em auto;
+  max-width: 600px;
+}
+
+.blog-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em 1em;
+  gap: 40px;
+}
+
+.blog-main {
+  flex: 3;
+}
+
+.blog-sidebar {
+  flex: 1;
+}
+
+.sidebar-widget {
+  margin-bottom: 3em;
+}
+
+.widget-title {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-style: italic;
+}
+
+/* --- LISTE D'ARTICLES & TAGS --- */
+/* --- NOUVEAUX STYLES MINIMALISTES POUR LA LISTE D'ARTICLES --- */
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* On stylise le lien <a> qui est maintenant notre "carte" */
+.post-list a {
+  display: block;
+  /* Important pour que le lien occupe tout l'espace */
+  padding: 1.5em;
+  /* Padding réduit pour un look plus léger */
+  margin-bottom: 1.5em;
+  /* Espace entre les cartes */
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Bordure subtile pour la séparation */
+  border-radius: 4px;
+  /* Coins arrondis */
+  color: #f2f2f2;
+  /* Couleur du texte par défaut */
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* On prépare la transition pour qu'elle soit fluide */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.post-list a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: #c9a3ff;
+  /* La couleur de vos liens pour le survol */
+  /* On déplace la carte vers le haut (-5px) et on l'agrandit (5%) */
+  transform: translateY(-5px) scale(1.05);
+
+  /* On ajoute une ombre portée pour accentuer l'effet de soulèvement */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* On définit une couleur de bordure spécifique pour chaque tag au survol */
+.post-list li.tag-poesie a:hover {
+  border-color: #8a79a8;
+  /* Violet poésie */
+}
+
+.post-list li.tag-essai a:hover {
+  border-color: #a89a79;
+  /* Jaune-brun essai */
+}
+
+.post-list li.tag-meditation a:hover {
+  border-color: #79a8a1;
+  /* Vert d'eau méditation */
+}
+
+.post-list li.tag-fragment a:hover {
+  border-color: #798aa8;
+  /* Bleu-gris fragment */
+}
+
+/* On ajuste les styles des éléments à l'intérieur de la carte */
+.post-list a h3 {
+  color: #ffffff;
+  /* Le titre reste blanc */
+  font-size: 1.3em;
+  /* Taille de police du titre légèrement réduite */
+  margin: 0 0 0.1em 0;
+  /* Marge en bas du titre */
+}
+
+.post-list a .post-meta {
+  font-size: 0.8em;
+  /* Police plus petite pour la date */
+  color: #aaa;
+  margin-bottom: 0.6em;
+}
+
+.post-list a .post-excerpt {
+  font-size: 0.9em;
+  /* Police de l'extrait */
+  line-height: 1.6;
+  color: #ccc;
+  margin: 0;
+}
+
+/* Couleurs des bordures par tag */
+.post.tag-poesie,
+.post-list li.tag-poesie {
+  border-left-color: #8a79a8;
+}
+
+.post.tag-essai,
+.post-list li.tag-essai {
+  border-left-color: #a89a79;
+}
+
+.post.tag-meditation,
+.post-list li.tag-meditation {
+  border-left-color: #79a8a1;
+}
+
+.post.tag-fragment,
+.post-list li.tag-fragment {
+  border-left-color: #798aa8;
+}
+
+/* Couleurs des tags dans la sidebar */
+.tag-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tag-list a {
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4em 0;
+}
+
+.tag-list a.tag-poesie {
+  color: #8a79a8;
+}
+
+.tag-list a.tag-essai {
+  color: #a89a79;
+}
+
+.tag-list a.tag-meditation {
+  color: #79a8a1;
+}
+
+.tag-list a.tag-fragment {
+  color: #798aa8;
+}
+
+/* --- ARCHIVES --- */
+.archive-group {
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.archive-group[open] {
+  padding-bottom: 1em;
+}
+
+.archive-group summary {
+  cursor: pointer;
+  padding: 0.8em 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  list-style: none;
+}
+
+.archive-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.archive-group summary::before {
+  content: "+ ";
+  font-family: monospace;
+}
+
+.archive-group[open] summary::before {
+  content: "− ";
+}
+
+/* On supprime l'indentation par défaut de la liste */
+.archive-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.archive-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.9em;
+  margin-bottom: 0.6em;
+  /* Un peu plus d'espace vertical entre les entrées */
+}
+
+/* On permet au titre de revenir à la ligne */
+.archive-list-item a {
+  margin-right: 1em;
+  /* Garde un espace avec la date */
+  line-height: 1.3;
+  /* Espace très serré entre les lignes si le titre est long */
+  color: #c9a3ff;
+  /* On peut rendre le lien plus visible */
+}
+
+/* On garde la date alignée à droite */
+.archive-date {
+  flex-shrink: 0;
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* --- PAGINATION "VOIR PLUS" --- */
+.post-list li:nth-child(n + 6) {
+  display: none;
+}
+
+#loadMore {
+  font-family: inherit;
+  font-size: 1em;
+  background-color: transparent;
+  color: #c9a3ff;
+  border: 1px solid #c9a3ff;
+  border-radius: 4px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+}
+
+#loadMore:hover {
+  background-color: #c9a3ff;
+  color: #0a1a33;
+}
+
+#loadMore.hidden {
+  display: none;
+}
+
+/* --- MENU MOBILE & RESPONSIVE --- */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+  .blog-container {
+    flex-direction: column;
+  }
+
+  .blog-main,
+  .blog-sidebar {
+    flex: 1 1 100%;
+  }
+
+  .blog-sidebar {
+    margin-top: 4em;
+    padding-top: 2em;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    /* Ajoutez un z-index élevé ici aussi pour qu'il soit cliquable */
+    z-index: 1001;
+  }
+
+  nav#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 26, 51, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+
+    /* CORRECTION 1 : Ajout du z-index */
+    z-index: 1000;
+  }
+
+  nav#main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  nav#main-nav ul {
+    flex-direction: column;
+    text-align: center;
+    /* Assurez-vous que la liste ne déborde pas */
+    padding: 0;
+  }
+
+  nav#main-nav li {
+    margin: 20px 0;
+    /* CORRECTION 2 : Forcer l'affichage en bloc */
+    display: block;
+    width: 100%;
+  }
+
+  nav#main-nav a {
+    font-size: 2em;
+  }
+
+  .mobile-menu-toggle.is-active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .mobile-menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
 /* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION FINALE) --- */
 
 /* Le fond et la typographie de base pour le thème clair */
