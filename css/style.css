@@ -526,14 +526,17 @@ footer {
 /* Le fond et la typographie de base pour cette section */
 .umunami-body {
   background-color: #080707; /* Noir profond */
-  color: #ffffff; /* Texte blanc */
+  color: #ffffff; /* Texte noir */
   font-family: 'Lato', sans-serif; /* Police de lecture principale */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Le conteneur principal qui va centrer le contenu et créer les déchirures */
 .umunami-container {
   position: relative;
-  background-color: #080707;
+  background-color: #ffffff;
   padding: 50px 0; /* Espace pour les déchirures */
 }
 
