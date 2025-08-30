@@ -1,8 +1,16 @@
 /* --- STYLES GÉNÉRAUX --- */
 /* Applique le dégradé à la page entière */
 html {
-  height: 100%; /* S'assure que l'élément html prend toute la hauteur */
-  background: linear-gradient(180deg, #543a91 0%, #0a1a33 100%);
+  height: 100%;
+  
+  /* 1. On définit le dégradé comme une image de fond */
+  background-image: linear-gradient(180deg, #543a91 0%, #0a1a33 100%);
+  
+  /* 2. On empêche le dégradé de se répéter */
+  background-repeat: no-repeat;
+  
+  /* 3. On définit une couleur de fond de secours */
+  background-color: #0a1a33; 
 }
 
 body {
