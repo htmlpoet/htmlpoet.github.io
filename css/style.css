@@ -525,33 +525,47 @@ footer {
 
 /* Le fond et la typographie de base pour le thème clair */
 .umunami-body {
-  background: #ffffff !important; /* Fond blanc, !important pour écraser le dégradé de HTML */
-  color: #080707; /* Texte noir */
+  background: #f9f9f9 url('/assets/img/parchment-texture.jpg') no-repeat center top;
+  background-size: cover;
+  color: #080707;
   font-family: 'Lato', sans-serif;
   min-height: 100vh;
 }
 
 .umunami-container {
   position: relative;
-  background-color: #ffffff;
-  padding-top: 100px; /* Espace pour la déchirure */
-  padding-bottom: 100px;
+  background: rgba(255,255,255,0.95);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 2em;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 }
 
-/* --- L'EFFET DE DÉCHIRURE SUPERPOSÉ --- */
-.umunami-container::before, .umunami-container::after {
+.umunami-container::before {
   content: '';
   position: absolute;
+  top: -60px;
   left: 0;
   width: 100%;
   height: 120px;
+  background: url('/assets/svg/brush-top.svg') no-repeat center;
+  background-size: cover;
   z-index: 5;
-  background-image: url('/assets/svg/brush-stroke.svg'), url('/assets/svg/brush-stroke.svg');
-  background-repeat: no-repeat;
-  background-position: 0px 0px, 0px 20px;
-  background-size: 100% 80px, 100% 100px;
-  opacity: 1;
 }
+
+.umunami-container::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: url('/assets/svg/brush-bottom.svg') no-repeat center;
+  background-size: cover;
+  z-index: 5;
+}
+
+
 
 .umunami-container::before {
   top: 0;
