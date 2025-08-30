@@ -1,13 +1,9 @@
 /* --- STYLES GÉNÉRAUX --- */
 /* Applique le dégradé à la page entière */
 html {
-  /* 1. On définit le dégradé comme une image de fond */
-  background-image: linear-gradient(180deg, #543a91 0%, #0a1a33 100%);
-
-  /* 2. On empêche le dégradé de se répéter */
+  /* On commence avec un violet plus sombre et la transition se termine plus tôt (à 40% de la hauteur de l'écran) */
+  background-image: linear-gradient(180deg, #3E2C6B 0%, #0a1a33 40vh);
   background-repeat: no-repeat;
-
-  /* 3. On définit une couleur de fond de secours */
   background-color: #0a1a33;
 }
 
@@ -68,14 +64,26 @@ h3 {
   margin-bottom: 0.5em;
 }
 
+/* 1. L'état de base de TOUS les liens */
 a {
-  color: #c9a3ff;
+  color: #c9a3ff; /* Votre couleur de lien violette */
   text-decoration: none;
-  transition: color 0.3s ease;
+  letter-spacing: normal; /* L'espacement par défaut des lettres */
+  
+  /* On prépare la transition pour qu'elle soit douce */
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
 }
 
+/* 2. L'état de survol pour TOUS les liens (la couleur change partout) */
 a:hover {
-  color: #ffb6c1;
+  color: #ffb6c1; /* Votre couleur de survol rose */
+}
+
+/* 3. L'effet d'espacement au survol, UNIQUEMENT sur les écrans larges (desktop) */
+@media (min-width: 769px) {
+  a:hover {
+    letter-spacing: 1px; /* Les lettres s'écartent légèrement */
+  }
 }
 
 /* --- HEADER PRINCIPAL & NAVIGATION --- */
@@ -87,7 +95,7 @@ a:hover {
   align-items: center;
   padding: 1.5em 2em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: #493683;
+  background-color: #3E2C6B;
   /* <-- LA LIGNE À AJOUTER */
 }
 
@@ -211,6 +219,23 @@ footer {
   background-color: rgba(255, 255, 255, 0.06);
   border-color: #c9a3ff;
   /* La couleur de vos liens pour le survol */
+}
+
+/* On définit une couleur de bordure spécifique pour chaque tag au survol */
+.post-list li.tag-poesie a:hover {
+  border-color: #8a79a8; /* Violet poésie */
+}
+
+.post-list li.tag-essai a:hover {
+  border-color: #a89a79; /* Jaune-brun essai */
+}
+
+.post-list li.tag-meditation a:hover {
+  border-color: #79a8a1; /* Vert d'eau méditation */
+}
+
+.post-list li.tag-fragment a:hover {
+  border-color: #798aa8; /* Bleu-gris fragment */
 }
 
 /* On ajuste les styles des éléments à l'intérieur de la carte */
