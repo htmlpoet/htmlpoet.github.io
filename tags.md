@@ -4,7 +4,7 @@ title: "Thématiques"
 permalink: /tags/
 ---
 
-<a href="/tags/" class="show-all-tags" style="display: none;">← Voir toutes les thématiques</a>
+<a href="/blog/" class="show-all-tags" style="display: none;">← Retour au blog</a>
 
 {% assign tags = site.tags | sort %}
 {% for tag in tags %}
