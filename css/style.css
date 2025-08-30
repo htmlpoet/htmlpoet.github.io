@@ -523,65 +523,56 @@ footer {
 
 /* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES --- */
 
-/* Le fond et la typographie de base pour cette section */
+/* Le fond et la typographie de base pour le thème clair */
 .umunami-body {
-  background-color: #080707; /* Noir profond */
-  color: #ffffff; /* Texte noir */
-  font-family: 'Lato', sans-serif; /* Police de lecture principale */
-  display: flex;
-  flex-direction: column;
+  background-color: #ffffff; /* Fond blanc */
+  color: #080707; /* Texte noir */
+  font-family: 'Lato', sans-serif;
   min-height: 100vh;
 }
 
-/* Le conteneur principal qui va centrer le contenu et créer les déchirures */
 .umunami-container {
   position: relative;
-  background-color: #ffffff;
-  padding: 50px 0; /* Espace pour les déchirures */
+  background-color: #ffffff; /* Le conteneur principal est aussi blanc */
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-/* --- L'EFFET DE DÉCHIRURE --- */
+/* --- L'EFFET DE DÉCHIRURE (adapté au fond blanc) --- */
+.umunami-container::before, .umunami-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50px; /* Hauteur ajustée pour le nouveau SVG */
+  background-image: url('/assets/svg/brush-stroke.svg');
+  background-size: 100% 100%; /* S'assure que le SVG remplit bien l'espace */
+}
 
 /* La déchirure du haut */
 .umunami-container::before {
-  content: '';
-  position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background-image: url('/assets/svg/brush-stroke.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  transform: scaleY(-1); /* On retourne le SVG pour le haut */
+  transform: scaleY(-1); /* On retourne le SVG */
 }
 
 /* La déchirure du bas */
 .umunami-container::after {
-  content: '';
-  position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background-image: url('/assets/svg/brush-stroke.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-/* On s'assure que le contenu reste au-dessus des déchirures */
+/* Le contenu reste au-dessus des déchirures */
 .umunami-header, .umunami-content, .umunami-footer {
   position: relative;
   z-index: 10;
-  max-width: 800px; /* Largeur optimisée pour la lecture */
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 2em;
 }
 
-/* Style des titres avec la police thématique et la couleur rouge */
+/* Style des titres avec la police thématique et le rouge */
 .umunami-body h1, .umunami-body h2 {
-  font-family: 'Cinzel', serif; /* Police stylisée pour les titres */
-  color: #a60201; /* Le rouge GW2 */
+  font-family: 'Cinzel', serif;
+  color: #a60201; /* Le rouge ressortira magnifiquement sur le blanc */
   text-align: center;
 }
 
@@ -590,15 +581,29 @@ footer {
   margin-bottom: 1em;
 }
 
-/* Style du lien de retour pour qu'il soit discret mais accessible */
+/* Lien de retour adapté au thème clair */
 .back-to-main-site {
   position: absolute;
   top: 15px;
   left: 15px;
   z-index: 100;
-  color: #fff;
+  color: #080707; /* Texte noir */
   text-decoration: none;
-  background: rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.6); /* Fond blanc semi-transparent */
   padding: 5px 10px;
   border-radius: 4px;
+  border: 1px solid #ddd; /* Bordure discrète */
+}
+
+/* Cache le footer du site principal sur les pages Umunami */
+.umunami-body > footer {
+  display: none;
+}
+
+/* S'assure que le footer Umunami est bien visible */
+.umunami-footer {
+  display: block !important;
+  text-align: center;
+  color: #888;
+  padding: 2em 0;
 }
