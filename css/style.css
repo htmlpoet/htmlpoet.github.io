@@ -525,7 +525,7 @@ footer {
 
 /* Le fond et la typographie de base pour le thème clair */
 .umunami-body {
-  background: #f9f9f9 url('/assets/img/parchment-texture.jpg') no-repeat center top;
+  background: #f9f9f9 url('/assets/img/wooden-floor-background.jpg') no-repeat center top;
   background-size: cover;
   color: #080707;
   font-family: 'Lato', sans-serif;
