@@ -27,41 +27,4 @@ title: Characters
   <div class="swiper-button-prev"></div>
 </div>
 
-// Fichier : umunami/characters.html
-
-<script>
-  var swiper = new Swiper('.character-slider', {
-    // On utilise l'effet "cards" pour un look tarot
-    effect: 'cards',
-    grabCursor: true,
-    loop: true,
-
-    // Navigation avec les flèches
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-</script>
-
-<script>
-  // On sélectionne toutes les cartes de personnage
-  const cards = document.querySelectorAll('.character-card');
-
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      // Vérifie si la carte cliquée est déjà étendue
-      const isExpanded = card.classList.contains('is-expanded');
-
-      // D'abord, on ferme toutes les autres cartes
-      cards.forEach(otherCard => {
-        otherCard.classList.remove('is-expanded');
-      });
-
-      // Si la carte n'était pas déjà étendue, on l'étend
-      if (!isExpanded) {
-        card.classList.add('is-expanded');
-      }
-    });
-  });
-</script>
+<script src="/js/umunami-slider.js"></script>
