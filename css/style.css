@@ -680,8 +680,8 @@ body.umunami-body footer.umunami-footer {
 /* --- SECTION PERSONNAGES (STYLE CARTE DE TAROT) --- */
 .character-slider {
   width: 100%;
-  max-width: 300px; /* Limite la largeur du slider sur grand écran */
-  height: 520px; /* Hauteur totale du slider */
+  max-width: 450px; /* Limite la largeur du slider sur grand écran */
+  height: 750px; /* Hauteur totale du slider */
   margin: 0 auto;
 }
 
@@ -692,8 +692,8 @@ body.umunami-body footer.umunami-footer {
 }
 
 .character-card {
-  width: 280px;
-  height: 480px;
+  width: 420px;
+  height: 720px;
   background: #1a1a1a; /* Un fond très sombre, presque noir */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -772,4 +772,28 @@ body.umunami-body footer.umunami-footer {
 /* On peut aussi rendre l'image plus claire quand la carte est étendue */
 .character-card.is-expanded .character-image img {
   opacity: 1;
+}
+
+/* --- CORRECTION POUR LES FLÈCHES DU CARROUSEL --- */
+
+.character-slider .swiper-button-prev,
+.character-slider .swiper-button-next {
+  /* On s'assure qu'elles sont au-dessus de tout */
+  z-index: 10;
+  
+  /* On ajuste la position verticale */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* On force la position de la flèche gauche */
+.character-slider .swiper-button-prev {
+  left: 10px; /* À 10px du bord du slider */
+  right: auto;
+}
+
+/* On force la position de la flèche droite */
+.character-slider .swiper-button-next {
+  right: 10px; /* À 10px du bord du slider */
+  left: auto;
 }

@@ -1,13 +1,25 @@
-// Initialisation de Swiper
+
 var swiper = new Swiper('.character-slider', {
-  effect: 'cards',
-  grabCursor: true,
+  // Use the standard 'slide' effect for stability
+  effect: 'slide',
+  
+  // Center the main card
+  centeredSlides: true,
+  
+  // Make sure only one card is primarily visible
+  slidesPerView: 1,
+  
+  // Enable the infinite loop
   loop: true,
+
+  // Keep the cursor and navigation arrows
+  grabCursor: true,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
 });
+
 
 // Logique pour étendre les cartes
 const cards = document.querySelectorAll('.character-card');
