@@ -562,17 +562,6 @@ footer {
   opacity: 1;
 }
 
-
-
-.umunami-container::before {
-  top: 0;
-  transform: scaleY(-1);
-}
-
-.umunami-container::after {
-  bottom: 0;
-}
-
 /* Le contenu reste au-dessus */
 .umunami-header, .umunami-content {
   position: relative;
