@@ -525,7 +525,7 @@ footer {
 
 /* Le fond et la typographie de base pour le thème clair */
 .umunami-body {
-  background: #c8b667 url('/assets/img/wooden-floor-background.jpg') no-repeat center top;
+  background: #f3ddb6f2 url('/assets/img/wooden-floor-background.jpg') no-repeat center top;
   background-size: cover;
   color: #080707;
   min-height: 100vh;
@@ -533,7 +533,7 @@ footer {
 
 .umunami-container {
   position: relative;
-  background: rgb(200,166,103,0.95);
+  background: rgba(243, 221, 182, 0.95);
   max-width: 1200px;
   margin: 0 auto;
   padding: 120px 2em;
