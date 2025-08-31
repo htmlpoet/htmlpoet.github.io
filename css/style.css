@@ -535,9 +535,14 @@ footer {
   position: relative;
   background: rgba(243, 221, 182, 0.95);
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 120px 2em;
+  margin: 2em auto; /* Ajout d'une marge en haut/bas pour l'esthétique */
+  padding: 120px 0; /* On retire le padding horizontal pour le moment */
   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+
+  /* --- LIGNES À AJOUTER --- */
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 4em); /* Assure que le conteneur remplit l'écran */
 }
 
 /* Le contenu reste au-dessus */
@@ -547,6 +552,7 @@ footer {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2em;
+  flex-grow: 1;
 }
 
 /* Styles des titres */
