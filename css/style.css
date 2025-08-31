@@ -550,8 +550,23 @@ footer {
 }
 
 /* Styles des titres */
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/assets/fonts/CinzelDecorative-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/assets/fonts/CinzelDecorative-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 .umunami-body h1, .umunami-body h2 {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel Decorative', serif;
   color: #a60201;
   text-align: center;
 }
@@ -590,4 +605,46 @@ body.umunami-body footer.umunami-footer {
   text-align: center;
   color: #888;
   font-size: 0.9em;
+}
+
+.fragment-box {
+  background: rgba(255, 255, 255, 0.8);
+  border-left: 6px solid #a60201;
+  padding: 1.5em;
+  margin: 2em 0;
+  font-style: italic;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.fragment-box::before {
+  content: "✦";
+  font-family: 'Cinzel Decorative', serif;
+  color: #a60201;
+  margin-right: 0.5em;
+}
+
+.umunami-nav {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.umunami-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.umunami-nav li {
+  display: inline-block;
+  margin: 0 1em;
+}
+
+.umunami-nav a {
+  font-family: 'Cinzel Decorative', serif;
+  color: #a60201;
+  text-decoration: none;
+  font-weight: 700;
+}
+.umunami-nav a:hover {
+  text-decoration: underline;
 }
