@@ -524,26 +524,48 @@ footer {
 /* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION FINALE) --- */
 
 /* Le fond et la typographie de base pour le thème clair */
+/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION CORRIGÉE) --- */
+
 .umunami-body {
-  background: #f3ddb6f2 url('/assets/img/wooden-floor-background.jpg') no-repeat center top;
-  background-size: cover;
-  color: #080707;
+  /* On transforme le body en conteneur flex principal */
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  
+  /* On fixe l'image de fond pour qu'elle remplisse toujours l'écran */
+  background: #f3ddb6 url('/assets/img/wooden-floor-background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  color: #080707;
 }
 
 .umunami-container {
+  /* Le conteneur grandit pour pousser le footer vers le bas */
+  flex-grow: 1;
+
   position: relative;
   background: rgba(243, 221, 182, 0.95);
   max-width: 1200px;
-  margin: 2em auto; /* Ajout d'une marge en haut/bas pour l'esthétique */
-  padding: 120px 0; /* On retire le padding horizontal pour le moment */
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-
-  /* --- LIGNES À AJOUTER --- */
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 4em); /* Assure que le conteneur remplit l'écran */
+  width: 100%; /* S'assure qu'il prend la largeur disponible */
+  margin: 2em auto; /* Centre le conteneur et ajoute de l'espace */
+  padding: 60px 0; /* Un peu moins de padding vertical */
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
+
+/* Le footer n'a plus besoin de correction, il est maintenant bien placé */
+.umunami-footer {
+  width: 100%;
+  padding: 1em 0;
+  text-align: center;
+  color: #fff; /* Texte blanc pour contraster avec le fond bois */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Ombre portée pour la lisibilité */
+  font-size: 0.9em;
+}
+
+/* ... le reste de votre CSS (.umunami-content, titres, etc.) ... */
 
 /* Le contenu reste au-dessus */
 .umunami-header, .umunami-content {
