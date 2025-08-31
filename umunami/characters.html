@@ -1,0 +1,51 @@
+---
+layout: umunami
+title: Characters
+---
+
+<div class="swiper-container character-slider">
+  <div class="swiper-wrapper">
+
+    {% for character in site.data.characters %}
+    <div class="swiper-slide">
+      <div class="character-card">
+        <div class="character-image">
+          <img src="{{ character.image }}" alt="{{ character.name }}">
+        </div>
+        <div class="character-info">
+          <h2>{{ character.name }}</h2>
+          <p class="character-title">{{ character.title }}</p>
+          <p class="character-bio">{{ character.bio }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+  
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<script>
+  var swiper = new Swiper('.character-slider', {
+    // Options
+    effect: 'coverflow', // Un effet 3D qui va très bien avec le style
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop: true, // Pour pouvoir défiler en boucle
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    // Navigation
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>

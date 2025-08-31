@@ -1,0 +1,18 @@
+# Fichier : _data/characters.yml
+
+- name: "Teloyah"
+  title: "Shadowblade & Truth-seeker"
+  image: "/assets/img/characters/teloyah.jpg" # Important : utilisez des images découpées (fond transparent) !
+  bio: "Tourmentée par un passé qu'elle ne peut fuir, Teloyah manie les ombres non pas pour se cacher, mais pour révéler les vérités enfouies. Sa quête est autant une rédemption qu'une vengeance."
+
+- name: "Nikka"
+  title: "Sovereign Sword of Vengeance"
+  image: "/assets/img/characters/nikka.png"
+  bio: "Épée jurée de la famille, Nikka a un sens de l'honneur aussi tranchant que sa lame. Elle ne vit que pour protéger les siens et punir ceux qui leur ont fait du tort, quitte à y perdre son âme."
+
+- name: "Tafari"
+  title: "Time-bending Idealist"
+  image: "/assets/img/characters/tafari.png"
+  bio: "Tafari voit les fils du temps comme une partition à réécrire. Idéaliste et puissant, il cherche à défaire les tragédies du passé, sans réaliser que chaque fil tiré peut défaire la trame entière de la réalité."
+
+# ... ajoutez tous vos autres personnages ici ...
