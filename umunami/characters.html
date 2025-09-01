@@ -3,28 +3,30 @@ layout: umunami
 title: Characters
 ---
 
-<div class="swiper-container character-slider">
-  <div class="swiper-wrapper">
+<div class="slider-wrapper">
 
-    {% for character in site.data.characters %}
-    <div class="swiper-slide">
-      <div class="character-card">
-        <div class="character-image">
-          <img src="{{ character.image }}" alt="{{ character.name }}">
-        </div>
-        <div class="character-info">
-          <h2>{{ character.name }}</h2>
-          <p class="character-title">{{ character.title }}</p>
-          <p class="character-bio">{{ character.bio }}</p>
+  <div class="swiper-container character-slider">
+    <div class="swiper-wrapper">
+
+      {% for character in site.data.characters %}
+      <div class="swiper-slide">
+        <div class="character-card">
+          <div class="character-image">
+            <img src="{{ character.image }}" alt="{{ character.name }}">
+          </div>
+          <div class="character-info">
+            <h2>{{ character.name }}</h2>
+            <p class="character-title">{{ character.title }}</p>
+            <p class="character-bio">{{ character.bio }}</p>
+          </div>
         </div>
       </div>
+      {% endfor %}
+
     </div>
-    {% endfor %}
-
+    
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
-  
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-</div>
 
-<script src="/js/umunami-slider.js" defer></script>
+</div> <script src="/js/umunami-slider.js" defer></script>

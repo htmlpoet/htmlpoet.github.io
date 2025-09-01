@@ -677,18 +677,39 @@ body.umunami-body footer.umunami-footer {
   text-decoration: underline;
 }
 
-/* --- SECTION PERSONNAGES (STYLE COVERFLOW FINAL) --- */
+/* --- SECTION PERSONNAGES (VERSION FINALE CORRIGÉE) --- */
+
+/* 1. Le conteneur de cadrage qui cache tout ce qui dépasse */
+.slider-wrapper {
+  width: 100%;
+  max-width: 900px; /* Aligné sur la largeur de votre contenu principal */
+  margin: 0 auto;
+  position: relative; /* Contexte de positionnement pour les flèches */
+  overflow: hidden; /* LA PROPRIÉTÉ MAGIQUE QUI CACHE LE DÉBORDEMENT */
+}
+
+/* 2. Le carrousel lui-même, on lui donne de l'espace */
 .character-slider {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 50px 0; /* Garde l'espace vertical */
 }
 
+/* 3. Les diapositives (slides) */
 .swiper-slide {
-  width: 320px; /* Largeur de la carte */
-  height: 500px; /* Hauteur de la carte, légèrement augmentée */
+  width: 340px; /* Carte un peu plus large */
+  height: 540px; /* Et plus haute */
+  
+  /* Ajoute un effet de fondu pour les cartes sur les côtés */
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
 }
 
+/* La diapositive active (au centre) est pleinement visible */
+.swiper-slide-active {
+  opacity: 1;
+}
+
+/* 4. La carte du personnage avec de nouvelles proportions */
 .character-card {
   width: 100%;
   height: 100%;
@@ -697,12 +718,13 @@ body.umunami-body footer.umunami-footer {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 5px 25px rgba(0,0,0,0.5);
   overflow: hidden;
-  display: flex; /* On utilise flex pour organiser l'image et le texte */
+  display: flex;
   flex-direction: column;
 }
 
+/* L'image prend maintenant plus de place */
 .character-image {
-  height: 55%; /* L'image prend un peu plus de la moitié supérieure */
+  height: 70%; /* L'image prend 70% de la carte */
   flex-shrink: 0;
 }
 
@@ -712,11 +734,13 @@ body.umunami-body footer.umunami-footer {
   object-fit: cover;
 }
 
+/* Le texte prend les 30% restants */
 .character-info {
+  height: 30%;
   padding: 1.2em;
-  height: 45%; /* Le texte prend le reste de l'espace */
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .character-info h2 {
@@ -733,59 +757,26 @@ body.umunami-body footer.umunami-footer {
 }
 
 .character-bio {
-  font-size: 0.85em; /* Un peu plus petit pour rentrer dans l'espace */
+  font-size: 0.8em;
   color: #ddd;
   line-height: 1.5;
-  
-  /* Assure que le texte est toujours visible */
   opacity: 1;
   max-height: none;
 }
 
-/* On ajuste les flèches pour ce nouveau layout */
-.character-slider .swiper-button-prev,
-.character-slider .swiper-button-next {
+/* 5. Les flèches, positionnées par rapport au nouveau conteneur */
+.slider-wrapper .swiper-button-prev,
+.slider-wrapper .swiper-button-next {
   z-index: 10;
   top: 50%;
   transform: translateY(-50%);
   color: #a60201;
 }
 
-.character-slider .swiper-button-prev {
-  left: 10px; right: auto;
+.slider-wrapper .swiper-button-prev {
+  left: 20px; right: auto;
 }
 
-.character-slider .swiper-button-next {
-  right: 10px; left: auto;
-}
-
-/* --- CORRECTIONS DE COULEUR POUR LA SECTION UMUNAMI --- */
-
-/* 1. On cible TOUS les liens dans la section Umunami */
-.umunami-body a {
-  color: #a60201; /* Le rouge thématique de GW2 */
-  transition: color 0.3s ease, letter-spacing 0.3s ease; /* On garde la transition douce */
-}
-
-/* 2. Style de survol pour les liens Umunami */
-.umunami-body a:hover {
-  color: #d13c3c; /* Un rouge légèrement plus clair et vif pour le survol */
-}
-
-/* 3. On cible spécifiquement le lien "Retour" pour un style unique si besoin */
-.umunami-body .back-to-main-site {
-  color: #080707; /* On le garde en noir pour la lisibilité sur son fond clair */
-  background: rgba(255,255,255,0.6);
-  border: 1px solid #ddd;
-}
-.umunami-body .back-to-main-site:hover {
-  color: #080707;
-  background: rgba(255,255,255,0.9); /* Le fond devient plus opaque au survol */
-}
-
-/* 4. Correction de la couleur du texte du footer Umunami */
-body.umunami-body footer.umunami-footer {
-  /* On remplace le gris "fluo" par un ton plus sombre et chaud */
-  color: #5a4e3a; 
-  text-shadow: none; /* On retire l'ombre du texte principal qui n'est plus nécessaire ici */
+.slider-wrapper .swiper-button-next {
+  right: 20px; left: auto;
 }
