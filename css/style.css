@@ -521,9 +521,9 @@ footer {
   }
 }
 
-/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION FINALE ET STABLE) --- */
+/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION STABLE ET FINALE) --- */
 
-/* 1. Configuration de base du layout Umunami */
+/* 1. Layout de base de la page */
 .umunami-body {
   display: flex;
   flex-direction: column;
@@ -532,10 +532,11 @@ footer {
   background-size: cover;
   color: #080707;
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden; /* Empêche tout débordement horizontal */
 }
 
 .umunami-container {
-  flex-grow: 1;
+  flex-grow: 1; /* Pousse le footer en bas */
   width: 100%;
   max-width: 1200px;
   margin: 2em auto;
@@ -543,18 +544,65 @@ footer {
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-.umunami-header,
-.umunami-nav,
-.umunami-content,
-.umunami-footer {
+/* 2. Contenu centré (textes, etc.) */
+.umunami-header, .umunami-nav, .umunami-content, .umunami-footer {
   max-width: 850px;
   margin: 0 auto;
-  padding: 0 2em;
+  padding: 1em 2em;
 }
 .umunami-header { padding-top: 2em; }
-.umunami-footer { padding-bottom: 2em; color: #5a4e3a; text-shadow: none; }
 
-/* 2. Styles des polices et des liens spécifiques à Umunami */
+/* 3. Le Carrousel de Personnages */
+
+/* Ce conteneur va centrer et "cadrer" le carrousel */
+.slider-wrapper {
+  max-width: 100%; /* Le wrapper prend toute la largeur du container */
+  margin: 0 auto;
+  position: relative;
+}
+
+.character-slider {
+  width: 100%;
+  height: 600px;
+}
+
+.swiper-slide {
+  width: 400px; /* Taille de la carte */
+  height: 550px; /* Hauteur de la carte */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* On rend les slides sur les côtés plus petites et transparentes */
+.swiper-slide:not(.swiper-slide-active) {
+  transform: scale(0.75);
+  opacity: 0.5;
+}
+.swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Styles de la carte (inchangés) */
+.character-card { width: 100%; height: 100%; background: #1a1a1a; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 5px 25px rgba(0,0,0,0.5); cursor: pointer; position: relative; overflow: hidden; }
+.character-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.character-image img { width: 100%; height: 100%; object-fit: cover; }
+.character-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5em; box-sizing: border-box; text-align: center; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%); }
+.character-info h2 { color: #fff; margin: 0; font-size: 2em; }
+.character-info .character-title, .character-info .character-bio { display: none; }
+
+/* Les flèches de navigation */
+.slider-wrapper .swiper-button-prev,
+.slider-wrapper .swiper-button-next {
+  color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  text-shadow: 0 0 10px #000;
+}
+.slider-wrapper .swiper-button-prev { left: 30px; }
+.slider-wrapper .swiper-button-next { right: 30px; }
+
+/* Le reste des styles (polices, liens, modale, etc.) reste le même */
+/* Styles des polices et des liens spécifiques à Umunami */
 @font-face {
   font-family: 'Cinzel Decorative';
   src: url('/assets/fonts/CinzelDecorative-Regular.ttf') format('truetype');
@@ -580,161 +628,3 @@ footer {
 /* Styles du lien de retour, etc. */
 .back-to-main-site { position: fixed; top: 15px; left: 15px; z-index: 100; background: rgba(255,255,255,0.6); border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; color: #080707 !important; }
 .back-to-main-site:hover { background: rgba(255,255,255,0.9); }
-
-/* 3. Le Carrousel de Personnages - Structure Corrigée */
-.slider-wrapper {
-  /* Ce conteneur ne sert qu'à centrer le carrousel */
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.character-slider {
-  width: 100%;
-  height: 600px;
-  padding: 50px 0;
-}
-
-.swiper-slide {
-  width: 380px;
-  height: 550px;
-}
-
-/* On rend les slides sur les côtés plus petites et transparentes pour l'effet de profondeur */
-.swiper-slide:not(.swiper-slide-active) {
-  opacity: 0.4;
-  transform: scale(0.8);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.swiper-slide-active {
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  transform: scale(1);
-  opacity: 1;
-}
-
-/* La carte du personnage */
-.character-card {
-  width: 100%;
-  height: 100%;
-  background: #1a1a1a;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.character-image {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-}
-.character-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.character-info {
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%;
-  padding: 1.5em;
-  box-sizing: border-box;
-  text-align: center;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
-}
-.character-info h2 { color: #fff; margin: 0; font-size: 2em; }
-.character-info .character-title, .character-info .character-bio { display: none; }
-
-/* Les flèches de navigation */
-.slider-wrapper .swiper-button-prev,
-.slider-wrapper .swiper-button-next {
-  color: #fff;
-  top: 50%;
-  transform: translateY(-50%);
-  text-shadow: 0 0 10px #000;
-}
-.slider-wrapper .swiper-button-prev { left: 20px; }
-.slider-wrapper .swiper-button-next { right: 20px; }
-
-/* 4. /* --- STYLES DE LA MODALE PERSONNAGE --- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* Caché par défaut */
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.modal-overlay.is-visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-container {
-  background: #1a1a1a;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  width: 90%;
-  max-width: 1000px;
-  height: 80vh;
-  max-height: 700px;
-  box-shadow: 0 10px 50px rgba(0,0,0,0.5);
-  position: relative;
-  
-  /* Animation d'apparition */
-  transform: scale(0.9);
-  transition: transform 0.4s ease;
-}
-
-.modal-overlay.is-visible .modal-container {
-  transform: scale(1);
-}
-
-.modal-close-button {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 2.5em;
-  color: #fff;
-  cursor: pointer;
-}
-
-.modal-content {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.modal-image {
-  width: 45%;
-  flex-shrink: 0;
-}
-.modal-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px 0 0 10px;
-}
-
-.modal-info {
-  width: 55%;
-  padding: 2em 3em;
-  overflow-y: auto; /* Permet de scroller si la bio est très longue */
-}
-.modal-info h2 { font-size: 3em; color: #a60201; }
-.modal-info p { margin-bottom: 1.5em; line-height: 1.7; }
