@@ -1,5 +1,5 @@
 ---
-layout: umunami
+layout: chronicle
 title: "Arc II: Héritages et fantômes"
 order: 1 # We can use this to sort the chapters later
 ---

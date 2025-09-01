@@ -1,5 +1,5 @@
 ---
-layout: umunami
+layout: chronicle
 title: "Arc I: La rupture familiale"
 order: 1 # We can use this to sort the chapters later
 ---

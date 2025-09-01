@@ -1,0 +1,23 @@
+---
+layout: umunami
+---
+
+<article class="chronicle-content">
+  {{ content }}
+</article>
+
+<nav class="chapter-navigation">
+  {% if page.previous %}
+    <a href="{{ page.previous.url }}" class="prev">
+      &laquo; Chapitre Précédent
+      <span>{{ page.previous.title }}</span>
+    </a>
+  {% endif %}
+  
+  {% if page.next %}
+    <a href="{{ page.next.url }}" class="next">
+      Chapitre Suivant &raquo;
+      <span>{{ page.next.title }}</span>
+    </a>
+  {% endif %}
+</nav>

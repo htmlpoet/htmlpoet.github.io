@@ -678,6 +678,47 @@ footer {
   color: #333;
 }
 
+/* --- Chapter Reading View & Navigation --- */
+.chronicle-content {
+  /* You can add specific typography styles for reading here if you want */
+  padding-bottom: 2em;
+}
+
+.chapter-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.chapter-navigation a {
+  display: block;
+  width: 48%;
+  padding: 1em;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.chapter-navigation a:hover {
+  background: rgba(0,0,0,0.1);
+  border-color: #a60201;
+}
+
+.chapter-navigation a span {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #333;
+}
+
+.chapter-navigation .next {
+  text-align: right;
+}
+
 
 
 
