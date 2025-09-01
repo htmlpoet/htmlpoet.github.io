@@ -32,4 +32,24 @@
   <footer class="umunami-footer">
     <p>Une fiction par htmlpoet, inspirée de l'univers de Guild Wars 2.</p>
   </footer>
+  <div id="character-modal" class="modal-overlay">
+    <div class="modal-container">
+      <button id="close-modal" class="modal-close-button">&times;</button>
+      <div class="modal-content">
+        <div class="modal-image">
+          <img id="modal-image" src="" alt="">
+        </div>
+        <div class="modal-info">
+          <h2 id="modal-name"></h2>
+          <p id="modal-title"></p>
+          <div id="modal-bio"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  window.charactersData = {{ site.data.characters | jsonify }};
+</script>
+<script src="/js/umunami.js" defer></script>
+</body>
 </html>
