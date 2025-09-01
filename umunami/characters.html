@@ -2,3 +2,19 @@
 layout: umunami
 title: Characters
 ---
+
+<div class="characters-container">
+  
+  {% for character in site.data.characters %}
+  <div class="character-card-static">
+    <div class="character-image-static">
+      <img src="{{ character.image }}" alt="Portrait de {{ character.name }}">
+    </div>
+    <div class="character-info-static">
+      <h3>{{ character.name }}</h3>
+      <p>{{ character.title }}</p>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>

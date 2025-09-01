@@ -523,7 +523,7 @@ footer {
 
 /* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION STABLE ET FINALE) --- */
 
-/* 1. Layout de base de la page */
+/* Layout de base de la page */
 .umunami-body {
   display: flex;
   flex-direction: column;
@@ -580,3 +580,56 @@ footer {
 /* Styles du lien de retour, etc. */
 .back-to-main-site { position: fixed; top: 15px; left: 15px; z-index: 100; background: rgba(255,255,255,0.6); border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; color: #080707 !important; }
 .back-to-main-site:hover { background: rgba(255,255,255,0.9); }
+
+/* --- SECTION PERSONNAGES (FONDATION STABLE) --- */
+
+/* 1. Le conteneur de la grille */
+.characters-container {
+  display: grid;
+  /* Crée des colonnes qui font au minimum 300px, mais s'agrandissent pour remplir l'espace */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em; /* Espace entre les cartes */
+  padding: 2em 0; /* Espace au-dessus et en-dessous de la grille */
+}
+
+/* 2. Le style de la carte de personnage */
+.character-card-static {
+  background: rgba(0,0,0,0.4); /* Fond sombre semi-transparent */
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  text-align: center;
+  overflow: hidden; /* Assure que l'image ne dépasse pas les coins arrondis */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card-static:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* 3. L'image du personnage */
+.character-image-static img {
+  width: 100%;
+  height: 400px; /* Hauteur fixe pour l'image */
+  object-fit: cover; /* Recadre l'image proprement */
+}
+
+/* 4. Les informations sous l'image */
+.character-info-static {
+  padding: 1.5em;
+}
+
+.character-info-static h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: #fff;
+  font-size: 1.8em;
+  margin: 0 0 0.25em 0;
+}
+
+.character-info-static p {
+  color: #ddd;
+  font-size: 1em;
+  margin: 0;
+  font-style: italic;
+}
