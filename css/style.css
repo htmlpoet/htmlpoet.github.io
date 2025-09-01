@@ -531,7 +531,6 @@ footer {
   background: #f3ddb6 url('/assets/img/wooden-floor-background.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #080707;
-  font-family: 'Lato', sans-serif;
   overflow-x: hidden; /* Empêche tout débordement horizontal */
 }
 
@@ -549,6 +548,11 @@ footer {
   max-width: 850px;
   margin: 0 auto;
   padding: 1em 2em;
+}
+
+.umunami-footer {
+  background: none;
+  color: #a60201;
 }
 
 .umunami-header { padding-top: 2em; }
@@ -572,7 +576,7 @@ footer {
   text-align: center;
 }
 .umunami-header h1 { font-size: 3em; }
-.umunami-nav { text-align: center; margin-bottom: 2em; font-family:'Cinzel Decorative', serif; }
+.umunami-nav { text-align: center; margin-bottom: 2em; font-family:'Cinzel Decorative', serif; padding-inline-start: 0px; }
 .umunami-nav li { display: inline-block; margin: 0 1em; }
 .umunami-body a { color: #a60201; }
 .umunami-body a:hover { color: #d13c3c; }
@@ -581,43 +585,61 @@ footer {
 .back-to-main-site { position: fixed; top: 15px; left: 15px; z-index: 100; background: rgba(255,255,255,0.6); border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; color: #080707 !important; }
 .back-to-main-site:hover { background: rgba(255,255,255,0.9); }
 
-/* --- SECTION PERSONNAGES (FONDATION STABLE) --- */
+/* --- SECTION PERSONNAGES (DESIGN "FULL BLEED") --- */
 
-/* 1. Le conteneur de la grille */
+/* 1. The grid container remains the same */
 .characters-container {
   display: grid;
-  /* Crée des colonnes qui font au minimum 300px, mais s'agrandissent pour remplir l'espace */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2em; /* Espace entre les cartes */
-  padding: 2em 0; /* Espace au-dessus et en-dessous de la grille */
+  gap: 2.5em; /* A little more space */
+  padding: 2em 0;
 }
 
-/* 2. Le style de la carte de personnage */
+/* 2. The card now acts as a positioning container */
 .character-card-static {
-  background: rgba(0,0,0,0.4); /* Fond sombre semi-transparent */
-  border: 1px solid rgba(255,255,255,0.2);
+  height: 480px; /* A good height for a "tarot" card */
   border-radius: 8px;
-  text-align: center;
-  overflow: hidden; /* Assure que l'image ne dépasse pas les coins arrondis */
+  overflow: hidden;
+  position: relative; /* CRUCIAL: This lets us position children inside it */
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .character-card-static:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03); /* A more subtle hover effect */
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* 3. L'image du personnage */
-.character-image-static img {
+/* 3. The image now fills the entire card in the background */
+.character-image-static {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 400px; /* Hauteur fixe pour l'image */
-  object-fit: cover; /* Recadre l'image proprement */
+  height: 100%;
+  z-index: 1; /* Places the image on a lower layer */
 }
 
-/* 4. Les informations sous l'image */
+.character-image-static img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 4. The info box is now an overlay at the bottom */
 .character-info-static {
-  padding: 1.5em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2; /* Sits ON TOP of the image */
+  
+  /* The semi-transparent background for readability */
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%);
+  
+  padding: 3em 1.5em 1.5em 1.5em; /* More padding at the top to clear the gradient */
+  box-sizing: border-box; /* Ensures padding is included in the element's size */
+  text-align: center;
 }
 
 .character-info-static h3 {
@@ -625,6 +647,7 @@ footer {
   color: #fff;
   font-size: 1.8em;
   margin: 0 0 0.25em 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Adds a shadow to the text for better readability */
 }
 
 .character-info-static p {
@@ -632,4 +655,5 @@ footer {
   font-size: 1em;
   margin: 0;
   font-style: italic;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
