@@ -771,10 +771,14 @@ footer {
   }
 
   .modal-info {
-    /* Le texte prend 100% de la largeur et le reste de la hauteur */
+   /* Vos styles existants */
     width: 100%;
     height: 60%;
-    padding: 1.5em; /* Padding ajusté pour les petits écrans */
+    padding: 1.5em;
+
+    /* --- CORRECTIONS --- */
+    box-sizing: border-box; /* Inclut le padding dans la largeur de 100% */
+    overflow-y: auto;     /* Ajoute une barre de défilement si le texte est trop long */
   }
 
   .modal-info h2 {
