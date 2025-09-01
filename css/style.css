@@ -786,16 +786,14 @@ body.umunami-body footer.umunami-footer {
   transform: translateY(-50%);
 }
 
-/* On force la position de la flèche gauche */
 .character-slider .swiper-button-prev {
-  left: 10px; /* À 10px du bord du slider */
   right: auto;
+  left: -20px; /* Pousse la flèche plus à gauche */
 }
 
-/* On force la position de la flèche droite */
 .character-slider .swiper-button-next {
-  right: 10px; /* À 10px du bord du slider */
   left: auto;
+  right: -20px; /* Pousse la flèche plus à droite */
 }
 
 /* --- CORRECTIONS DE COULEUR POUR LA SECTION UMUNAMI --- */

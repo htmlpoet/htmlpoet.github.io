@@ -1,18 +1,20 @@
 
+
 var swiper = new Swiper('.character-slider', {
-  // Use the standard 'slide' effect for stability
+  // On reste sur l'effet "slide" pour la stabilité
   effect: 'slide',
   
-  // Center the main card
+  // On active la boucle infinie
+  loop: true,
+  
+  // Affiche la carte principale au centre
   centeredSlides: true,
   
-  // Make sure only one card is primarily visible
-  slidesPerView: 1,
+  // C'EST LA PARTIE IMPORTANTE : on montre plusieurs cartes
+  slidesPerView: 'auto', // Laisse le CSS déterminer la taille des cartes
+  spaceBetween: -80,    // Crée un chevauchement pour l'effet "deck"
   
-  // Enable the infinite loop
-  loop: true,
-
-  // Keep the cursor and navigation arrows
+  // Garde le curseur et la navigation
   grabCursor: true,
   navigation: {
     nextEl: '.swiper-button-next',
