@@ -27,6 +27,11 @@
       {{ content }}
     </main>
   </div>
+  {% if page.title == "Characters" %}
+  <script src="{{ '/assets/js/characters.js' | relative_url }}"></script>
+{% endif %}
+
+</body>
   <footer class="umunami-footer">
     <p>Une fiction par htmlpoet, inspirée de l'univers de Guild Wars 2.</p>
   </footer>
