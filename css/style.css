@@ -422,9 +422,9 @@ footer {
   display: none;
 }
 
-/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION STABLE ET FINALE) --- */
+/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION CORRIGÉE ET STABLE) --- */
 
-/* Layout de base de la page */
+/* 1. LAYOUT DE BASE */
 .umunami-body {
   display: flex;
   flex-direction: column;
@@ -432,11 +432,12 @@ footer {
   background: #f3ddb6 url('/assets/img/wooden-floor-background.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #080707;
-  overflow-x: hidden; /* Empêche tout débordement horizontal */
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
 }
 
 .umunami-container {
-  flex-grow: 1; /* Pousse le footer en bas */
+  flex-grow: 1;
   width: 100%;
   max-width: 1200px;
   margin: 2em auto;
@@ -444,22 +445,26 @@ footer {
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-/* Contenu centré (textes, etc.) */
-.umunami-header, .umunami-nav, .umunami-content, .umunami-footer {
+.umunami-header,
+.umunami-nav,
+.umunami-content {
   max-width: 850px;
   margin: 0 auto;
   padding: 1em 2em;
 }
-
-.umunami-footer {
-  background: none;
-  color: #a60201;
-}
-
 .umunami-header { padding-top: 2em; }
 
-/* Styles des polices et des liens spécifiques à Umunami */
+.umunami-footer {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 1em 2em 2em 2em; /* Espace final */
+  text-align: center;
+  font-size: 0.9em;
+  color: #5a4e3a; /* Couleur corrigée */
+  text-shadow: none;
+}
 
+/* 2. POLICES ET TITRES */
 @font-face {
   font-family: 'Cinzel Decorative';
   src: url('/assets/fonts/CinzelDecorative-Regular.ttf') format('truetype');
@@ -478,45 +483,86 @@ footer {
 }
 .umunami-header h1 { font-size: 3em; }
 
+/* 3. CORRECTION FINALE DES LIENS */
+/* Règle de base pour TOUS les liens dans Umunami */
+body.umunami-body a {
+  color: #a60201;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+body.umunami-body a:hover {
+  color: #d13c3c;
+}
+
+/* On force le style sur le titre principal H1 */
+.umunami-header h1 a {
+  color: inherit; /* Hérite de la couleur rouge du H1 */
+}
+
+/* Styles spécifiques pour le menu de navigation */
 .umunami-nav {
   text-align: center;
   padding: 1.5em 1em;
-  margin: 0 auto 2em auto; /* Reduced top margin to bring it closer to the title */
-  border-top: 1px solid rgba(166, 2, 1, 0.3); /* Stylized borders */
+  margin: 0 auto 2em auto;
+  border-top: 1px solid rgba(166, 2, 1, 0.3);
   border-bottom: 1px solid rgba(166, 2, 1, 0.3);
   max-width: 850px;
 }
-
-.umunami-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.umunami-nav li {
-  display: inline-block;
-  margin: 0 0.5em; /* Reduced margin for better wrapping on mobile */
-}
-
+.umunami-nav ul { list-style: none; padding: 0; margin: 0; }
+.umunami-nav li { display: inline-block; margin: 0 0.5em; }
 .umunami-nav a {
   font-family: 'Cinzel Decorative', serif;
-  color: #a60201;
-  text-decoration: none;
   font-weight: 700;
-  font-size: 1.5em; /* Much larger font size */
+  font-size: 1.5em;
   padding: 0.5em;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .umunami-nav a:hover {
-  color: #d13c3c;
-  text-shadow: 0 0 10px rgba(166, 2, 1, 0.5); /* Adds a red glow on hover */
-  text-decoration: none; /* Removed the underline for a cleaner look */
+  text-shadow: 0 0 10px rgba(166, 2, 1, 0.5);
+  text-decoration: none;
 }
 
-/* Styles du lien de retour, etc. */
-.back-to-main-site { position: fixed; top: 15px; left: 15px; z-index: 100; background: rgba(255,255,255,0.6); border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; color: #080707 !important; }
-.back-to-main-site:hover { background: rgba(255,255,255,0.9); }
+/* Styles pour la liste des chapitres */
+.chapter-list a .chapter-title {
+  color: #a60201;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  display: block;
+}
+.chapter-list a .chapter-description {
+  color: #5a4e3a;
+  display: block;
+  font-size: 0.9em;
+}
+.chapter-list a:hover .chapter-title {
+  color: #d13c3c;
+}
+
+/* Styles pour la navigation entre chapitres */
+.chapter-navigation a {
+  color: #a60201;
+  font-family: 'Cinzel Decorative', serif;
+}
+.chapter-navigation a span {
+  color: #5a4e3a;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+/* Style d'exception pour le lien de retour */
+.back-to-main-site {
+  position: fixed;
+  top: 15px; left: 15px;
+  z-index: 100;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.back-to-main-site, .back-to-main-site:hover {
+  color: #080707 !important; /* On garantit que ce lien reste noir */
+}
 
 /* --- SECTION CHARACTERS (DESIGN "FULL BLEED") --- */
 
@@ -875,7 +921,7 @@ footer {
   .modal-content {
     /* LA RÈGLE CLÉ : on passe d'une ligne (row) à une colonne (column) */
     flex-direction: column;
-  }
+  } 
 
   .modal-image {
     /* L'image prend 100% de la largeur et une partie de la hauteur */
