@@ -23,3 +23,9 @@ defaults:
     values:
       layout: "post"  # Optionnel mais recommandé : tous vos posts utiliseront ce layout
       permalink: /blog/:title/ # MODIFIÉ
+
+# Umunami section
+collections:
+  chronicles:
+    output: true
+    permalink: /chronicles/:path/

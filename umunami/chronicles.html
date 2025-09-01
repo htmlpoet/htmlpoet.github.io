@@ -1,0 +1,23 @@
+---
+layout: umunami
+title: Chroniques
+---
+
+<div class="table-of-contents">
+  <h2>Table des Matières</h2>
+  <p>Découvrez l’histoire principale, découpée en arcs narratifs.</p>
+
+  <ul class="chapter-list">
+    
+    {% assign chapters = site.chronicles | sort: "order" %}
+    {% for chapter in chapters %}
+      <li>
+        <a href="{{ chapter.url }}">
+          <span class="chapter-title">{{ chapter.title }}</span>
+          <span class="chapter-description">Lire le chapitre →</span>
+        </a>
+      </li>
+    {% endfor %}
+
+  </ul>
+</div>

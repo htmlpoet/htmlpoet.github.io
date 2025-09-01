@@ -643,6 +643,44 @@ footer {
 .modal-info p { margin-bottom: 1.5em; line-height: 1.7; color: #ddd; }
 #modal-title { font-family: 'Cinzel Decorative', serif; font-style: italic; color: #a60201; }
 
+/* --- Table of Contents for Umunami --- */
+.chapter-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2em;
+}
+.chapter-list li {
+  margin-bottom: 1em;
+}
+.chapter-list a {
+  display: block;
+  padding: 1.5em;
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.chapter-list a:hover {
+  background-color: rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+}
+.chapter-list .chapter-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  display: block;
+  color: #a60201;
+}
+.chapter-list .chapter-description {
+  display: block;
+  font-size: 0.9em;
+  color: #333;
+}
+
+
+
+
 
 /* --- MENU MOBILE & RESPONSIVE --- */
 .mobile-menu-toggle {
