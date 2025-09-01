@@ -4,7 +4,7 @@ title: Characters
 ---
 
 <div class="slider-wrapper">
-  <div class="swiper-container character-slider">
+  <div class="swiper character-slider">
     <div class="swiper-wrapper">
 
       {% for character in site.data.characters %}
@@ -23,5 +23,14 @@ title: Characters
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+<div id="character-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div class="modal-body">
+      <!-- Contenu injecté dynamiquement via JS -->
+    </div>
   </div>
 </div>

@@ -17,7 +17,7 @@
     </header>
     <nav class="umunami-nav">
       <ul>
-        <li><a href="/umunami/universe.html">universe</a></li>
+        <li><a href="/umunami/universe.html">Universe</a></li>
         <li><a href="/umunami/chronicles.html">Chronicles</a></li>
         <li><a href="/umunami/fragments.html">Fragments</a></li>
         <li><a href="/umunami/characters.html">Characters</a></li>
@@ -27,22 +27,7 @@
       {{ content }}
     </main>
   </div>
-
   <footer class="umunami-footer">
     <p>Une fiction par htmlpoet, inspirée de l'univers de Guild Wars 2.</p>
   </footer>
-
-  <div id="character-modal" class="modal-overlay">
-    </div>
-
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  
-  <script>
-    // ÉTAPE CRUCIALE : On passe les données de Jekyll à une variable JavaScript globale
-    window.charactersData = {{ site.data.characters | jsonify }};
-  </script>
-  
-  <script src="/js/umunami.js" defer></script>
-
-</body>
 </html>
