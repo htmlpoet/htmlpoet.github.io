@@ -520,3 +520,34 @@ footer {
     transform: rotate(-45deg) translate(7px, -7px);
   }
 }
+
+/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION STABLE ET FINALE) --- */
+
+/* 1. Layout de base de la page */
+.umunami-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f3ddb6 url('/assets/img/wooden-floor-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #080707;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden; /* Empêche tout débordement horizontal */
+}
+
+.umunami-container {
+  flex-grow: 1; /* Pousse le footer en bas */
+  width: 100%;
+  max-width: 1200px;
+  margin: 2em auto;
+  background: rgba(243, 221, 182, 0.95);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* 2. Contenu centré (textes, etc.) */
+.umunami-header, .umunami-nav, .umunami-content, .umunami-footer {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 1em 2em;
+}
+.umunami-header { padding-top: 2em; }
