@@ -3,28 +3,27 @@
 // On attend que toute la page soit chargée pour exécuter le code
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Initialisation de Swiper ---
-  const characterSlider = document.querySelector('.character-slider');
-  if (characterSlider) {
-    var swiper = new Swiper(characterSlider, {
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 3,
-      loop: true,
-      coverflowEffect: {
-        rotate: 30,
-        stretch: -60,
-        depth: 100,
-        modifier: 1,
-        slideShadows: false,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  }
+// --- Initialisation de Swiper (Version STABLE et LARGE) ---
+const characterSlider = document.querySelector('.character-slider');
+if (characterSlider) {
+  var swiper = new Swiper(characterSlider, {
+    effect: 'slide',      // L'effet le plus stable
+    grabCursor: true,
+    centeredSlides: true, // La carte active est toujours au centre
+    loop: true,
+    
+    // C'est ici qu'on crée l'effet de "voisinage" sans débordement
+    slidesPerView: 'auto', // Les slides prennent leur largeur définie en CSS
+    spaceBetween: 20,    // Espace entre les slides
+    
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+}
+
+// ... Le reste de votre script pour la modale ne change pas ...
 
   // --- Logique de la Modale ---
   const modal = document.getElementById('character-modal');

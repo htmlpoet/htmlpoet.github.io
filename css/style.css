@@ -521,76 +521,49 @@ footer {
   }
 }
 
-/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION FINALE) --- */
+/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION FINALE ET STABLE) --- */
 
-/* Le fond et la typographie de base pour le thème clair */
-/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION CORRIGÉE) --- */
-
+/* 1. Configuration de base du layout Umunami */
 .umunami-body {
-  /* On transforme le body en conteneur flex principal */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
-  /* On fixe l'image de fond pour qu'elle remplisse toujours l'écran */
   background: #f3ddb6 url('/assets/img/wooden-floor-background.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
-  
   color: #080707;
+  font-family: 'Lato', sans-serif;
 }
 
 .umunami-container {
-  /* Le conteneur grandit pour pousser le footer vers le bas */
   flex-grow: 1;
-
-  position: relative;
-  background: rgba(243, 221, 182, 0.95);
+  width: 100%;
   max-width: 1200px;
-  width: 100%; /* S'assure qu'il prend la largeur disponible */
-  margin: 2em auto; /* Centre le conteneur et ajoute de l'espace */
-  padding: 60px 0; /* Un peu moins de padding vertical */
+  margin: 2em auto;
+  background: rgba(243, 221, 182, 0.95);
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-/* Le footer n'a plus besoin de correction, il est maintenant bien placé */
+.umunami-header,
+.umunami-nav,
+.umunami-content,
 .umunami-footer {
-  width: 100%;
-  padding: 1em 0;
-  text-align: center;
-  color: #fff; /* Texte blanc pour contraster avec le fond bois */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Ombre portée pour la lisibilité */
-  font-size: 0.9em;
-}
-
-/* ... le reste de votre CSS (.umunami-content, titres, etc.) ... */
-
-/* Le contenu reste au-dessus */
-.umunami-header, .umunami-content {
-  position: relative;
-  z-index: 10;
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
   padding: 0 2em;
-  flex-grow: 1;
 }
+.umunami-header { padding-top: 2em; }
+.umunami-footer { padding-bottom: 2em; color: #5a4e3a; text-shadow: none; }
 
-/* Styles des titres */
-
+/* 2. Styles des polices et des liens spécifiques à Umunami */
 @font-face {
   font-family: 'Cinzel Decorative';
   src: url('/assets/fonts/CinzelDecorative-Regular.ttf') format('truetype');
   font-weight: 400;
-  font-style: normal;
 }
-
 @font-face {
   font-family: 'Cinzel Decorative';
   src: url('/assets/fonts/CinzelDecorative-Bold.ttf') format('truetype');
   font-weight: 700;
-  font-style: normal;
 }
 
 .umunami-body h1, .umunami-body h2 {
@@ -598,147 +571,47 @@ footer {
   color: #a60201;
   text-align: center;
 }
+.umunami-header h1 { font-size: 3em; margin-bottom: 1em; }
+.umunami-nav { text-align: center; margin-bottom: 2em; }
+.umunami-nav li { display: inline-block; margin: 0 1em; }
+.umunami-body a { color: #a60201; }
+.umunami-body a:hover { color: #d13c3c; }
 
-.umunami-header h1 {
-  font-size: 3em;
-  margin-bottom: 1em;
-}
+/* Styles du lien de retour, etc. */
+.back-to-main-site { position: fixed; top: 15px; left: 15px; z-index: 100; background: rgba(255,255,255,0.6); border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; color: #080707 !important; }
+.back-to-main-site:hover { background: rgba(255,255,255,0.9); }
 
-/* Lien de retour */
-.back-to-main-site {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 100;
-  color: #080707;
-  text-decoration: none;
-  background: rgba(255,255,255,0.6);
-  padding: 5px 10px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-
-/* --- CORRECTION DÉFINITIVE DU FOOTER UMUNAMI --- */
-body.umunami-body footer {
-  display: none; /* Cache tous les footers par défaut sur cette page */
-}
-
-body.umunami-body footer.umunami-footer {
-  display: block !important; /* Affiche uniquement celui-ci */
-  background: none;
-  border: none;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2em 1em;
-  text-align: center;
-  color: #888;
-  font-size: 0.9em;
-}
-
-.fragment-box {
-  background: rgba(255, 255, 255, 0.8);
-  border-left: 6px solid #a60201;
-  padding: 1.5em;
-  margin: 2em 0;
-  font-style: italic;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.fragment-box::before {
-  content: "✦";
-  font-family: 'Cinzel Decorative', serif;
-  color: #a60201;
-  margin-right: 0.5em;
-}
-
-.umunami-nav {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-.umunami-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.umunami-nav li {
-  display: inline-block;
-  margin: 0 1em;
-}
-
-.umunami-nav a {
-  font-family: 'Cinzel Decorative', serif;
-  color: #a60201;
-  text-decoration: none;
-  font-weight: 700;
-}
-.umunami-nav a:hover {
-  text-decoration: underline;
-}
-
-/* --- CORRECTIONS DE COULEUR POUR LA SECTION UMUNAMI --- */
-
-/* 1. On cible TOUS les liens dans la section Umunami */
-.umunami-body a {
-  color: #a60201; /* Le rouge thématique de GW2 */
-  transition: color 0.3s ease, letter-spacing 0.3s ease; /* On garde la transition douce */
-}
-
-/* 2. Style de survol pour les liens Umunami */
-.umunami-body a:hover {
-  color: #d13c3c; /* Un rouge légèrement plus clair et vif pour le survol */
-}
-
-/* 3. On cible spécifiquement le lien "Retour" pour un style unique si besoin */
-.umunami-body .back-to-main-site {
-  color: #080707; /* On le garde en noir pour la lisibilité sur son fond clair */
-  background: rgba(255,255,255,0.6);
-  border: 1px solid #ddd;
-}
-.umunami-body .back-to-main-site:hover {
-  color: #080707;
-  background: rgba(255,255,255,0.9); /* Le fond devient plus opaque au survol */
-}
-
-/* 4. Correction de la couleur du texte du footer Umunami */
-body.umunami-body footer.umunami-footer {
-  /* On remplace le gris "fluo" par un ton plus sombre et chaud */
-  color: #5a4e3a; 
-  text-shadow: none; /* On retire l'ombre du texte principal qui n'est plus nécessaire ici */
-}
-
-/* --- SECTION PERSONNAGES (STYLE GALERIE DE PORTRAITS) --- */
-
-/* On donne plus d'espace au carrousel */
-/* On élargit le conteneur principal du slider */
+/* 3. Le Carrousel de Personnages - Structure Corrigée */
 .slider-wrapper {
-  width: 100%;
-  max-width: 1200px; /* On prend plus de place */
+  /* Ce conteneur ne sert qu'à centrer le carrousel */
+  max-width: 100%;
   margin: 0 auto;
-  position: relative;
-  overflow: hidden;
 }
 
 .character-slider {
   width: 100%;
-  height: 650px; /* Un peu plus haut pour les nouvelles proportions */
+  height: 600px;
   padding: 50px 0;
 }
 
 .swiper-slide {
-  width: 420px; /* Carte nettement plus large */
-  height: 620px; /* Et plus haute */
-  opacity: 0.5;
+  width: 380px;
+  height: 550px;
+}
+
+/* On rend les slides sur les côtés plus petites et transparentes pour l'effet de profondeur */
+.swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.4;
+  transform: scale(0.8);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
-
 .swiper-slide-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: scale(1);
   opacity: 1;
-  transform: scale(1.05); /* La carte active est légèrement plus grande */
 }
 
-/* La carte est maintenant un portrait vertical */
+/* La carte du personnage */
 .character-card {
   width: 100%;
   height: 100%;
@@ -757,56 +630,35 @@ body.umunami-body footer.umunami-footer {
   width: 100%;
   height: 100%;
 }
-
 .character-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* C'est ce qui recadre parfaitement vos images larges */
+  object-fit: cover;
 }
-
-/* Le nom est maintenant superposé en bas */
 .character-info {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 0; left: 0;
   width: 100%;
   padding: 1.5em;
   box-sizing: border-box;
   text-align: center;
   background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
 }
+.character-info h2 { color: #fff; margin: 0; font-size: 2em; }
+.character-info .character-title, .character-info .character-bio { display: none; }
 
-.character-info h2 {
-  color: #fff;
-  margin: 0;
-  font-size: 2em;
-}
-
-/* On cache le titre et la bio de la carte, ils iront dans la modale */
-.character-info .character-title,
-.character-info .character-bio {
-  display: none;
-}
-
-/* On ESPACE les flèches vers l'extérieur */
+/* Les flèches de navigation */
 .slider-wrapper .swiper-button-prev,
 .slider-wrapper .swiper-button-next {
-  z-index: 10;
+  color: #fff;
   top: 50%;
   transform: translateY(-50%);
-  color: #fff;
   text-shadow: 0 0 10px #000;
-
-}.slider-wrapper .swiper-button-prev {
-  left: -40px; /* Poussée vers l'extérieur */
-  right: auto;
 }
+.slider-wrapper .swiper-button-prev { left: 20px; }
+.slider-wrapper .swiper-button-next { right: 20px; }
 
-.slider-wrapper .swiper-button-next {
-  right: -40px; /* Poussée vers l'extérieur */
-  left: auto;
-}
-/* --- STYLES DE LA MODALE PERSONNAGE --- */
+/* 4. /* --- STYLES DE LA MODALE PERSONNAGE --- */
 .modal-overlay {
   position: fixed;
   top: 0;
