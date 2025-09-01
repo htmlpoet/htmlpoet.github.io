@@ -711,9 +711,10 @@ body.umunami-body footer.umunami-footer {
 /* --- SECTION PERSONNAGES (STYLE GALERIE DE PORTRAITS) --- */
 
 /* On donne plus d'espace au carrousel */
+/* On élargit le conteneur principal du slider */
 .slider-wrapper {
   width: 100%;
-  max-width: 1100px; /* Prend presque toute la largeur du conteneur */
+  max-width: 1200px; /* On prend plus de place */
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -721,13 +722,13 @@ body.umunami-body footer.umunami-footer {
 
 .character-slider {
   width: 100%;
-  height: 620px; /* On augmente la hauteur pour des cartes plus grandes */
+  height: 650px; /* Un peu plus haut pour les nouvelles proportions */
   padding: 50px 0;
 }
 
 .swiper-slide {
-  width: 380px; /* Carte plus large */
-  height: 580px; /* Et plus haute */
+  width: 420px; /* Carte nettement plus large */
+  height: 620px; /* Et plus haute */
   opacity: 0.5;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
@@ -787,13 +788,24 @@ body.umunami-body footer.umunami-footer {
   display: none;
 }
 
-/* Les flèches */
+/* On ESPACE les flèches vers l'extérieur */
 .slider-wrapper .swiper-button-prev,
 .slider-wrapper .swiper-button-next {
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
   color: #fff;
   text-shadow: 0 0 10px #000;
+
+}.slider-wrapper .swiper-button-prev {
+  left: -40px; /* Poussée vers l'extérieur */
+  right: auto;
 }
 
+.slider-wrapper .swiper-button-next {
+  right: -40px; /* Poussée vers l'extérieur */
+  left: auto;
+}
 /* --- STYLES DE LA MODALE PERSONNAGE --- */
 .modal-overlay {
   position: fixed;

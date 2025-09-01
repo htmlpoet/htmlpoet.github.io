@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "fr" }}">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | Umunami Chronicles</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -14,88 +16,33 @@
       <h1><a href="/umunami.html">Umunami Chronicles</a></h1>
     </header>
     <nav class="umunami-nav">
-  <ul>
-    <li><a href="/umunami/universe.html">Universe</a></li>
-    <li><a href="/umunami/chronicles.html">Chronicles</a></li>
-    <li><a href="/umunami/fragments.html">Fragments</a></li>
-    <li><a href="/umunami/characters.html">Characters</a></li>
-  </ul>
-</nav>
+      <ul>
+        <li><a href="/umunami/universe.html">universe</a></li>
+        <li><a href="/umunami/chronicles.html">Chronicles</a></li>
+        <li><a href="/umunami/fragments.html">Fragments</a></li>
+        <li><a href="/umunami/characters.html">Characters</a></li>
+      </ul>
+    </nav>
     <main class="umunami-content">
       {{ content }}
     </main>
   </div>
-<div id="character-modal" class="modal-overlay">
-  <div class="modal-container">
-    <button id="close-modal" class="modal-close-button">&times;</button>
-    <div class="modal-content">
-      <div class="modal-image">
-        <img id="modal-image" src="" alt="">
-      </div>
-      <div class="modal-info">
-        <h2 id="modal-name"></h2>
-        <p id="modal-title"></p>
-        <div id="modal-bio"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
-</body>
-</html>
   <footer class="umunami-footer">
     <p>Une fiction par htmlpoet, inspirée de l'univers de Guild Wars 2.</p>
   </footer>
+
+  <div id="character-modal" class="modal-overlay">
+    </div>
+
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script defer>
-  // On met toutes nos données de personnages dans une variable JavaScript
-  const charactersData = {{ site.data.characters | jsonify }};
+  
+  <script>
+    // ÉTAPE CRUCIALE : On passe les données de Jekyll à une variable JavaScript globale
+    window.charactersData = {{ site.data.characters | jsonify }};
+  </script>
+  
+  <script src="/js/umunami.js" defer></script>
 
-  // --- Initialisation de Swiper ---
-  var swiper = new Swiper('.character-slider', {
-    // ... vos options Swiper ...
-  });
-
-  // --- Logique de la Modale ---
-  const modal = document.getElementById('character-modal');
-  const closeModalButton = document.getElementById('close-modal');
-
-  // Éléments de la modale à remplir
-  const modalImage = document.getElementById('modal-image');
-  const modalName = document.getElementById('modal-name');
-  const modalTitle = document.getElementById('modal-title');
-  const modalBio = document.getElementById('modal-bio');
-
-  // On ajoute un écouteur de clic à chaque carte
-  document.querySelectorAll('.character-card').forEach((card, index) => {
-    card.addEventListener('click', () => {
-      // On récupère les données du personnage cliqué
-      const character = charactersData[index];
-      
-      // On remplit la modale avec ces données
-      modalImage.src = character.image;
-      modalImage.alt = character.name;
-      modalName.textContent = character.name;
-      modalTitle.textContent = character.title;
-      modalBio.innerHTML = `<p>${character.bio.replace(/\n/g, '</p><p>')}</p>`; // Transforme les sauts de ligne en paragraphes
-
-      // On affiche la modale
-      modal.classList.add('is-visible');
-    });
-  });
-
-  // Fonction pour fermer la modale
-  function closeModal() {
-    modal.classList.remove('is-visible');
-  }
-
-  closeModalButton.addEventListener('click', closeModal);
-  modal.addEventListener('click', (event) => {
-    // On ferme la modale si on clique sur le fond (l'overlay)
-    if (event.target === modal) {
-      closeModal();
-    }
-  });
-</script>
 </body>
 </html>
