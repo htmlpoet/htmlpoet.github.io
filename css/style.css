@@ -797,3 +797,34 @@ body.umunami-body footer.umunami-footer {
   right: 10px; /* À 10px du bord du slider */
   left: auto;
 }
+
+/* --- CORRECTIONS DE COULEUR POUR LA SECTION UMUNAMI --- */
+
+/* 1. On cible TOUS les liens dans la section Umunami */
+.umunami-body a {
+  color: #a60201; /* Le rouge thématique de GW2 */
+  transition: color 0.3s ease, letter-spacing 0.3s ease; /* On garde la transition douce */
+}
+
+/* 2. Style de survol pour les liens Umunami */
+.umunami-body a:hover {
+  color: #d13c3c; /* Un rouge légèrement plus clair et vif pour le survol */
+}
+
+/* 3. On cible spécifiquement le lien "Retour" pour un style unique si besoin */
+.umunami-body .back-to-main-site {
+  color: #080707; /* On le garde en noir pour la lisibilité sur son fond clair */
+  background: rgba(255,255,255,0.6);
+  border: 1px solid #ddd;
+}
+.umunami-body .back-to-main-site:hover {
+  color: #080707;
+  background: rgba(255,255,255,0.9); /* Le fond devient plus opaque au survol */
+}
+
+/* 4. Correction de la couleur du texte du footer Umunami */
+body.umunami-body footer.umunami-footer {
+  /* On remplace le gris "fluo" par un ton plus sombre et chaud */
+  color: #5a4e3a; 
+  text-shadow: none; /* On retire l'ombre du texte principal qui n'est plus nécessaire ici */
+}
