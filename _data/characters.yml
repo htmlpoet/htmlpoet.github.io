@@ -15,4 +15,9 @@
   image: "/assets/img/characters/tafari.png"
   bio: "Tafari voit les fils du temps comme une partition à réécrire. Idéaliste et puissant, il cherche à défaire les tragédies du passé, sans réaliser que chaque fil tiré peut défaire la trame entière de la réalité."
 
+- name: "Erikah"
+  title: "Mirage of Veiled Pain"
+  image: "/assets/img/characters/erikah.jpg" # Important : utilisez des images découpées (fond transparent) !
+  bio: "Tourmentée par un passé qu'elle ne peut fuir, Teloyah manie les ombres non pas pour se cacher, mais pour révéler les vérités enfouies. Sa quête est autant une rédemption qu'une vengeance."
+
 # ... ajoutez tous vos autres personnages ici ...
