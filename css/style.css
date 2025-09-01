@@ -544,10 +544,39 @@ footer {
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-/* 2. Contenu centré (textes, etc.) */
+/* Contenu centré (textes, etc.) */
 .umunami-header, .umunami-nav, .umunami-content, .umunami-footer {
   max-width: 850px;
   margin: 0 auto;
   padding: 1em 2em;
 }
+
 .umunami-header { padding-top: 2em; }
+
+/* Styles des polices et des liens spécifiques à Umunami */
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/assets/fonts/CinzelDecorative-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/assets/fonts/CinzelDecorative-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+.umunami-body h1, .umunami-body h2 {
+  font-family: 'Cinzel Decorative', serif;
+  color: #a60201;
+  text-align: center;
+}
+.umunami-header h1 { font-size: 3em; margin-bottom: 1em; }
+.umunami-nav { text-align: center; margin-bottom: 2em; }
+.umunami-nav li { display: inline-block; margin: 0 1em; }
+.umunami-body a { color: #a60201; }
+.umunami-body a:hover { color: #d13c3c; }
+
+/* Styles du lien de retour, etc. */
+.back-to-main-site { position: fixed; top: 15px; left: 15px; z-index: 100; background: rgba(255,255,255,0.6); border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; color: #080707 !important; }
+.back-to-main-site:hover { background: rgba(255,255,255,0.9); }
