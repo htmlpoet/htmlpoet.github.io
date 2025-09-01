@@ -422,105 +422,6 @@ footer {
   display: none;
 }
 
-/* --- MENU MOBILE & RESPONSIVE --- */
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.mobile-menu-toggle span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: #fff;
-  margin: 5px 0;
-  transition: all 0.3s ease-in-out;
-}
-
-@media (max-width: 992px) {
-  .blog-container {
-    flex-direction: column;
-  }
-
-  .blog-main,
-  .blog-sidebar {
-    flex: 1 1 100%;
-  }
-
-  .blog-sidebar {
-    margin-top: 4em;
-    padding-top: 2em;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-  }
-}
-
-@media (max-width: 768px) {
-  .mobile-menu-toggle {
-    display: block;
-    /* Ajoutez un z-index élevé ici aussi pour qu'il soit cliquable */
-    z-index: 1001;
-  }
-
-  nav#main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(10, 26, 51, 0.95);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
-
-    /* CORRECTION 1 : Ajout du z-index */
-    z-index: 1000;
-  }
-
-  nav#main-nav.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  nav#main-nav ul {
-    flex-direction: column;
-    text-align: center;
-    /* Assurez-vous que la liste ne déborde pas */
-    padding: 0;
-  }
-
-  nav#main-nav li {
-    margin: 20px 0;
-    /* CORRECTION 2 : Forcer l'affichage en bloc */
-    display: block;
-    width: 100%;
-  }
-
-  nav#main-nav a {
-    font-size: 2em;
-  }
-
-  .mobile-menu-toggle.is-active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .mobile-menu-toggle.is-active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .mobile-menu-toggle.is-active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-}
-
 /* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION STABLE ET FINALE) --- */
 
 /* Layout de base de la page */
@@ -585,7 +486,7 @@ footer {
 .back-to-main-site { position: fixed; top: 15px; left: 15px; z-index: 100; background: rgba(255,255,255,0.6); border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; color: #080707 !important; }
 .back-to-main-site:hover { background: rgba(255,255,255,0.9); }
 
-/* --- SECTION PERSONNAGES (DESIGN "FULL BLEED") --- */
+/* --- SECTION CHARACTERS (DESIGN "FULL BLEED") --- */
 
 /* 1. The grid container remains the same */
 .characters-container {
@@ -741,3 +642,148 @@ footer {
 .modal-info h2 { font-size: 3em; color: #a60201; text-align: left; }
 .modal-info p { margin-bottom: 1.5em; line-height: 1.7; color: #ddd; }
 #modal-title { font-family: 'Cinzel Decorative', serif; font-style: italic; color: #a60201; }
+
+
+/* --- MENU MOBILE & RESPONSIVE --- */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+  .blog-container {
+    flex-direction: column;
+  }
+
+  .blog-main,
+  .blog-sidebar {
+    flex: 1 1 100%;
+  }
+
+  .blog-sidebar {
+    margin-top: 4em;
+    padding-top: 2em;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    /* Ajoutez un z-index élevé ici aussi pour qu'il soit cliquable */
+    z-index: 1001;
+  }
+
+  nav#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 26, 51, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+
+    /* CORRECTION 1 : Ajout du z-index */
+    z-index: 1000;
+  }
+
+  nav#main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  nav#main-nav ul {
+    flex-direction: column;
+    text-align: center;
+    /* Assurez-vous que la liste ne déborde pas */
+    padding: 0;
+  }
+
+  nav#main-nav li {
+    margin: 20px 0;
+    /* CORRECTION 2 : Forcer l'affichage en bloc */
+    display: block;
+    width: 100%;
+  }
+
+  nav#main-nav a {
+    font-size: 2em;
+  }
+
+  .mobile-menu-toggle.is-active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .mobile-menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+/* --- RESPONSIVE POUR LA MODALE UMUNAMI CHARACTERS  --- */
+
+@media (max-width: 768px) {
+  /* Styles qui s'appliquent uniquement sur les écrans de 768px ou moins (tablettes et mobiles) */
+
+  .modal-container {
+    /* On ajuste la taille de la modale pour qu'elle prenne plus de place sur l'écran */
+    width: 95%;
+    height: 90vh; 
+  }
+
+  .modal-content {
+    /* LA RÈGLE CLÉ : on passe d'une ligne (row) à une colonne (column) */
+    flex-direction: column;
+  }
+
+  .modal-image {
+    /* L'image prend 100% de la largeur et une partie de la hauteur */
+    width: 100%;
+    height: 40%;
+  }
+
+  .modal-image img {
+    /* On ajuste les coins arrondis pour le nouveau layout */
+    border-radius: 10px 10px 0 0;
+  }
+
+  .modal-info {
+    /* Le texte prend 100% de la largeur et le reste de la hauteur */
+    width: 100%;
+    height: 60%;
+    padding: 1.5em; /* Padding ajusté pour les petits écrans */
+  }
+
+  .modal-info h2 {
+    font-size: 2em; /* On réduit un peu la taille du titre */
+  }
+
+  .modal-close-button {
+    font-size: 2em;
+    top: 15px;
+    right: 20px;
+  }
+}
