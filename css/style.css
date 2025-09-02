@@ -133,16 +133,33 @@ nav#main-nav a {
   font-weight: bold;
 }
 
-/* --- FOOTER --- */
+/* --- FOOTER (NOUVEAU STYLE MINIMALISTE "CAPSULE") --- */
+
 footer {
+  /* On utilise le footer comme un conteneur pour l'espacement et le centrage */
+  background: none; /* On retire l'ancien fond bleu */
   text-align: center;
-  padding: 2em 1em;
+  padding: 4em 1em; /* Ajoute beaucoup d'espace vertical autour */
   margin-top: 2em;
-  font-size: 0.9em;
-  background: #0d1a2d;
-  color: #cccccc;
 }
 
+footer p {
+  /* C'est cet élément qui devient notre "capsule" */
+  display: inline-block; /* Fait en sorte que le conteneur s'adapte à la taille du texte */
+  padding: 0.8em 1.5em;   /* Espacement à l'intérieur de la capsule */
+
+  /* L'effet "verre dépoli" (glassmorphism) */
+  background-color: rgba(255, 255, 255, 0.1); /* Un fond blanc très transparent */
+  backdrop-filter: blur(10px);                    /* L'effet de flou derrière */
+  
+  /* Les bordures arrondies pour la forme de pilule */
+  border-radius: 50px; 
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Une fine bordure blanche pour définir les contours */
+  
+  /* Style du texte à l'intérieur */
+  font-size: 0.9em;
+  color: #cccccc;
+}
 
 /* --- CONTACT FORM STYLES --- */
 
