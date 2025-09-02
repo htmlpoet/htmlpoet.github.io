@@ -545,6 +545,8 @@ footer p {
   color: #5a4e3a; /* Couleur corrigée */
   text-shadow: none;
   background: none;
+  border: none;
+  backdrop-filter: none;
 }
 
 /* 2. POLICES ET TITRES */
