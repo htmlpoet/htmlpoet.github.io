@@ -138,6 +138,66 @@ footer {
   color: #cccccc;
 }
 
+
+/* --- CONTACT FORM STYLES --- */
+
+.contact-form-container {
+  max-width: 700px;
+  margin: 2em auto;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #f2f2f2;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8em;
+  font-family: 'Arial', sans-serif;
+  font-size: 1em;
+  background-color: rgba(10, 26, 51, 0.8); /* Dark blue, semi-transparent */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #f2f2f2;
+  box-sizing: border-box; /* Important */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #c9a3ff; /* Purple border on focus */
+  box-shadow: 0 0 10px rgba(201, 163, 255, 0.2);
+}
+
+.submit-button {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #c9a3ff; /* Purple button */
+  color: #0a1a33; /* Dark blue text */
+  border: none;
+  border-radius: 4px;
+  padding: 0.8em 1.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ffb6c1; /* Pink on hover */
+  transform: translateY(-2px);
+}
+
+
 /* --- SECTION BLOG --- */
 .blog-header {
   /* Dégradé plus vibrant allant d'un violet semi-transparent au fond bleu */
