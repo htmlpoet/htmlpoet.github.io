@@ -2,7 +2,8 @@
 /* Applique le dégradé à la page entière */
 /* Assure une base de hauteur stable pour le body */
 html, body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 html {
