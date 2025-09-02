@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  
   <header class="site-header">
     <a href="/" class="site-title">htmlpoet</a>
 
@@ -29,26 +30,25 @@
   </header>
   
   <main>
-  
-  <header class="page-header">
-    <div class="page-header-content">
-      <h1>{{ page.title }}</h1>
-      {% if page.tagline %}
-        <p class="tagline">{{ page.tagline }}</p>
-      {% endif %}
+    <header class="page-header">
+      <div class="page-header-content">
+        <h1>{{ page.title }}</h1>
+        {% if page.tagline %}
+          <p class="tagline">{{ page.tagline }}</p>
+        {% endif %}
+      </div>
+    </header>
+    
+    <div class="main-content">
+      {{ content }}
     </div>
-  </header>
-  
-  <div class="main-content">
-    {{ content }}
-  </div>
-
-</main>
+  </main>
 
   <footer>
     <p>© {{ site.time | date: '%Y' }} htmlpoet</p>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/main.js" defer></script>
+
 </body>
 </html>
