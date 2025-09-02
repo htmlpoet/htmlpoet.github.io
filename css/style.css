@@ -536,7 +536,8 @@ footer p {
 }
 .umunami-header { padding-top: 2em; }
 
-.umunami-footer {
+body.umunami-body footer.umunami-footer p {
+  display: block;
   max-width: 850px;
   margin: 0 auto;
   padding: 1em 2em 2em 2em; /* Espace final */
