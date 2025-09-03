@@ -594,6 +594,10 @@ body.umunami-body a:hover {
   border-bottom: 1px solid rgba(166, 2, 1, 0.3);
   max-width: 850px;
 }
+/* On cache le bouton de l'accordéon sur grand écran */
+.umunami-menu-toggle {
+  display: none;
+}
 .umunami-nav ul { list-style: none; padding: 0; margin: 0; }
 .umunami-nav li { display: inline-block; margin: 0 0.5em; }
 .umunami-nav a {
@@ -923,23 +927,51 @@ body.umunami-body a:hover {
 }
 
 @media (max-width: 768px) {
-  .mobile-menu-toggle {
+  /* On affiche le bouton de l'accordéon */
+  .umunami-menu-toggle {
     display: block;
-    /* Ajoutez un z-index élevé ici aussi pour qu'il soit cliquable */
-    z-index: 1001;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0.8em;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.3em;
+    color: #a60201;
+    cursor: pointer;
+    border: 1px solid rgba(166, 2, 1, 0.2);
+    border-radius: 4px;
+  }
+
+  /* On cache la liste des liens par défaut */
+  #umunami-menu-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+
+  /* Style de la liste quand elle est ouverte */
+  #umunami-menu-list.is-open {
+    max-height: 500px; /* Hauteur suffisante pour tous les liens */
+    transition: max-height 0.4s ease-in;
   }
 
   /* On retire les bordures du conteneur sur mobile pour un look plus épuré */
   .umunami-nav {
-    border-top: none;
-    border-bottom: none;
-    padding-top: 0;
+    border: none;
   }
 
-  /* Chaque item du menu prend toute la largeur */
   .umunami-nav li {
     display: block;
-    margin: 0.5em 0; /* On remplace la marge horizontale par une marge verticale */
+    margin: 0; /* On remplace la marge horizontale par une marge verticale */
+  }
+
+  /* Le lien devient un bouton cliquable sur toute sa surface */
+  .umunami-nav a {
+    display: block;
+    padding: 0.8em;
+  }
+  .umunami-nav a:hover {
+    background: rgba(0,0,0,0.08); /* Léger changement de fond au survol/tap */
   }
 
   nav#main-nav {
@@ -978,18 +1010,7 @@ body.umunami-body a:hover {
     display: block;
     width: 100%;
   }
-  /* Le lien devient un bouton cliquable sur toute sa surface */
-  .umunami-nav a {
-    display: block;
-    padding: 0.8em;
-    font-size: 1.3em; /* On garde une bonne taille de police */
-    border: 1px solid rgba(166, 2, 1, 0.2);
-    border-radius: 4px;
-    background: rgba(0,0,0,0.03);
-  }
-  .umunami-nav a:hover {
-    background: rgba(0,0,0,0.08); /* Léger changement de fond au survol/tap */
-  }
+
   .mobile-menu-toggle.is-active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -999,11 +1020,9 @@ body.umunami-body a:hover {
   .mobile-menu-toggle.is-active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
   }
-}
+  
 /* --- RESPONSIVE POUR LA MODALE UMUNAMI CHARACTERS  --- */
-
-@media (max-width: 768px) {
-  /* Styles qui s'appliquent uniquement sur les écrans de 768px ou moins (tablettes et mobiles) */
+/* Styles qui s'appliquent uniquement sur les écrans de 768px ou moins (tablettes et mobiles) */
 
   .modal-container {
     /* On ajuste la taille de la modale pour qu'elle prenne plus de place sur l'écran */
