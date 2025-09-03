@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | htmlpoet</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  
-  <header class="site-header">
-    <a href="/" class="site-title">htmlpoet</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} | htmlpoet</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="site-title">htmlpoet</a>
 
-    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button
+        id="mobile-menu-toggle"
+        class="mobile-menu-toggle"
+        aria-controls="main-nav"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <nav id="main-nav">
-      <ul>
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/blog">Poésie & écrits</a></li>
-        <li><a href="/umunami">Umunami Chronicles</a></li>
-        <li><a href="/workshops">Ateliers & Éducation</a></li>
-        <li><a href="/experiments">Expériences</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <main>
-    <header class="page-header">
-      <div class="page-header-content">
-        <h1>{{ page.title }}</h1>
-        {% if page.tagline %}
-          <p class="tagline">{{ page.tagline }}</p>
-        {% endif %}
-      </div>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/blog">Poésie & écrits</a></li>
+          <li><a href="/umunami">Umunami Chronicles</a></li>
+          <li><a href="/workshops">Ateliers & Éducation</a></li>
+          <li><a href="/experiments">Expériences</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
     </header>
-    
-    <div class="main-content">
-      {{ content }}
-    </div>
-  </main>
 
-  <footer>
-    <p>© {{ site.time | date: '%Y' }} htmlpoet</p>
-  </footer>
+    <main>
+      <header class="page-header">
+        <div class="page-header-content">
+          <h1>{{ page.title }}</h1>
+          {% if page.tagline %}
+          <p class="tagline">{{ page.tagline }}</p>
+          {% endif %}
+        </div>
+      </header>
 
-  <script src="/js/main.js" defer></script>
+      <div class="main-content">{{ content }}</div>
+    </main>
 
-</body>
+    <footer>
+      <p>© {{ site.time | date: '%Y' }} htmlpoet</p>
+    </footer>
+
+    <script src="/js/main.js" defer></script>
+  </body>
 </html>

@@ -66,7 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
     menuToggle.addEventListener('click', function() {
       mainNav.classList.toggle('is-open');
       this.classList.toggle('is-active');
-    });
+
+  // ADD THIS LINE: Toggle the aria-expanded attribute
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !isExpanded);
+   });
   }
-  
 }); // Fin de l'unique addEventListener

@@ -1,0 +1,78 @@
+/* --- STYLES POUR LE LAYOUT PRINCIPAL --- */
+
+/* Conteneur principal */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* En-tête de page (full-width) */
+/* On utilise calc() et vw (viewport width) pour calculer la marge négative nécessaire */
+.page-header {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-top: 3em;
+  padding-bottom: 3em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1em;
+  text-align: center;
+}
+
+/* Conteneur pour le contenu de la page */
+.main-content {
+  padding: 2em 1em;
+}
+
+/* Header principal & Navigation */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 2em;
+  position: static;
+  background-color: #362962;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+  background: none;
+  text-align: center;
+  padding: 4em 1em;
+  margin-top: 2em;
+}
+
+/* Conteneurs spécifiques au blog */
+.blog-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em 1em;
+  gap: 40px;
+}
+
+.blog-main {
+  flex: 3;
+}
+
+.blog-sidebar {
+  flex: 1;
+}
+
+/* Conteneur spécifique à Umunami */
+.umunami-container {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2em auto;
+  background: rgba(243, 221, 182, 0.95);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}

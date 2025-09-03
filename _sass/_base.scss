@@ -1,0 +1,236 @@
+/* --- STYLES GÉNÉRAUX --- */
+/* Applique le dégradé à la page entière */
+/* Assure une base de hauteur stable pour le body */
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html {
+  height: 100%;
+}
+
+/* Applique le dégradé et gère la hauteur du site */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #f2f2f2;
+  line-height: 1.6;
+  margin: 0;
+  
+  /* Le body fait au moins la hauteur de l'écran, et plus si le contenu est long */
+  min-height: 100%; 
+  
+  /* Le dégradé qui s'étire sur toute la hauteur du contenu */
+  background-image: linear-gradient(180deg, #3E2C6B 0%, #0a1a33 100%);
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Assure que le dégradé défile avec la page */
+  background-color: #0a1a33; /* Couleur de sécurité si le contenu est immense */
+}
+
+h1,
+h2,
+h3 {
+  color: #ffffff;
+  margin-bottom: 0.5em;
+}
+
+/* 1. L'état de base de TOUS les liens */
+a {
+  color: #c9a3ff;
+  /* Votre couleur de lien violette */
+  text-decoration: none;
+  letter-spacing: normal;
+  /* L'espacement par défaut des lettres */
+
+  /* On prépare la transition pour qu'elle soit douce */
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+/* 2. L'état de survol pour TOUS les liens (la couleur change partout) */
+a:hover {
+  color: #ffb6c1;
+  /* Votre couleur de survol rose */
+}
+
+/* --- HEADER PRINCIPAL & NAVIGATION --- */
+
+.site-title {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+nav#main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav#main-nav li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav#main-nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+/* --- FOOTER (NOUVEAU STYLE MINIMALISTE "CAPSULE") --- */
+
+footer p {
+  /* C'est cet élément qui devient notre "capsule" */
+  display: inline-block; /* Fait en sorte que le conteneur s'adapte à la taille du texte */
+  padding: 0.8em 1.5em;   /* Espacement à l'intérieur de la capsule */
+
+  /* L'effet "verre dépoli" (glassmorphism) */
+  background-color: rgba(255, 255, 255, 0.1); /* Un fond blanc très transparent */
+  backdrop-filter: blur(10px);                    /* L'effet de flou derrière */
+  
+  /* Les bordures arrondies pour la forme de pilule */
+  border-radius: 50px; 
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Une fine bordure blanche pour définir les contours */
+  
+  /* Style du texte à l'intérieur */
+  font-size: 0.9em;
+  color: #cccccc;
+}
+
+/* --- CONTACT FORM STYLES --- */
+
+.contact-form-container {
+  max-width: 700px;
+  margin: 2em auto;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #f2f2f2;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8em;
+  font-family: 'Arial', sans-serif;
+  font-size: 1em;
+  background-color: rgba(10, 26, 51, 0.8); /* Dark blue, semi-transparent */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #f2f2f2;
+  box-sizing: border-box; /* Important */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #c9a3ff; /* Purple border on focus */
+  box-shadow: 0 0 10px rgba(201, 163, 255, 0.2);
+}
+
+.submit-button {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #c9a3ff; /* Purple button */
+  color: #0a1a33; /* Dark blue text */
+  border: none;
+  border-radius: 4px;
+  padding: 0.8em 1.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ffb6c1; /* Pink on hover */
+  transform: translateY(-2px);
+}
+
+/* --- HOMEPAGE ENHANCEMENTS --- */
+.home-section {
+  padding: 3em 1em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.home-section h2, .home-section h3 {
+  margin-top: 0;
+}
+
+.featured-section {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.button-primary {
+  display: inline-block;
+  background-color: #c9a3ff;
+  color: #0a1a33;
+  padding: 10px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: #ffb6c1;
+  color: #0a1a33;
+  transform: translateY(-2px);
+}
+
+.post-list-homepage {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 2em auto 0 auto;
+  text-align: left;
+}
+
+.post-list-homepage a {
+  display: block;
+  padding: 1.5em;
+  margin-bottom: 1em;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.post-list-homepage a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: #c9a3ff;
+}
+
+.post-list-homepage h3 {
+  margin: 0 0 0.2em 0;
+  color: #ffffff;
+}
+
+.all-posts-link {
+  margin-top: 2em;
+}
+
+/* --- CHARACTER CARD PROMPT --- */
+.character-card-static .card-prompt {
+  display: block;
+  margin-top: 1em;
+  color: #fff;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+.character-card-static:hover .card-prompt {
+  opacity: 0.5; /* Appears on hover */
+}
