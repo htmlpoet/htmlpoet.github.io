@@ -6,18 +6,35 @@ layout: umunami
   {{ content }}
 </article>
 
+{% comment %}
+  On trie d'abord toutes les chroniques par leur numéro "order".
+{% endcomment %}
+{% assign chapters = site.chronicles | sort: "order" %}
+
+{% comment %}
+  On parcourt ensuite la liste triée pour trouver la page actuelle
+  et identifier le chapitre qui la précède et celui qui la suit.
+{% endcomment %}
+{% for chapter in chapters %}
+  {% if chapter.url == page.url %}
+    {% assign prev_chapter = forloop.previous %}
+    {% assign next_chapter = forloop.next %}
+  {% endif %}
+{% endfor %}
+
+
 <nav class="chapter-navigation">
-  {% if page.previous %}
-    <a href="{{ page.previous.url }}" class="prev">
+  {% if prev_chapter %}
+    <a href="{{ prev_chapter.url }}" class="prev">
       &laquo; Chapitre Précédent
-      <span>{{ page.previous.title }}</span>
+      <span>{{ prev_chapter.title }}</span>
     </a>
   {% endif %}
   
-  {% if page.next %}
-    <a href="{{ page.next.url }}" class="next">
+  {% if next_chapter %}
+    <a href="{{ next_chapter.url }}" class="next">
       Chapitre Suivant &raquo;
-      <span>{{ page.next.title }}</span>
+      <span>{{ next_chapter.title }}</span>
     </a>
   {% endif %}
 </nav>
