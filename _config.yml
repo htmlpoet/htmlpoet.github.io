@@ -1,6 +1,7 @@
 title: "Poésie & Écrits"
 author: htmlpoet
 lang: fr-FR
+permalink: pretty
 
 # Exclure des fichiers du build final
 exclude:
