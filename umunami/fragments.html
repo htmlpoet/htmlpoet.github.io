@@ -1,0 +1,33 @@
+---
+layout: umunami
+title: Fragments
+---
+
+<h1>{{ page.title }}</h1>
+<p>Recueil de journaux, de lettres et de notes découverts au fil des voyages.</p>
+
+<div class="fragments-grid">
+  {# On récupère tous les documents de la collection 'fragments' et on les trie #}
+  {% assign fragments_list = site.fragments | sort: "order" %}
+
+  {% for fragment in fragments_list %}
+    <a href="{{ fragment.url | relative_url }}" class="fragment-card">
+      <article>
+        <h2>{{ fragment.title }}</h2>
+
+        {# On peut ajouter des métadonnées pour plus de contexte #}
+        {% if fragment.type or fragment.origin %}
+          <div class="fragment-meta">
+            {% if fragment.type %}<span class="meta-type">{{ fragment.type }}</span>{% endif %}
+            {% if fragment.origin %}<span class="meta-origin">Origine : {{ fragment.origin }}</span>{% endif %}
+          </div>
+        {% endif %}
+        
+        <p class="fragment-excerpt">
+          {{ fragment.excerpt }}
+        </p>
+      </article>
+    </a>
+  {% endfor %}
+
+</div>

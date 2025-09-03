@@ -376,3 +376,98 @@ body.umunami-body a:hover {
   text-align: right;
   margin-left: auto; /* The key property to push it to the right */
 }
+
+
+/* --- SECTION FRAGMENTS --- */
+/* ==========================================================================
+   Style pour les fragments type parchemin
+   ========================================================================== */
+
+.parchment-fragment {
+  /* Le fond texturé et répétable */
+  background-image: url('/assets/img/parchment.jpg'); /* Vérifiez le chemin ! */
+  background-repeat: repeat;
+
+  /* Esthétique du conteneur */
+  padding: 2em;
+  border: 1px solid #c9b79c;
+  margin: 2em 0; /* Ajoute un peu d'espace avant et après le fragment */
+  
+  /* Police et couleur pour un style plus immersif */
+  color: #3a2d1c; /* Un marron foncé, plus doux que le noir pur */
+  line-height: 1.6;
+
+  /* Positionnement relatif pour l'effet de vignettage */
+  position: relative;
+  
+  /* Une ombre extérieure discrète pour donner du relief */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* La couche pour l'effet de bords estompés */
+.parchment-fragment::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* L'ombre intérieure qui assombrit les bords */
+  box-shadow: inset 0 0 45px 25px rgba(0, 0, 0, 0.35);
+
+  /* Empêche la sélection de cette couche */
+  pointer-events: none;
+}
+
+/* Grille conteneur pour les cartes de fragments */
+.fragments-grid {
+  display: grid;
+  /* Crée des colonnes qui s'adaptent à la taille de l'écran */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px; /* Espace entre les cartes */
+  padding: 20px 0;
+}
+
+/* Style de base pour chaque carte-fragment */
+.fragment-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #fdf5e8; /* Une couleur de base pour le parchemin */
+  border: 1px solid #dcd0b8;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  border-radius: 3px;
+}
+
+/* Effet au survol : la carte se soulève et s'agrandit légèrement */
+.fragment-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.fragment-card h2 {
+  margin-top: 0;
+  color: #5c4b33;
+  font-size: 1.4em;
+}
+
+/* Style pour les métadonnées (type, origine) */
+.fragment-meta {
+  margin-bottom: 15px;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #8c7b62;
+}
+
+.fragment-meta span {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.fragment-excerpt {
+  font-size: 0.95em;
+  line-height: 1.6;
+}

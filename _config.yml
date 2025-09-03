@@ -31,3 +31,7 @@ collections:
     output: true
     permalink: /umunami/chronicles/:path/
     sort_by: order
+  fragments:
+    output: true
+    permalink: /umunami/fragments/:path/
+    sort_by: order
