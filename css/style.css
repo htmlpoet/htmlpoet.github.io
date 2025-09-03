@@ -536,11 +536,15 @@ footer p {
 }
 .umunami-header { padding-top: 2em; }
 
+body.umunami-body footer.umunami-footer {
+  margin: 0 auto;
+}
+
 body.umunami-body footer.umunami-footer p {
   display: block;
   max-width: 850px;
   margin: 0 auto;
-  padding: 1em 2em 2em 2em; /* Espace final */
+  padding: 1em 1em 1em 1em; /* Espace final */
   text-align: center;
   font-size: 0.9em;
   color: #5a4e3a; /* Couleur corrigée */
