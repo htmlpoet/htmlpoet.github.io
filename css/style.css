@@ -964,7 +964,7 @@ body.umunami-body a:hover {
 }
 
 .character-card-static:hover .card-prompt {
-  opacity: 1; /* Appears on hover */
+  opacity: 0.5; /* Appears on hover */
 }
 
 
