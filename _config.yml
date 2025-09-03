@@ -30,3 +30,4 @@ collections:
   chronicles:
     output: true
     permalink: /umunami/chronicles/:path/
+    sort_by: order
