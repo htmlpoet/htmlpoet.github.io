@@ -1,7 +1,7 @@
 ---
 layout: chronicle
 title: "Arc II: Héritages et fantômes"
-order: 1 # We can use this to sort the chapters later
+order: 2 # We can use this to sort the chapters later
 ---
 
 ## Chapter 2
