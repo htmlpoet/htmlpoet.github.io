@@ -28,4 +28,4 @@ defaults:
 collections:
   chronicles:
     output: true
-    permalink: /chronicles/:path/
+    permalink: /umunami/chronicles/:path/

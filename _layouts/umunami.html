@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "fr" }}">
+<html lang="{{ page.lang | default: site.lang | default: " fr" }}">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 </head>
+
 <body class="umunami-body">
 
   <a href="/" class="back-to-main-site">↩ Retour au site principal</a>
@@ -18,7 +20,11 @@
       <h1><a href="/umunami.html">Umunami Chronicles</a></h1>
     </header>
     <nav class="umunami-nav">
-      <ul>
+      <button id="umunami-menu-toggle" class="umunami-menu-toggle">
+        Navigation <span class="icon">✦</span>
+      </button>
+
+      <ul id="umunami-menu-list">
         <li><a href="/umunami/universe.html">Universe</a></li>
         <li><a href="/umunami/chronicles.html">Chronicles</a></li>
         <li><a href="/umunami/fragments.html">Fragments</a></li>
@@ -48,8 +54,9 @@
     </div>
   </div>
   <script>
-  window.charactersData = {{ site.data.characters | jsonify }};
-</script>
-<script src="/js/umunami.js" defer></script>
+    window.charactersData = {{ site.data.characters | jsonify }};
+  </script>
+  <script src="/js/umunami.js" defer></script>
 </body>
+
 </html>
