@@ -6,32 +6,18 @@ layout: umunami
   {{ content }}
 </article>
 
-{% assign chapters = site.chronicles | sort: "order" %}
-
-{% assign current_index = nil %}
-{% for chapter in chapters %}
-  {% if chapter.url == page.url %}
-    {% assign current_index = forloop.index0 %}
-  {% endif %}
-{% endfor %}
-
-{% if current_index != nil %}
-  {% assign prev_chapter = chapters[current_index | minus: 1] %}
-  {% assign next_chapter = chapters[current_index | plus: 1] %}
-{% endif %}
-
 <nav class="chapter-navigation">
-  {% if prev_chapter %}
-    <a href="{{ prev_chapter.url }}" class="prev">
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="prev">
       &laquo; Chapitre Précédent
-      <span>{{ prev_chapter.title }}</span>
+      <span>{{ page.previous.title }}</span>
     </a>
   {% endif %}
   
-  {% if next_chapter %}
-    <a href="{{ next_chapter.url }}" class="next">
+  {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="next">
       Chapitre Suivant &raquo;
-      <span>{{ next_chapter.title }}</span>
+      <span>{{ page.next.title }}</span>
     </a>
   {% endif %}
 </nav>
