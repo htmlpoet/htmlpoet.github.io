@@ -10,7 +10,7 @@ layout: umunami
 
 {% assign current_index = nil %}
 {% for chapter in chapters %}
-  {% if chapter.url == page.url %}
+  {% if chapter.path == page.path %}
     {% assign current_index = forloop.index0 %}
   {% endif %}
 {% endfor %}
