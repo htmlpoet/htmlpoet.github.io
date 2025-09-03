@@ -35,3 +35,19 @@ layout: umunami
     </a>
   {% endif %}
 </nav>
+
+<pre>
+page.url   = {{ page.url }}
+page.path  = {{ page.path }}
+</pre>
+
+{% assign chapters = site.chronicles | sort: "order" %}
+<ul>
+{% for chapter in chapters %}
+  <li>
+    title: {{ chapter.title }} |
+    url: {{ chapter.url }} |
+    path: {{ chapter.path }}
+  </li>
+{% endfor %}
+</ul>
