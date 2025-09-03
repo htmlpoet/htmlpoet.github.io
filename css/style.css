@@ -1,93 +1,117 @@
 /* --- STYLES GÉNÉRAUX --- */
-
-:root {
-  /* On définit des variables pour les couleurs principales */
-  --color-primary: #c9a3ff;      /* Violet pour les liens */
-  --color-hover: #ffb6c1;        /* Rose pour le survol */
-  --color-background-dark: #0a1a33;
-  --color-background-header: #362962;
-  --color-text-light: #f2f2f2;
-  --color-text-medium: #e0e0e0;
-  --color-text-dark: #cccccc;
-  
-  /* Couleurs pour Umunami */
-  --umunami-red: #a60201;
-  --umunami-red-hover: #d13c3c;
-  --umunami-background: #f3ddb6;
-  --umunami-text-dark: #080707;
-  --umunami-text-muted: #5a4e3a;
+/* Applique le dégradé à la page entière */
+/* Assure une base de hauteur stable pour le body */
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 html {
   height: 100%;
 }
 
+/* Applique le dégradé et gère la hauteur du site */
 body {
   font-family: 'Arial', sans-serif;
-  color: var(--color-text-light);
+  color: #f2f2f2;
   line-height: 1.6;
   margin: 0;
+  
+  /* Le body fait au moins la hauteur de l'écran, et plus si le contenu est long */
   min-height: 100%; 
-  background-image: linear-gradient(180deg, #3E2C6B 0%, var(--color-background-dark) 100%);
+  
+  /* Le dégradé qui s'étire sur toute la hauteur du contenu */
+  background-image: linear-gradient(180deg, #3E2C6B 0%, #0a1a33 100%);
   background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-color: var(--color-background-dark);
-  overflow-x: hidden;
+  background-attachment: scroll; /* Assure que le dégradé défile avec la page */
+  background-color: #0a1a33; /* Couleur de sécurité si le contenu est immense */
 }
 
+/* 1. On réinitialise le conteneur principal */
 main {
   max-width: 900px;
   margin: 0 auto;
   padding: 0;
+  /* TRÈS IMPORTANT: On supprime tout le padding ! */
 }
 
+/* 2. On fait "déborder" l'en-tête de page */
 .page-header {
+  /* On utilise calc() et vw (viewport width) pour calculer la marge négative nécessaire */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 3em 0;
+
+  /* On remet le padding vertical ici */
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  /* Le reste de votre style */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* 3. On garde le texte de l'en-tête centré et aligné */
 .page-header-content {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 1em;
+  /* Un peu d'espace sur les côtés pour le texte */
   text-align: center;
 }
 
+/* 4. On crée un nouveau conteneur pour le reste du contenu */
 .main-content {
   padding: 2em 1em;
+  /* Le padding qui était sur <main> avant */
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #ffffff;
   margin-bottom: 0.5em;
 }
 
+/* 1. L'état de base de TOUS les liens */
 a {
-  color: var(--color-primary);
+  color: #c9a3ff;
+  /* Votre couleur de lien violette */
   text-decoration: none;
+  letter-spacing: normal;
+  /* L'espacement par défaut des lettres */
+
+  /* On prépare la transition pour qu'elle soit douce */
   transition: color 0.3s ease, letter-spacing 0.3s ease;
 }
 
+/* 2. L'état de survol pour TOUS les liens (la couleur change partout) */
 a:hover {
-  color: var(--color-hover);
+  color: #ffb6c1;
+  /* Votre couleur de survol rose */
 }
 
-/* --- HEADER PRINCIPAL & FOOTER --- */
+/* --- HEADER PRINCIPAL & NAVIGATION --- */
 .site-header {
+  /* On garde la base de la mise en page */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5em 2em;
-  background-color: var(--color-background-header);
+  
+  /* On revient à la couleur solide et à la position par défaut */
+  position: static; /* Annule l'effet "sticky" */
+  background-color: #362962; /* Votre couleur violette solide et sombre */
+  
+  /* On garde la fine ligne de séparation en bas */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* --- NOUVEL EFFET DE RELIEF --- */
+  /* Ajoute une ombre subtile à l'intérieur, en bas, pour un effet 3D */
   box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.3);
 }
-
 .site-title {
   font-size: 1.5em;
+  text-decoration: none;
   color: #fff;
   font-weight: bold;
 }
@@ -104,28 +128,41 @@ nav#main-nav li {
 }
 
 nav#main-nav a {
-  color: var(--color-text-medium);
+  text-decoration: none;
+  color: #e0e0e0;
   font-weight: bold;
 }
 
+/* --- FOOTER (NOUVEAU STYLE MINIMALISTE "CAPSULE") --- */
+
 footer {
+  /* On utilise le footer comme un conteneur pour l'espacement et le centrage */
+  background: none; /* On retire l'ancien fond bleu */
   text-align: center;
-  padding: 4em 1em;
+  padding: 4em 1em; /* Ajoute beaucoup d'espace vertical autour */
   margin-top: 2em;
 }
 
 footer p {
-  display: inline-block;
-  padding: 0.8em 1.5em;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  /* C'est cet élément qui devient notre "capsule" */
+  display: inline-block; /* Fait en sorte que le conteneur s'adapte à la taille du texte */
+  padding: 0.8em 1.5em;   /* Espacement à l'intérieur de la capsule */
+
+  /* L'effet "verre dépoli" (glassmorphism) */
+  background-color: rgba(255, 255, 255, 0.1); /* Un fond blanc très transparent */
+  backdrop-filter: blur(10px);                    /* L'effet de flou derrière */
+  
+  /* Les bordures arrondies pour la forme de pilule */
   border-radius: 50px; 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Une fine bordure blanche pour définir les contours */
+  
+  /* Style du texte à l'intérieur */
   font-size: 0.9em;
-  color: var(--color-text-dark);
+  color: #cccccc;
 }
 
-/* --- COMPOSANTS COMMUNS (FORMULAIRES, ETC.) --- */
+/* --- CONTACT FORM STYLES --- */
+
 .contact-form-container {
   max-width: 700px;
   margin: 2em auto;
@@ -139,6 +176,7 @@ footer p {
   display: block;
   margin-bottom: 0.5em;
   font-weight: bold;
+  color: #f2f2f2;
 }
 
 .form-group input,
@@ -147,25 +185,28 @@ footer p {
   padding: 0.8em;
   font-family: 'Arial', sans-serif;
   font-size: 1em;
-  background-color: rgba(10, 26, 51, 0.8);
+  background-color: rgba(10, 26, 51, 0.8); /* Dark blue, semi-transparent */
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
-  color: var(--color-text-light);
-  box-sizing: border-box;
+  color: #f2f2f2;
+  box-sizing: border-box; /* Important */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: #c9a3ff; /* Purple border on focus */
   box-shadow: 0 0 10px rgba(201, 163, 255, 0.2);
 }
 
 .submit-button {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1em;
   font-weight: bold;
-  background-color: var(--color-primary);
-  color: var(--color-background-dark);
+  background-color: #c9a3ff; /* Purple button */
+  color: #0a1a33; /* Dark blue text */
   border: none;
   border-radius: 4px;
   padding: 0.8em 1.5em;
@@ -174,25 +215,307 @@ footer p {
 }
 
 .submit-button:hover {
-  background-color: var(--color-hover);
+  background-color: #ffb6c1; /* Pink on hover */
   transform: translateY(-2px);
 }
 
+
 /* --- SECTION BLOG --- */
-/* ... Votre section Blog reste la même, elle est déjà bien optimisée ... */
+.blog-header {
+  /* Dégradé plus vibrant allant d'un violet semi-transparent au fond bleu */
+  background: linear-gradient(
+    180deg,
+    rgba(84, 58, 145, 0.4) 0%,
+    rgba(10, 26, 51, 0) 100%
+  );
+  padding: 3em 1em;
+  margin-bottom: 2em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Ajout d'une bordure en haut */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  /* Centre aussi la tagline par la même occasion */
+}
 
+.blog-header h1 {
+  text-align: center;
+}
 
-/* --- SECTION UMUNAMI CHRONICLES --- */
+.tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #ccc;
+  margin: 0.5em auto 1.5em auto;
+  max-width: 600px;
+}
+
+.blog-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em 1em;
+  gap: 40px;
+}
+
+.blog-main {
+  flex: 3;
+}
+
+.blog-sidebar {
+  flex: 1;
+}
+
+.sidebar-widget {
+  margin-bottom: 3em;
+}
+
+.widget-title {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-style: italic;
+}
+
+/* --- LISTE D'ARTICLES & TAGS --- */
+/* --- NOUVEAUX STYLES MINIMALISTES POUR LA LISTE D'ARTICLES --- */
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* On stylise le lien <a> qui est maintenant notre "carte" */
+.post-list a {
+  display: block;
+  /* Important pour que le lien occupe tout l'espace */
+  padding: 1.5em;
+  /* Padding réduit pour un look plus léger */
+  margin-bottom: 1.5em;
+  /* Espace entre les cartes */
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Bordure subtile pour la séparation */
+  border-radius: 4px;
+  /* Coins arrondis */
+  color: #f2f2f2;
+  /* Couleur du texte par défaut */
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* On prépare la transition pour qu'elle soit fluide */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.post-list a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: #c9a3ff;
+  /* La couleur de vos liens pour le survol */
+  /* On déplace la carte vers le haut (-5px) et on l'agrandit (5%) */
+  transform: translateY(-5px) scale(1.05);
+
+  /* On ajoute une ombre portée pour accentuer l'effet de soulèvement */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* On définit une couleur de bordure spécifique pour chaque tag au survol */
+.post-list li.tag-poesie a:hover {
+  border-color: #8a79a8;
+  /* Violet poésie */
+}
+
+.post-list li.tag-essai a:hover {
+  border-color: #a89a79;
+  /* Jaune-brun essai */
+}
+
+.post-list li.tag-meditation a:hover {
+  border-color: #79a8a1;
+  /* Vert d'eau méditation */
+}
+
+.post-list li.tag-fragment a:hover {
+  border-color: #798aa8;
+  /* Bleu-gris fragment */
+}
+
+/* On ajuste les styles des éléments à l'intérieur de la carte */
+.post-list a h3 {
+  color: #ffffff;
+  /* Le titre reste blanc */
+  font-size: 1.3em;
+  /* Taille de police du titre légèrement réduite */
+  margin: 0 0 0.1em 0;
+  /* Marge en bas du titre */
+}
+
+.post-list a .post-meta {
+  font-size: 0.8em;
+  /* Police plus petite pour la date */
+  color: #aaa;
+  margin-bottom: 0.6em;
+}
+
+.post-list a .post-excerpt {
+  font-size: 0.9em;
+  /* Police de l'extrait */
+  line-height: 1.6;
+  color: #ccc;
+  margin: 0;
+}
+
+/* Couleurs des bordures par tag */
+.post.tag-poesie,
+.post-list li.tag-poesie {
+  border-left-color: #8a79a8;
+}
+
+.post.tag-essai,
+.post-list li.tag-essai {
+  border-left-color: #a89a79;
+}
+
+.post.tag-meditation,
+.post-list li.tag-meditation {
+  border-left-color: #79a8a1;
+}
+
+.post.tag-fragment,
+.post-list li.tag-fragment {
+  border-left-color: #798aa8;
+}
+
+/* Couleurs des tags dans la sidebar */
+.tag-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tag-list a {
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4em 0;
+}
+
+.tag-list a.tag-poesie {
+  color: #8a79a8;
+}
+
+.tag-list a.tag-essai {
+  color: #a89a79;
+}
+
+.tag-list a.tag-meditation {
+  color: #79a8a1;
+}
+
+.tag-list a.tag-fragment {
+  color: #798aa8;
+}
+
+/* --- ARCHIVES --- */
+.archive-group {
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.archive-group[open] {
+  padding-bottom: 1em;
+}
+
+.archive-group summary {
+  cursor: pointer;
+  padding: 0.8em 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  list-style: none;
+}
+
+.archive-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.archive-group summary::before {
+  content: "+ ";
+  font-family: monospace;
+}
+
+.archive-group[open] summary::before {
+  content: "− ";
+}
+
+/* On supprime l'indentation par défaut de la liste */
+.archive-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.archive-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.9em;
+  margin-bottom: 0.6em;
+  /* Un peu plus d'espace vertical entre les entrées */
+}
+
+/* On permet au titre de revenir à la ligne */
+.archive-list-item a {
+  margin-right: 1em;
+  /* Garde un espace avec la date */
+  line-height: 1.3;
+  /* Espace très serré entre les lignes si le titre est long */
+  color: #c9a3ff;
+  /* On peut rendre le lien plus visible */
+}
+
+/* On garde la date alignée à droite */
+.archive-date {
+  flex-shrink: 0;
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* --- PAGINATION "VOIR PLUS" --- */
+.post-list li:nth-child(n + 6) {
+  display: none;
+}
+
+#loadMore {
+  font-family: inherit;
+  font-size: 1em;
+  background-color: transparent;
+  color: #c9a3ff;
+  border: 1px solid #c9a3ff;
+  border-radius: 4px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+}
+
+#loadMore:hover {
+  background-color: #c9a3ff;
+  color: #0a1a33;
+}
+
+#loadMore.hidden {
+  display: none;
+}
+
+/* --- SECTION SPÉCIFIQUE : UMUNAMI CHRONICLES (VERSION CORRIGÉE ET STABLE) --- */
 
 /* 1. LAYOUT DE BASE */
 .umunami-body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--umunami-background) url('/assets/img/wooden-floor-background.jpg') no-repeat center center fixed;
+  background: #f3ddb6 url('/assets/img/wooden-floor-background.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: var(--umunami-text-dark);
+  color: #080707;
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
 }
 
 .umunami-container {
@@ -206,58 +529,369 @@ footer p {
 
 .umunami-header,
 .umunami-nav,
-.umunami-content,
-body.umunami-body footer.umunami-footer {
+.umunami-content {
   max-width: 850px;
   margin: 0 auto;
   padding: 1em 2em;
 }
 .umunami-header { padding-top: 2em; }
 
-body.umunami-body footer.umunami-footer {
-  padding-bottom: 2em;
-  text-align: center;
-  font-size: 0.9em;
-  color: var(--umunami-text-muted);
-  background: none;
-  border: none;
-  backdrop-filter: none;
-}
 body.umunami-body footer.umunami-footer p {
   display: block;
-  padding: 0;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 1em 2em 2em 2em; /* Espace final */
+  text-align: center;
+  font-size: 0.9em;
+  color: #5a4e3a; /* Couleur corrigée */
+  text-shadow: none;
   background: none;
   border: none;
   backdrop-filter: none;
-  border-radius: 0;
-  color: inherit;
 }
 
-/* 2. POLICES, TITRES ET LIENS */
+/* 2. POLICES ET TITRES */
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/assets/fonts/CinzelDecorative-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
 @font-face {
   font-family: 'Cinzel Decorative';
   src: url('/assets/fonts/CinzelDecorative-Bold.ttf') format('truetype');
   font-weight: 700;
 }
-.umunami-body h1, .umunami-body h2, .umunami-nav a, .chapter-list .chapter-title, .chapter-navigation a {
+
+.umunami-body h1, .umunami-body h2 {
   font-family: 'Cinzel Decorative', serif;
+  color: #a60201;
+  text-align: center;
 }
-.umunami-body h1, .umunami-body h2 { color: var(--umunami-red); text-align: center; }
 .umunami-header h1 { font-size: 3em; }
 
-body.umunami-body a { color: var(--umunami-red); }
-body.umunami-body a:hover { color: var(--umunami-red-hover); }
-.umunami-header h1 a { color: inherit; }
+/* 3. CORRECTION FINALE DES LIENS */
+/* Règle de base pour TOUS les liens dans Umunami */
+body.umunami-body a {
+  color: #a60201;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+body.umunami-body a:hover {
+  color: #d13c3c;
+}
 
-.back-to-main-site { position: fixed; top: 15px; left: 15px; z-index: 100; background: rgba(255,255,255,0.6); border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; }
-.back-to-main-site, .back-to-main-site:hover { color: var(--umunami-text-dark) !important; }
+/* On force le style sur le titre principal H1 */
+.umunami-header h1 a {
+  color: inherit; /* Hérite de la couleur rouge du H1 */
+}
 
-/* ... Le reste des styles Umunami (nav, chapitres, personnages, modale) est déjà bien optimisé ... */
-/* ... Assurez-vous que le bloc MENU MOBILE & RESPONSIVE est à la toute fin ... */
+/* Styles spécifiques pour le menu de navigation */
+.umunami-nav {
+  text-align: center;
+  padding: 1.5em 1em;
+  margin: 0 auto 2em auto;
+  border-top: 1px solid rgba(166, 2, 1, 0.3);
+  border-bottom: 1px solid rgba(166, 2, 1, 0.3);
+  max-width: 850px;
+}
+/* On cache le bouton de l'accordéon sur grand écran */
+.umunami-menu-toggle {
+  display: none;
+}
+.umunami-nav ul { list-style: none; padding: 0; margin: 0; }
+.umunami-nav li { display: inline-block; margin: 0 0.5em; }
+.umunami-nav a {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  padding: 0.5em;
+}
+.umunami-nav a:hover {
+  text-shadow: 0 0 10px rgba(166, 2, 1, 0.5);
+  text-decoration: none;
+}
+
+/* Styles pour la liste des chapitres */
+.chapter-list a .chapter-title {
+  color: #a60201;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  display: block;
+}
+.chapter-list a .chapter-description {
+  color: #5a4e3a;
+  display: block;
+  font-size: 0.9em;
+}
+.chapter-list a:hover .chapter-title {
+  color: #d13c3c;
+}
+
+/* Styles pour la navigation entre chapitres */
+.chapter-navigation a {
+  color: #a60201;
+  font-family: 'Cinzel Decorative', serif;
+}
+.chapter-navigation a span {
+  color: #5a4e3a;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+/* Style d'exception pour le lien de retour */
+.back-to-main-site {
+  position: fixed;
+  top: 15px; left: 15px;
+  z-index: 100;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.back-to-main-site, .back-to-main-site:hover {
+  color: #080707 !important; /* On garantit que ce lien reste noir */
+}
+
+/* --- SECTION CHARACTERS (DESIGN "FULL BLEED") --- */
+
+/* 1. The grid container remains the same */
+.characters-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5em; /* A little more space */
+  padding: 2em 0;
+}
+
+/* 2. The card now acts as a positioning container */
+.character-card-static {
+  height: 480px; /* A good height for a "tarot" card */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative; /* CRUCIAL: This lets us position children inside it */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card-static:hover {
+  transform: scale(1.03); /* A more subtle hover effect */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* 3. The image now fills the entire card in the background */
+.character-image-static {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Places the image on a lower layer */
+}
+
+.character-image-static img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 4. The info box is now an overlay at the bottom */
+.character-info-static {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2; /* Sits ON TOP of the image */
+  
+  /* The semi-transparent background for readability */
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%);
+  
+  padding: 3em 1.5em 1.5em 1.5em; /* More padding at the top to clear the gradient */
+  box-sizing: border-box; /* Ensures padding is included in the element's size */
+  text-align: center;
+}
+
+.character-info-static h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: #fff;
+  font-size: 1.8em;
+  margin: 0 0 0.25em 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Adds a shadow to the text for better readability */
+}
+
+.character-info-static p {
+  color: #ddd;
+  font-size: 1em;
+  margin: 0;
+  font-style: italic;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* --- STYLES DE LA MODALE PERSONNAGE --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: opacity;  
+  /* Caché par défaut */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  background: #1a1a1a;
+  color: #fff; /* Texte blanc dans la modale */
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  height: 80vh;
+  max-height: 700px;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+  position: relative;
+  will-change: transform;  
+  /* Animation d'apparition */
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+}
+
+.modal-overlay.is-visible .modal-container {
+  transform: scale(1);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2.5em;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-image {
+  width: 45%;
+  flex-shrink: 0;
+}
+.modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+.modal-info {
+  width: 55%;
+  padding: 2em 3em;
+  overflow-y: auto; /* Permet de scroller si la bio est très longue */
+}
+.modal-info h2 { font-size: 3em; color: #a60201; text-align: left; }
+.modal-info p { margin-bottom: 1.5em; line-height: 1.7; color: #ddd; }
+#modal-title { font-family: 'Cinzel Decorative', serif; font-style: italic; color: #a60201; }
+
+/* --- Table of Contents for Umunami --- */
+.chapter-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2em;
+}
+.chapter-list li {
+  margin-bottom: 1em;
+}
+.chapter-list a {
+  display: block;
+  padding: 1.5em;
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.chapter-list a:hover {
+  background-color: rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+}
+.chapter-list .chapter-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  display: block;
+  color: #a60201;
+}
+.chapter-list .chapter-description {
+  display: block;
+  font-size: 0.9em;
+  color: #333;
+}
+
+/* --- Chapter Reading View & Navigation --- */
+.chronicle-content {
+  /* You can add specific typography styles for reading here if you want */
+  padding-bottom: 2em;
+}
+
+.chapter-navigation {
+  display: flex;
+  padding: 2em 0;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  font-family: 'Cinzel Decorative', serif;
+  gap: 2em; /* Adds space between the buttons if both are present */
+}
+
+.chapter-navigation a {
+  display: block;
+  flex-basis: 50%; /* Each link can take up to 50% of the space */
+  padding: 1em;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: left; /* Default alignment */
+}
+
+.chapter-navigation a:hover {
+  background: rgba(0,0,0,0.1);
+  border-color: #a60201;
+}
+
+.chapter-navigation a span {
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #333;
+}
+
+/* This positions the "Next" link to the far right */
+.chapter-navigation .next {
+  text-align: right;
+  margin-left: auto; /* The key property to push it to the right */
+}
 
 
-/* --- MENU MOBILE & RESPONSIVE (FINAL) --- */
-/* ... (Le bloc de code responsive final que nous avons validé) ... */
+
+
+/* --- MENU MOBILE & RESPONSIVE (VERSION FINALE COMPLÈTE) --- */
 
 /* Styles par Défaut pour le menu mobile (s'appliquent partout) */
 .mobile-menu-toggle {
