@@ -6,23 +6,29 @@ layout: umunami
   {{ content }}
 </article>
 
-{% assign chapters = site.chronicles %}
+{% assign chapters = site.chronicles | sort: "order" %}
+
+{% assign current_index = nil %}
 {% for chapter in chapters %}
   {% if chapter.url == page.url %}
-    {% assign prev_chapter = chapters[forloop.index0 | minus: 1] %}
-    {% assign next_chapter = chapters[forloop.index0 | plus: 1] %}
+    {% assign current_index = forloop.index0 %}
   {% endif %}
 {% endfor %}
 
+{% if current_index != nil %}
+  {% assign prev_chapter = chapters[current_index | minus: 1] %}
+  {% assign next_chapter = chapters[current_index | plus: 1] %}
+{% endif %}
+
 <nav class="chapter-navigation">
-  {% if forloop.first == false %}
+  {% if prev_chapter %}
     <a href="{{ prev_chapter.url }}" class="prev">
       &laquo; Chapitre Précédent
       <span>{{ prev_chapter.title }}</span>
     </a>
   {% endif %}
   
-  {% if forloop.last == false %}
+  {% if next_chapter %}
     <a href="{{ next_chapter.url }}" class="next">
       Chapitre Suivant &raquo;
       <span>{{ next_chapter.title }}</span>
