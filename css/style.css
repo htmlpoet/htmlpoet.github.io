@@ -928,12 +928,20 @@ body.umunami-body a:hover {
     /* Ajoutez un z-index élevé ici aussi pour qu'il soit cliquable */
     z-index: 1001;
   }
-  .umunami-nav a {
-    font-size: 1.2em; /* Slightly smaller on mobile to fit */
+
+  /* On retire les bordures du conteneur sur mobile pour un look plus épuré */
+  .umunami-nav {
+    border-top: none;
+    border-bottom: none;
+    padding-top: 0;
   }
+
+  /* Chaque item du menu prend toute la largeur */
   .umunami-nav li {
-    margin: 0 0.2em;
+    display: block;
+    margin: 0.5em 0; /* On remplace la marge horizontale par une marge verticale */
   }
+
   nav#main-nav {
     position: fixed;
     top: 0;
@@ -970,8 +978,17 @@ body.umunami-body a:hover {
     display: block;
     width: 100%;
   }
-  nav#main-nav a {
-    font-size: 2em;
+  /* Le lien devient un bouton cliquable sur toute sa surface */
+  .umunami-nav a {
+    display: block;
+    padding: 0.8em;
+    font-size: 1.3em; /* On garde une bonne taille de police */
+    border: 1px solid rgba(166, 2, 1, 0.2);
+    border-radius: 4px;
+    background: rgba(0,0,0,0.03);
+  }
+  .umunami-nav a:hover {
+    background: rgba(0,0,0,0.08); /* Léger changement de fond au survol/tap */
   }
   .mobile-menu-toggle.is-active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
