@@ -954,6 +954,19 @@ body.umunami-body a:hover {
   margin-top: 2em;
 }
 
+/* --- CHARACTER CARD PROMPT --- */
+.character-card-static .card-prompt {
+  display: block;
+  margin-top: 1em;
+  color: #fff;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+.character-card-static:hover .card-prompt {
+  opacity: 1; /* Appears on hover */
+}
+
 
 
 
