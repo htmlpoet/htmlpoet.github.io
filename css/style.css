@@ -891,11 +891,27 @@ body.umunami-body a:hover {
 
 
 
-/* --- MENU MOBILE & RESPONSIVE (VERSION FINALE CORRIGÉE) --- */
+/* --- MENU MOBILE & RESPONSIVE (VERSION FINALE COMPLÈTE) --- */
+
+/* Styles par Défaut pour le menu mobile (s'appliquent partout) */
 .mobile-menu-toggle {
-  display: non;
+  display: none; /* CACHÉ SUR DESKTOP */
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
 }
-/* --- A. Styles pour Tablette (992px et moins) --- */
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Styles pour les écrans de 992px ou moins */
 @media (max-width: 992px) {
   .blog-container {
     flex-direction: column;
@@ -913,19 +929,16 @@ body.umunami-body a:hover {
   }
 }
 
-/* --- B. Styles pour Mobile (768px et moins) --- */
+/* Styles pour les écrans de 768px ou moins */
 @media (max-width: 768px) {
   
-  /* -- Menu Principal (Hamburger) -- */
+  /* Menu Principal (Hamburger) */
   .mobile-menu-toggle {
-    display: block;
-    z-index: 1001;
+    display: block; /* VISIBLE SUR MOBILE */
   }
-  
   nav#main-nav {
-    display: none; /* Cache le menu de bureau par défaut */
+    display: none;
   }
-
   nav#main-nav.is-open {
     display: flex;
     position: fixed;
@@ -943,23 +956,19 @@ body.umunami-body a:hover {
     transform: translateY(0);
     transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
   }
-  
   nav#main-nav.is-open ul {
     flex-direction: column;
     text-align: center;
     padding: 0;
   }
-  
   nav#main-nav.is-open li {
     display: block;
     margin: 20px 0;
     width: 100%;
   }
-
   nav#main-nav.is-open a {
     font-size: 2em;
   }
-
   .mobile-menu-toggle.is-active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -970,7 +979,7 @@ body.umunami-body a:hover {
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* -- Menu de la section Umunami (Accordéon) -- */
+  /* Menu de la section Umunami (Accordéon) */
   .umunami-nav {
     border-top: none;
     border-bottom: none;
@@ -1009,7 +1018,7 @@ body.umunami-body a:hover {
     background: rgba(0,0,0,0.08);
   }
   
-  /* -- Modale des Personnages -- */
+  /* Modale des Personnages */
   .modal-container {
     width: 95%;
     height: 90vh; 
