@@ -4,22 +4,34 @@ title: Accueil
 ---
 
 <section id="intro" class="home-section">
-  <h2>Bienvenue sur mon sanctuaire digital.</h2>
-  <p>Un espace hand-coded pour partager :</p>
-  <ul>
-    <li>✍️ Poésie & essais</li>
-    <li>🎮 Umunami Chronicles</li>
-    <li>🎓 Ateliers & éducation</li>
-    <li>🎵 Sons & expérimentations musicales</li>
-    <li>📊 Recherches & réflexions</li>
-  </ul>
-</end>
+  <div class="intro-content">
+    <h2>Bienvenue sur mon sanctuaire digital.</h2>
+    <p>Un espace pour la poésie, la fiction et les explorations créatives.</p>
+  </div>
+</section>
 
-<section id="highlights" class="home-section">
-  <h2>À la une</h2>
-  <ul>
-    <li>Recueil publié : <em>Dans l’ombre du ciel</em> (2020)</li>
-    <li>Umunami Chronicles : univers diasporique, inspiration GW2 et mythes</li>
-    <li>Ateliers & formations à venir</li>
+<section id="umunami-highlight" class="home-section featured-section">
+  <div class="featured-content">
+    <h3>Umunami Chronicles</h3>
+    <p>Explorez un univers diasporique fantasy, inspiré par Guild Wars 2, les mythes et le vécu traumatique. Découvrez ses personnages et ses mystères.</p>
+    <a href="/umunami" class="button-primary">Entrer dans l'univers</a>
+  </div>
+</section>
+
+<section id="latest-posts" class="home-section">
+  <h2>Derniers écrits</h2>
+  <ul class="post-list-homepage">
+    {% for post in site.posts limit:3 %}
+      <li>
+        <a href="{{ post.url }}">
+          <h3>{{ post.title }}</h3>
+          <p class="post-meta">{{ post.date | date: "%d %B %Y" }}</p>
+          <p class="post-excerpt">{{ post.excerpt }}</p>
+        </a>
+      </li>
+    {% endfor %}
   </ul>
+  <div class="all-posts-link">
+    <a href="/blog/">Voir tous les articles →</a>
+  </div>
 </section>
