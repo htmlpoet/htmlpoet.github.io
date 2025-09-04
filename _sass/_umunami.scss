@@ -86,8 +86,7 @@ body.umunami-body a:hover {
 
 /* --- Style pour le lien de navigation actif dans Umunami --- */
 .umunami-nav a.active {
-  color: #d13c3c; /* Utilise la couleur de survol pour plus de visibilité */
-  text-shadow: 0 0 10px rgba(166, 2, 1, 0.5);
+  text-shadow: 0 0 10px rgba(166, 1, 1, 0.3);
   /* Ajoute un léger soulignement pour renforcer l'état actif */
   border-bottom: 2px solid rgba(166, 2, 1, 0.5);
   padding-bottom: 0.3em; /* Ajuste l'espace pour le soulignement */
