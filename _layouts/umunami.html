@@ -25,13 +25,18 @@
       </button>
 
       <ul id="umunami-menu-list">
-        <li><a href="/umunami/universe">Universe</a></li>
-        <li><a href="/umunami/chronicles">Chronicles</a></li>
-        <li><a href="/umunami/fragments">Fragments</a></li>
-        <li><a href="/umunami/characters">Characters</a></li>
+        <li><a href="/umunami/universe" {% if page.url=='/umunami/universe.html' %} class="active" {% endif
+            %}>Universe</a></li>
+        <li><a href="/umunami/chronicles" {% if page.url=='/umunami/chronicles.html' %} class="active" {% endif
+            %}>Chronicles</a></li>
+        <li><a href="/umunami/fragments" {% if page.url=='/umunami/fragments.html' %} class="active" {% endif
+            %}>Fragments</a></li>
+        <li><a href="/umunami/characters" {% if page.url=='/umunami/characters.html' %} class="active" {% endif
+            %}>Characters</a></li>
       </ul>
     </nav>
     <main class="umunami-content">
+      <h2>{{ page.title }}</h2>
       {{ content }}
     </main>
   </div>

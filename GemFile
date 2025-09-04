@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem "jekyll"
+gem "jekyll-paginate"
+# Add any other Jekyll plugins your site uses below, for example:
+# gem "jekyll-feed"
+# gem "jekyll-seo-tag"
