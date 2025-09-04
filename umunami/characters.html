@@ -2,10 +2,8 @@
 layout: umunami
 title: Characters
 ---
-
 <div class="characters-container">
-  
-  {% for character in site.data.characters %}
+{% for character in site.data.characters %}
   <div class="character-card-static" data-index="{{ forloop.index0 }}">
     <div class="character-image-static">
       <img src="{{ character.image }}" alt="Portrait de {{ character.name }}">
@@ -16,6 +14,5 @@ title: Characters
       <span class="card-prompt">Click for more</span>
     </div>
   </div>
-  {% endfor %}
-
+{% endfor %}
 </div>

@@ -7,17 +7,17 @@
 
 - name: "Nikka"
   title: "Sovereign Sword of Vengeance"
-  image: "/assets/img/characters/nikka.png"
+  image: "/assets/img/characters/teloyah.jpg"
   bio: "Épée jurée de la famille, Nikka a un sens de l'honneur aussi tranchant que sa lame. Elle ne vit que pour protéger les siens et punir ceux qui leur ont fait du tort, quitte à y perdre son âme."
 
 - name: "Tafari"
   title: "Time-bending Idealist"
-  image: "/assets/img/characters/tafari.png"
+  image: "/assets/img/characters/teloyah.jpg"
   bio: "Tafari voit les fils du temps comme une partition à réécrire. Idéaliste et puissant, il cherche à défaire les tragédies du passé, sans réaliser que chaque fil tiré peut défaire la trame entière de la réalité."
 
 - name: "Erikah"
   title: "Mirage of Veiled Pain"
-  image: "/assets/img/characters/erikah.jpg" # Important : utilisez des images découpées (fond transparent) !
+  image: "/assets/img/characters/teloyah.jpg" # Important : utilisez des images découpées (fond transparent) !
   bio: "Maîtresse des illusions, Erikah se drape de mensonges pour masquer une profonde douleur. Ses mirages sont aussi bien des armes que des murs pour protéger son cœur brisé."
 
 # ... ajoutez tous vos autres personnages ici ...
