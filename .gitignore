@@ -1,0 +1,9 @@
+# Fichier : .gitignore
+
+# Fichiers et dossiers générés par Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Fichiers de configuration de l'éditeur
+.vscode/
