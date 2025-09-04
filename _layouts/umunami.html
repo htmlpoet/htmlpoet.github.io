@@ -1,63 +1,44 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " fr" }}">
+<html lang="{{ page.lang | default: site.lang | default: "fr" }}">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | Umunami Chronicles</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-</head>
+  </head>
 
 <body class="umunami-body">
 
-  <a href="/" class="back-to-main-site">↩ Back to main site</a>
+  <a href="/" class="back-to-main-site">↩ Retour au site principal</a>
 
   <div class="umunami-container">
     <header class="umunami-header">
       <h1><a href="/umunami">Umunami Chronicles</a></h1>
     </header>
+    
     <nav class="umunami-nav">
       <button id="umunami-menu-toggle" class="umunami-menu-toggle">
         <span class="icon">✦</span> Navigation <span class="icon">✦</span>
       </button>
 
       <ul id="umunami-menu-list">
-        <li><a href="/umunami/universe" {% if page.url=='/umunami/universe.html' %} class="active" {% endif
-            %}>Universe</a></li>
-        <li><a href="/umunami/chronicles" {% if page.url=='/umunami/chronicles.html' %} class="active" {% endif
-            %}>Chronicles</a></li>
-        <li><a href="/umunami/fragments" {% if page.url=='/umunami/fragments.html' %} class="active" {% endif
-            %}>Fragments</a></li>
-        <li><a href="/umunami/characters" {% if page.url=='/umunami/characters.html' %} class="active" {% endif
-            %}>Characters</a></li>
+        <li><a href="/umunami/universe" {% if page.url == "/umunami/universe" %}class="active"{% endif %}>Universe</a></li>
+        <li><a href="/umunami/chronicles" {% if page.url == "/umunami/chronicles" %}class="active"{% endif %}>Chronicles</a></li>
+        <li><a href="/umunami/fragments" {% if page.url == "/umunami/fragments" %}class="active"{% endif %}>Fragments</a></li>
+        <li><a href="/umunami/characters" {% if page.url == "/umunami/characters" %}class="active"{% endif %}>Characters</a></li>
       </ul>
     </nav>
+
     <main class="umunami-content">
-      <h2>{{ page.title }}</h2>
       {{ content }}
     </main>
   </div>
+
   <footer class="umunami-footer">
-    <p>Written by htmlpoet, inspired by the universe of Guild Wars 2.</p>
+    <p>Une fiction par htmlpoet, inspirée de l'univers de Guild Wars 2.</p>
   </footer>
-  <div id="character-modal" class="modal-overlay">
-    <div class="modal-container">
-      <button id="close-modal" class="modal-close-button">&times;</button>
-      <div class="modal-content">
-        <div class="modal-image">
-          <img id="modal-image" src="" alt="">
-        </div>
-        <div class="modal-info">
-          <h2 id="modal-name"></h2>
-          <p id="modal-title"></p>
-          <div id="modal-bio"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <script>
     window.charactersData = {{ site.data.characters | jsonify }};
   </script>
