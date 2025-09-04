@@ -1,39 +1,41 @@
-// Fichier : /js/umunami.js
+// Fichier : /js/umunami.js (Version de débogage)
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ Étape 1 : Le script umunami.js est chargé et s'exécute.");
+
   // --- Logique de la Modale ---
   const modal = document.getElementById("character-modal");
+  const characterCards = document.querySelectorAll(".character-card-static");
 
-  // On ne continue que si la modale et les données existent sur la page
-  if (modal && typeof window.charactersData !== "undefined") {
+  if (modal && characterCards.length > 0 && typeof window.charactersData !== "undefined") {
+    console.log("✅ Étape 2 : Modale, cartes et données trouvées. Initialisation des clics...");
+
     const closeModalButton = document.getElementById("close-modal");
     const modalImage = document.getElementById("modal-image");
     const modalName = document.getElementById("modal-name");
     const modalTitle = document.getElementById("modal-title");
     const modalBio = document.getElementById("modal-bio");
 
-    // On ajoute un écouteur de clic à chaque carte
-    document.querySelectorAll(".character-card-static").forEach((card) => {
+    characterCards.forEach((card) => {
+      const characterIndex = card.dataset.index;
+      console.log(`- Préparation de la carte pour le personnage index ${characterIndex}...`);
+
       card.addEventListener("click", () => {
-        // On récupère l'index depuis le "numéro de série" de la carte
-        const characterIndex = card.dataset.index;
+        console.log(`✅ Clic détecté sur la carte du personnage index ${characterIndex} !`);
+        
         const character = window.charactersData[characterIndex];
 
-        // On remplit la modale
         modalImage.src = character.image;
         modalImage.alt = character.name;
         modalName.textContent = character.name;
         modalTitle.textContent = character.title;
-        // On transforme les sauts de ligne de la bio en vrais paragraphes HTML
-        modalBio.innerHTML = `<p>${character.bio.replace(
-          /\n/g,
-          "</p><p>"
-        )}</p>`;
+        modalBio.innerHTML = `<p>${character.bio.replace(/\n/g, "</p><p>")}</p>`;
 
-        // On affiche la modale
         modal.classList.add("is-visible");
       });
     });
+
+    console.log("✅ Étape 3 : Tous les écouteurs de clics ont été ajoutés aux cartes.");
 
     // Fonction pour fermer la modale
     function closeModal() {
@@ -42,12 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeModalButton.addEventListener("click", closeModal);
 
-    // On ferme aussi en cliquant sur le fond obscurci
     modal.addEventListener("click", (event) => {
       if (event.target === modal) {
         closeModal();
       }
     });
+
+  } else {
+    console.error("❌ ERREUR : Un ou plusieurs éléments nécessaires sont manquants.");
+    if (!modal) console.error("- La modale (#character-modal) est introuvable.");
+    if (characterCards.length === 0) console.error("- Aucune carte de personnage (.character-card-static) n'a été trouvée.");
+    if (typeof window.charactersData === "undefined") console.error("- Les données des personnages (window.charactersData) ne sont pas chargées.");
   }
 
   // --- LOGIQUE POUR LE MENU ACCORDÉON UMUNAMI ---
