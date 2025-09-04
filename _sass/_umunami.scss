@@ -161,6 +161,7 @@ body.umunami-body a:hover {
   position: relative; /* CRUCIAL: This lets us position children inside it */
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .character-card-static:hover {
